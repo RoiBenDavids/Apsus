@@ -13,7 +13,6 @@ export class MailDetail extends React.Component {
 
     }
     deleteMail=()=>{
-        console.log(this.state.mail.id);
         this.props.cb(this.state.mail.id)
     }
 

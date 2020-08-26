@@ -28,7 +28,6 @@ export class MailApp extends React.Component {
     }
 
     toggleCompose = () => {
-        console.log('toggle');
         this.setState({ isCompose: !this.state.isCompose })
     }
 

@@ -13,8 +13,6 @@ export class KeepApp extends React.Component {
     loadNotes = () => {
         keepService.query()
             .then(notes => {
-                console.log(notes);
-                console.log(this)
                 this.setState({ notes })
             })
     }
@@ -29,13 +27,18 @@ export class KeepApp extends React.Component {
         this.loadNotes();
     }
 
+    onChangeColor = (noteId, color) => {
+        keepService.ChangeColor(noteId, color);
+        this.loadNotes();
+    }
+
 
 
 
     render() {
         return (
-            <section>
-                {this.state.notes.map(note => <NotePreview key={note.id} note={note} onChangePinned={this.onChangePinned} onDelete={this.onDelete} />)}
+            <section >
+                {this.state.notes.map(note => <NotePreview key={note.id} note={note} onChangeColor={this.onChangeColor} onChangePinned={this.onChangePinned} onDelete={this.onDelete} />)}
             </section>
         )
     }

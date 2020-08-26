@@ -1,11 +1,11 @@
 import { NoteControlers } from './NoteControlers.jsx'
-export function NoteTxt({note,onDelete,onChangePinned}) {
+export function NoteTxt({note,onDelete,onChangePinned,onChangeColor}) {
 
     return(
-        <div className='keep-note'>
+        <div style={{backgroundColor: `${note.color}`}}  className='keep-note' >
             {note.isPinned && <h1>pinned</h1>}
             <h1>{note.info.txt}</h1>
-            <NoteControlers onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
+            <NoteControlers onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
         </div>
 
     )

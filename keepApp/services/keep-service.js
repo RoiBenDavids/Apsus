@@ -2,14 +2,16 @@ export const keepService = {
     query,
     create,
     remove,
-    changePinned
+    changePinned,
+    ChangeColor
 }
 
 const KEY_STORAGE = 'notesService'
 
 var beforeStorage = [
     {
-        id:makeId(),
+        color: getColor(),
+        id: makeId(),
         type: "NoteText",
         isPinned: true,
         info: {
@@ -17,7 +19,8 @@ var beforeStorage = [
         }
     },
     {
-        id:makeId(),
+        color: getColor(),
+        id: makeId(),
         type: "NoteImg",
         info: {
             url: "https://media.giphy.com/media/xT9IgMw9fhuEGUaJqg/giphy.gif",
@@ -28,18 +31,20 @@ var beforeStorage = [
         }
     },
     {
-        id:makeId(),
+        color: getColor(),
+        id: makeId(),
         type: "NoteTodos",
         info: {
             label: "How was it:",
             todos: [
-                { id:makeId(), txt: "Do that", doneAt: null },
-                { id:makeId(), txt: "Do this", doneAt: 187111111 }
+                { id: makeId(), txt: "Do that", doneAt: null },
+                { id: makeId(), txt: "Do this", doneAt: 187111111 }
             ]
         }
     },
     {
-        id:makeId(),
+        color: getColor(),
+        id: makeId(),
         type: "NoteVideo",
         info: {
             url: "https://www.youtube.com/embed/d60H5D9GefE",
@@ -47,6 +52,7 @@ var beforeStorage = [
         }
     }
 ];
+
 var notes = loadFromStorage(KEY_STORAGE)
 if (!notes) {
     notes = beforeStorage;
@@ -60,6 +66,7 @@ function query() {
 
 function create(type, info) {
     newNote = {
+        color: getColor(),
         id: makeId(),
         type,
         isPinned: false,
@@ -76,8 +83,14 @@ function _add(note) {
     notes.push(note);
 }
 
-function changePinned(noteId){
-    var idx= notes.findIndex(note=>note.id===noteId);
-    notes[idx].isPinned=!notes[idx].isPinned
-    notes=[...notes];
+function changePinned(noteId) {
+    var idx = notes.findIndex(note => note.id === noteId);
+    notes[idx].isPinned = !notes[idx].isPinned
+    notes = [...notes];
+}
+
+function ChangeColor(noteId,color){
+    var idx = notes.findIndex(note => note.id === noteId);
+    notes[idx].color = color
+    notes = [...notes];
 }

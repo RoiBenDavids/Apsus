@@ -1,5 +1,5 @@
 import { NoteControlers } from './NoteControlers.jsx'
-export function NoteTodos({ note, onDelete,onChangePinned }) {
+export function NoteTodos({ note, onDelete,onChangePinned,onChangeColor }) {
 
     function isDone(doneAt) {
         if (doneAt) return ''
@@ -7,13 +7,13 @@ export function NoteTodos({ note, onDelete,onChangePinned }) {
     }
 
     return (
-        <div className='keep-note'>
+        <div style={{backgroundColor: `${note.color}`}} className='keep-note'>
             {note.isPinned && <h1>pinned</h1>}
             {note.info.label && <h1>{note.info.label}</h1>}
             <ul>
                 {note.info.todos.map(todo => <li className={isDone(todo.doneAt)} key={todo.id}>{todo.txt}</li>)}
             </ul>
-            <NoteControlers onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
+            <NoteControlers onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
         </div>
     )
 

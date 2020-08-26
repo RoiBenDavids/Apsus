@@ -10,3 +10,26 @@ function makeId(length = 5) {
     }
     return txt;
 }
+
+function getColor() {
+    var colors = [
+        '#ea5455',
+        '#8fc0a9',
+        '#8675a9',
+        '#ffc1fa',
+        '#ede682',
+        '#ffa931',
+        '#12cad6',
+        '#c70039'
+    ];
+
+    var idx=getRandomIntInclusive(0, 7)
+    return colors[idx];
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+

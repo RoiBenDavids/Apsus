@@ -12,18 +12,17 @@ export class NoteControlers extends React.Component{
     
     
     render() {
-        
         return (
             <div>
 
             <div className="note-controler flex justify-around">
                 <button onClick={()=>this.props.onDelete(this.props.noteId)}><i className="fas fa-trash"></i></button>
-                <button onClick={()=>this.setState({isColorShown:!this.state.isColorShown})}><i className="fas fa-palette"></i></button>
+                <button onClick={()=>{this.setState({isColorShown:!this.state.isColorShown})}}><i className="fas fa-palette"></i></button>
                 <button onClick={()=>this.props.onChangePinned(this.props.noteId)}><i className="fas fa-thumbtack"></i></button>
                 <button><i className="fas fa-edit"></i></button>
             </div>
-            
-                {this.state.isColorShown && <Color/>}
+            {console.log('aaaaaaaa',this.props.onChangeColor)}
+                {this.state.isColorShown && <Color noteId={this.props.noteId} onChangeColor={(noteId, color)=>this.props.onChangeColor(noteId, color)}/>}
             </div>
     
         )
