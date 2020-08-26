@@ -58,9 +58,10 @@ export class MailApp extends React.Component {
         if (!mails[0]) return <div>111</div>
         return (
             <section className={'mail-app flex'}>
-                <div className={'side-bar'}>
+                <div className={'side-bar flex column'}>
                 
-                    <h1 onClick={() => this.toggleCompose()}>compose</h1>
+                    <div className='flex align-center' onClick={() => this.toggleCompose()}>compose</div>
+                    <p  >inbox</p>
                     <p onClick={() => this.filterBy('isRead')} >Unread</p>
                     <p>Starred</p>
                     <p>Sent</p>

@@ -19,10 +19,12 @@ export class MailCompose extends React.Component {
  
         return (
             <form className='compose-mail flex column' onSubmit={()=>this.props.cb(event,this.state)}>
+                <div className={'compose-header flex justify-between align-center'}><p>New Message</p><p>X</p></div>
                 <input type='text' name='to' placeholder='to' value={ this.state.to } onChange={this.onInputChange}/>
                 <input type='text' name='subject' placeholder='subject' value={ this.state.subject } onChange={this.onInputChange}/>
                 <textarea name='body' text={ this.state.body } onChange={this.onInputChange}/>
-                <button></button>
+               <div className='compose-footer flex align-center'><button>send</button></div>
+                
 
             </form>
             

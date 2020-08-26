@@ -1,17 +1,12 @@
-
-
-.mail-app .side-bar{
-    min-width:150px;
-}
-.mail-list{
-    flex: 1;
-}
-
-.mail-list ul{
-    list-style: none;
+p,h1{
     margin: 0;
     padding: 0;
 }
+
+.mail-app{
+    margin-block-start:40px ;
+}
+
 
 .unread{
     font-weight: bold;
@@ -22,20 +17,107 @@
 .compose-mail{
     position: absolute;
     bottom: 0;
-    height: 250px;
+    right: 100px;
+    height: 500px;
+    width:500px;
+    box-shadow: 0 0 10px 5px rgb(14, 13, 13,0.3);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
 }
+.compose-mail .compose-header{
+    flex-basis: 50px;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    padding: 0 20px 0 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; 
+}
+.compose-mail .compose-footer{
+   height: 80px;
+}
+.compose-mail button{
+   padding: 15px;
+   margin-left:20px;
+   border-radius: 5px;
+   
+}
+.compose-mail input{
+    border:0;
+    border-bottom: 0.1px solid grey;
+    flex-basis: 50px;
+  
+}
+.compose-mail input::placeholder{
+    padding: 10px;
+}
+
 .compose-mail textarea{
     flex: 1;
+    border:0
 }
 
 
 /* MAIL DETAIL */
 .mail-details{
+    padding: 20px 50px 0 50px;
+    
+}
+.mail-details div{
+   margin-bottom: 40px;
+}
+.mail-details>p{
+   padding: 0 40px 0 40px;
+}
+
+/* MAIL LIST */
+.mail-list{
     flex: 1;
+    background-color: aliceblue;
+    margin: 0 20px 0 20px;
+    border-radius: 5px;
+}
+
+.mail-list ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.mail-list li{
+   
+    padding: 20px;
+    border-bottom: 0.4px solid rgb(128, 128, 128,0.5);
 }
 
 /* SIDE BAr */
+.mail-app .side-bar{
+    min-width:200px;
+    padding-inline-start:20px ;
+    padding-inline-end:20px ;
+}
 
-.side-bar h1::before{
-    content: "+";
+.side-bar div{
+    background-color: aliceblue;
+    /* display: inline-block; */
+    text-align: center;
+    padding: 10px;
+    border-radius: 40px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.side-bar div::before{
+    content:url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
+    height: 5px;
+    margin: 0 15px 25px 10px;
+}
+.side-bar p {
+    padding:10px ;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.side-bar p:hover {
+    background-color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }

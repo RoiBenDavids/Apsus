@@ -1,9 +1,18 @@
+
 @import url(/mailApp/styles/mail.css);
 @import url(/keepApp/styles/keep.css);
 
+/* FONTS */
+@font-face {
+    font-family: Ubuntu-regular;
+    src: url(/assets/fonts/Ubuntu-Regular.ttf);
+}
 *{
     box-sizing: border-box;
     outline: none;
+}
+html{
+    font-family: Ubuntu-regular;
 }
 body {
     background-color: rgb(216, 229, 231);
