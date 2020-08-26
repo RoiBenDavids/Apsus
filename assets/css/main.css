@@ -1,11 +1,25 @@
 @import url(/mailApp/styles/mail.css);
+@import url(/keepApp/styles/keep.css);
 
 *{
     box-sizing: border-box;
+    outline: none;
 }
 body {
     background-color: rgb(216, 229, 231);
     margin: 0;
+}
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
 }
 
 /* HELPERS */
@@ -14,6 +28,9 @@ body {
 }
 .justify-between{
     justify-content: space-between;
+}
+.justify-around{
+    justify-content: space-around;
 }
 .align-center{
     align-items: center;

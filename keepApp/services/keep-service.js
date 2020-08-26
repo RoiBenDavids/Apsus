@@ -1,10 +1,12 @@
 export const keepService = {
     query,
     create,
-    remove
+    remove,
+    changePinned
 }
 
 const KEY_STORAGE = 'notesService'
+
 var beforeStorage = [
     {
         id:makeId(),
@@ -18,8 +20,8 @@ var beforeStorage = [
         id:makeId(),
         type: "NoteImg",
         info: {
-            url: "http://some-img/me",
-            title: "Me playing Mi"
+            url: "https://media.giphy.com/media/xT9IgMw9fhuEGUaJqg/giphy.gif",
+            title: "SAVAGE"
         },
         style: {
             backgroundColor: "#00d"
@@ -31,9 +33,17 @@ var beforeStorage = [
         info: {
             label: "How was it:",
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { id:makeId(), txt: "Do that", doneAt: null },
+                { id:makeId(), txt: "Do this", doneAt: 187111111 }
             ]
+        }
+    },
+    {
+        id:makeId(),
+        type: "NoteVideo",
+        info: {
+            url: "https://www.youtube.com/embed/d60H5D9GefE",
+            title: "omer adam"
         }
     }
 ];
@@ -64,4 +74,10 @@ function remove(noteId) {
 
 function _add(note) {
     notes.push(note);
+}
+
+function changePinned(noteId){
+    var idx= notes.findIndex(note=>note.id===noteId);
+    notes[idx].isPinned=!notes[idx].isPinned
+    notes=[...notes];
 }

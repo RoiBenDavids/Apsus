@@ -1,0 +1,49 @@
+
+
+.done{
+    text-decoration: line-through;
+}
+
+.note-controler{
+    opacity: 0;
+}
+
+.note-controler:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.keep-note{
+    text-align: center;
+    /* padding: 10px; */
+    display: inline-block;
+    width: 450px;
+    background-color: blueviolet;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.keep-note button{
+    background-color: inherit;
+    border: none;
+    padding-bottom: 5px ;
+}
+
+.note-img{
+    width: 400px;
+}
+
+.color-picker button{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    
+}
+
+.color-picker{
+    position: absolute;
+    padding: 10px 10px;
+    background-color: #fff;
+    border-radius: 7px;
+    left:110px
+}
