@@ -35,6 +35,9 @@ button{
 .align-center{
     align-items: center;
 }
+.column{
+    flex-flow: column;
+}
 
 /* NAVBAR */
 .nav-bar{
