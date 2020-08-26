@@ -2,6 +2,7 @@ import { Home } from './pages/Home.jsx'
 import { NavBar } from './cmps/NavBar.jsx'
 import { KeepApp } from './keepApp/KeepApp.jsx'
 import { MailApp } from './mailApp/MailApp.jsx'
+
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 export class App extends React.Component {
