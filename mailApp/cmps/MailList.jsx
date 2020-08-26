@@ -1,13 +1,13 @@
 import { MailPreview} from "./MailPreview.jsx"
 
-export function MailList({ mails, markAsRead }) {
+export function MailList({ mails,filterBy }) {
 
     return (
         <ul >
             {
-            mails.map(mail =>
-                <MailPreview key={mail.id} mail={mail} />
-                )
+            mails.map(mail =>{
+                return <MailPreview key={mail.id} mail={mail} />
+            })
             }
         </ul>
     )

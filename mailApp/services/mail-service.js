@@ -2,7 +2,8 @@ export const mailService = {
     query,
     createMail,
     getMailById,
-    deleteMail
+    deleteMail,
+    markAsRead
 }
 
 var mails = [
@@ -39,16 +40,20 @@ function createMail(subject, body) {
     })
 }
 
+
 function getMailById(mailId){
    const idx= mails.findIndex(mail=>{
     return mail.id==mailId.mailId
    })
-   
     return Promise.resolve(mails[idx])
 }
 
 function deleteMail(mailId){
     mails = mails.filter(mail => mail.id !== mailId)
-    console.log('hiii');
+}
 
+function markAsRead(mailId){
+    const mailIdx= mails.findIndex(mail=>{
+        return mail.id==mailId})
+    mails[mailIdx].isRead=true;
 }

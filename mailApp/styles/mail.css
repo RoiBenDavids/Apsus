@@ -33,3 +33,9 @@
 .mail-details{
     flex: 1;
 }
+
+/* SIDE BAr */
+
+.side-bar h1::before{
+    content: "+";
+}
