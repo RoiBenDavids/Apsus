@@ -16,3 +16,20 @@
 .unread{
     font-weight: bold;
 }
+
+
+/* COMPOSE MAIL */
+.compose-mail{
+    position: absolute;
+    bottom: 0;
+    height: 250px;
+}
+.compose-mail textarea{
+    flex: 1;
+}
+
+
+/* MAIL DETAIL */
+.mail-details{
+    flex: 1;
+}
