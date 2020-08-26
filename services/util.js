@@ -1,4 +1,8 @@
-function makeId(length=5) {
+export const utils = {
+    makeId
+}
+
+function makeId(length = 5) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (var i = 0; i < length; i++) {

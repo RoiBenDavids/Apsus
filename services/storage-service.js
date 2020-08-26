@@ -1,4 +1,8 @@
 'use strict';
+export const storageService = {
+    saveToStorage,
+    loadFromStorage
+}
 
 function saveToStorage(key, val) {
     var str= JSON.stringify(val);
