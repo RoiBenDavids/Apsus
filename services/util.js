@@ -1,6 +1,6 @@
-export const utils = {
-    makeId
-}
+// export const utils = {
+//     makeId
+// }
 
 function makeId(length = 5) {
     var txt = '';
