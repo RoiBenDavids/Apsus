@@ -1,0 +1,18 @@
+
+
+.mail-app .side-bar{
+    min-width:150px;
+}
+.mail-list{
+    flex: 1;
+}
+
+.mail-list ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.unread{
+    font-weight: bold;
+}
