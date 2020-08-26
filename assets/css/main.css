@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(216, 229, 231);
+    margin: 0;
+}
+
+/* HELPERS */
+.flex{
+    display: flex;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.align-center{
+    align-items: center;
+}
+
+/* NAVBAR */
+.nav-bar{
+    background-color: orange;
+    padding: 20px;
+    
+}
