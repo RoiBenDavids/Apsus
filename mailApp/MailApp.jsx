@@ -16,19 +16,21 @@ export class MailApp extends React.Component {
 
     componentDidMount() {
         this.loadMail()
-  
+
     }
-    loadMail=()=> {
+    loadMail = () => {
         const mails = mailService.query()
             .then(mails => this.setState({ mails }))
 
     }
     mailsToRender() {
-        return this.state.mails;
+        if(!this.state.filterBy) return this.state.mails
+       var mailsToRender= this.state.mails.filter(mail=>mail[this.state.filterBy]===false)
+       return mailsToRender
+        
     }
 
     toggleCompose = () => {
-        console.log('toggle');
         this.setState({ isCompose: !this.state.isCompose })
     }
 
@@ -39,14 +41,17 @@ export class MailApp extends React.Component {
         this.toggleCompose()
         this.loadMail()
     }
-    onDeleteMail=(mailId)=> {
+    onDeleteMail = (mailId) => {
         mailService.deleteMail(mailId);
         this.loadMail()
     }
 
-    markAsRead=(mailId)=>{
-
+    filterBy = (filter) => {
+        if(this.state.filterBy===filter) this.setState({filterBy:''})
+       else this.setState({ filterBy: filter })
     }
+
+
 
     render() {
         const mails = this.mailsToRender()
@@ -54,8 +59,9 @@ export class MailApp extends React.Component {
         return (
             <section className={'mail-app flex'}>
                 <div className={'side-bar'}>
-                    <h1 onClick={() => this.toggleCompose()}>compose mail</h1>
-                    <p >Unread</p>
+                
+                    <h1 onClick={() => this.toggleCompose()}>compose</h1>
+                    <p onClick={() => this.filterBy('isRead')} >Unread</p>
                     <p>Starred</p>
                     <p>Sent</p>
                 </div>
@@ -65,7 +71,7 @@ export class MailApp extends React.Component {
                             <MailList mails={mails} />
                         </div>
                     </Route>
-                    <Route path={`/mail/:mailId`} render={props=><MailDetail {...props} cb={this.onDeleteMail}/>}>
+                    <Route path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>
                     </Route>
 
                 </Switch>

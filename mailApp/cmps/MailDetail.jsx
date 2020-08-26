@@ -7,14 +7,19 @@ export class MailDetail extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.match.params)
         mailService.getMailById(this.props.match.params)
-            .then(mail => this.setState({ mail }))
+            .then(mail =>{
+                 this.setState({ mail })
+                 this.markAsRead()
+                })
 
     }
     deleteMail=()=>{
-        console.log(this.state.mail.id);
         this.props.cb(this.state.mail.id)
+    }
+    markAsRead=()=>{
+        mailService.markAsRead(this.state.mail.id)
+
     }
 
     render() {
