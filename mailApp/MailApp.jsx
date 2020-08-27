@@ -12,7 +12,8 @@ export class MailApp extends React.Component {
         isCompose: false,
         chosenMail: '',
         filterBy: '',
-        checkedItems: []
+        checkedItems: [],
+        mobileSideOpen:false
     }
 
     componentDidMount() {
@@ -51,10 +52,10 @@ export class MailApp extends React.Component {
     }
 
     filterBy = (filter) => {
-        if (this.state.filterBy === filter){
+        if (this.state.filterBy === filter) {
             this.props.history.push(`/mail`)
             this.setState({ filterBy: '' })
-        } 
+        }
         else {
             this.props.history.push(`/mail?filterBy=${filter}`)
             this.setState({ filterBy: filter })
@@ -104,7 +105,10 @@ export class MailApp extends React.Component {
         else {
             this.setState({ checkedItems: [] })
         }
+    }
 
+    toggleMenueBar=()=>{
+        this.setState({mobileSideOpen:!this.state.mobileSideOpen})
     }
 
 
@@ -115,22 +119,26 @@ export class MailApp extends React.Component {
             <section className={'mail-app flex'}>
                 <div className={'side-bar flex column'}>
 
-                    <div className='flex align-center' onClick={() => this.toggleCompose()}>compose</div>
-                    <p className={!this.state.filterBy ? 'active' : ''} onClick={() => this.filterBy('')} ><i className="fas fa-inbox"></i>inbox</p>
-                    <p className={this.state.filterBy === 'isRead' ? 'active' : ''} onClick={() => this.filterBy('isRead')} ><i className="fas fa-envelope-open"></i>Unread</p>
-                    <p className={this.state.filterBy === 'isStarred' ? 'active' : ''} onClick={() => this.filterBy('isStarred')}><i className='fas fa-star'></i>Starred</p>
-                    <p><i className="fas fa-paper-plane"></i>Sent</p>
+                    <div className='compose flex align-center' onClick={() => this.toggleCompose()}>compose</div>
+                    <div className={this.state.mobileSideOpen?'mobile-side-open side-bar-btns':'side-bar-btns'}>
+                        <p className={!this.state.filterBy ? 'active' : ''} onClick={() => this.filterBy('')} ><i className="fas fa-inbox"></i>inbox</p>
+                        <p className={this.state.filterBy === 'isRead' ? 'active' : ''} onClick={() => this.filterBy('isRead')} ><i className="fas fa-envelope-open"></i>Unread</p>
+                        <p className={this.state.filterBy === 'isStarred' ? 'active' : ''} onClick={() => this.filterBy('isStarred')}><i className='fas fa-star'></i>Starred</p>
+                        <p><i className=" fas fa-paper-plane"></i>Sent</p>
+
+                    </div>
                 </div>
                 <Switch>
                     <Route exact path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>
                     </Route>
                     <Route exact path={'/mail'}>
-                        <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns} toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} />
+                        <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns}
+                         toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar} />
                     </Route>
 
                 </Switch>
 
-                {this.state.isCompose && <MailCompose cb={this.sendMail}  toggleCompose={this.toggleCompose }/>}
+                {this.state.isCompose && <MailCompose cb={this.sendMail} toggleCompose={this.toggleCompose} />}
             </section>
         )
     }

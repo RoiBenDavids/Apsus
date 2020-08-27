@@ -1,16 +1,30 @@
 const { NavLink } = ReactRouterDOM
-export function NavBar() {
 
-    return (
-        <nav className='nav-bar flex justify-between align-center'>
+export class NavBar extends React.Component {
+    state={
+        envelopeClass:'envelopeN',
+        clipboardClass:'clipboard'
+
+    }
+
+    animate=()=>{
+        if(this.state.envelopeClass==='envelopeN downEnv')this.setState({envelopeClass:'envelopeN', clipboardClass:'clipboard'})
+        else this.setState({envelopeClass:'envelopeN downEnv', clipboardClass:'clipboard downClip'})
+
+    }
+
+    
+
+    render() {
+       return <nav className='nav-bar flex justify-between align-center'>
             <NavLink to='/'> <div>LOGO</div></NavLink>
             <input type="text" />
-            <div className='clipboard'><NavLink to='/keep'><i className="fas fa-clipboard"></i> </NavLink></div>
-            <div className='envelopeN'> <NavLink to='/mail'><i className="fas fa-envelope"></i></NavLink></div>
+            <div className={this.state.clipboardClass}><NavLink to='/keep'><i className="fas fa-clipboard"></i> </NavLink></div>
+            <div className={this.state.envelopeClass}> <NavLink to='/mail'><i className="fas fa-envelope"></i></NavLink></div>
 
-            <i className="fas fa-th"></i>
+            <i onClick={()=>this.animate()} className="fas fa-th"></i>
 
         </nav>
-    )
+    }
 
 }
