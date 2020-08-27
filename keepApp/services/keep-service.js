@@ -5,7 +5,8 @@ export const keepService = {
     changePinned,
     ChangeColor,
     getById,
-    edit
+    edit,
+    doneAt
 }
 
 const KEY_STORAGE = 'notesService'
@@ -107,6 +108,16 @@ function edit(noteId,info){
     let editedNotes=[...notes];
     const idx=editedNotes.findIndex(note=>note.id===noteId)
     editedNotes[idx].info={...info}
+    notes=editedNotes
+    saveToStorage(KEY_STORAGE, notes);
+}
+
+function doneAt(noteId,todoId){
+    let editedNotes=[...notes];
+    const noteIdx=editedNotes.findIndex(note=>note.id===noteId)
+    const todoIdx=editedNotes[noteIdx].info.todos.findIndex(todo=>todo.id===todoId)
+    const doneAt=editedNotes[noteIdx].info.todos[todoIdx].doneAt
+    editedNotes[noteIdx].info.todos[todoIdx].doneAt=(doneAt)? null:Date.now();
     notes=editedNotes
     saveToStorage(KEY_STORAGE, notes);
 }

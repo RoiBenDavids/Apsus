@@ -7,7 +7,7 @@ export class AddNote extends React.Component {
         txt: '',
         type: 'NoteText'
     }
-   
+
 
     handleChange = ({ target }) => {
         this.setState({ txt: target.value }, () => { console.log(this.state.txt); })
@@ -58,14 +58,15 @@ export class AddNote extends React.Component {
                     <div>
 
                         <form onSubmit={this.handleSubmit}>
-                            <input value={this.state.txt} type="text" placeholder="Add note"
+                            <input className='add-note-input' value={this.state.txt} type="text" placeholder="Add note"
                                 onChange={this.handleChange} />
                         </form>
-
-                        <button onClick={() => { this.setState({ type: "NoteImg" }) }}><i className="fas fa-image"></i></button>
-                        <button onClick={() => { this.setState({ type: "NoteText" }) }}><i className="fas fa-comment"></i></button>
-                        <button onClick={() => { this.setState({ type: "NoteVideo" }) }}><i className="fab fa-youtube"></i></button>
-                        <button onClick={() => { this.setState({ type: "NoteTodos" }) }}><i className="fas fa-list"></i></button>
+                        <div className="add-note-btn-container flex justify-between">
+                            <button onClick={() => { this.setState({ type: "NoteImg" }) }}><i className="fas fa-image"></i></button>
+                            <button onClick={() => { this.setState({ type: "NoteText" }) }}><i className="fas fa-comment"></i></button>
+                            <button onClick={() => { this.setState({ type: "NoteVideo" }) }}><i className="fab fa-youtube"></i></button>
+                            <button onClick={() => { this.setState({ type: "NoteTodos" }) }}><i className="fas fa-list"></i></button>
+                        </div>
                     </div>
                 }
             </div>

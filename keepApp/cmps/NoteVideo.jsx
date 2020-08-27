@@ -1,13 +1,37 @@
 import { NoteControlers } from './NoteControlers.jsx'
-export function NoteVideo({onEdit, note,onDelete,onChangePinned,onChangeColor}) {
+export class NoteVideo extends React.Component {
 
-    return(
-        <div style={{backgroundColor: `${note.color}`}} className='keep-note'>
-            {note.isPinned && <h1>pinned</h1>}
-            
-            {note.info.title && <h1 suppressContentEditableWarning={true} contentEditable={true}>{note.info.title}</h1>}
-            <iframe width="400" height="315" src={note.info.url}></iframe>
-            <NoteControlers onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
-        </div>
-    )
+    state={
+        txt:this.props.note.info.title
+    }
+
+    handleChange = ({ target }) => {
+        this.setState({ txt: target.value })
+    }
+
+    handleSubmit = () => {
+        var txt = this.state.txt
+        console.log(txt);
+        this.props.onEdit(txt, this.props.note.id)
+    }
+
+
+    render() {
+
+
+        return (
+            <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note'>
+                {this.props.note.isPinned && <h1>pinned</h1>}
+                <form onSubmit={this.handleSubmit}>
+                    <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"
+                        onChange={this.handleChange} />
+                </form>
+
+                <iframe width="300" height="250" src={this.props.note.info.url}></iframe>
+                <NoteControlers onEdit={this.props.onEdit} onChangeColor={this.props.onChangeColor} onChangePinned={this.props.onChangePinned} onDelete={this.props.onDelete} noteId={this.props.note.id} />
+            </div>
+        )
+    }
 }
+
+

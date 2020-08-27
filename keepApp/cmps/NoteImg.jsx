@@ -1,12 +1,38 @@
 import { NoteControlers } from './NoteControlers.jsx'
-export function NoteImg({ note,onDelete ,onChangePinned,onChangeColor,onEdit}) {
-    return (
-        <div style={{backgroundColor: `${note.color}`}} className='keep-note'>
-            {note.isPinned && <h1>pinned</h1>}
-            {note.info.title && <h1 suppressContentEditableWarning={true} contentEditable={true}>{note.info.title}</h1>}
-            <img  className="note-img" src={note.info.url} alt="img" />
-            <NoteControlers onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} noteId={note.id} />
-        </div>
-    )
+export class NoteImg extends React.Component {
+
+
+    state={
+       txt:this.props.note.info.title
+    }
+
+    handleChange = ({ target }) => {
+        this.setState({ txt: target.value })
+    }
+
+    handleSubmit = () => {
+        var txt = this.state.txt
+        console.log(txt);
+        this.props.onEdit(txt, this.props.note.id)
+    }
+
+
+
+
+    render() {
+
+        return (
+            <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note'>
+                {this.props.note.isPinned && <h1>pinned</h1>}
+                <form onSubmit={this.handleSubmit}>
+                    <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"
+                        onChange={this.handleChange} />
+                </form>
+                <img className="note-img" src={this.props.note.info.url} alt="img" />
+                <NoteControlers onEdit={this.props.onEdit} onChangeColor={this.props.onChangeColor} onChangePinned={this.props.onChangePinned} onDelete={this.props.onDelete} noteId={this.props.note.id} />
+            </div>
+        )
+    }
 
 }
+

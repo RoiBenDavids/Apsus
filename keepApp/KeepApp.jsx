@@ -56,19 +56,21 @@ export class KeepApp extends React.Component {
                 keepService.edit(noteId,info)
                 this.loadNotes();
                 break;
-            // case 'NoteImg':
-            //     txt = `${editNote.info.title} ${editNote.info.url}`
-            //     break;
-            // case 'NoteVideo':
-            //     var temps = editNote.info.url.split('/');
-            //     txt = `https://www.youtube.com/watch?v=`
-
-            //     break;
-
-            // default:
-            //     break;
+            case 'NoteImg':
+            case 'NoteVideo':
+                var url=keepService.getById(noteId).info.url
+                info = { title: txt, url }
+                keepService.edit(noteId,info)
+                this.loadNotes();
+                break;
         }
+        this.loadNotes();
 
+    }
+
+    OnDoneAt=(noteId,todoId)=>{
+        keepService.doneAt(noteId,todoId);
+        this.loadNotes();
     }
 
 
@@ -98,8 +100,6 @@ export class KeepApp extends React.Component {
 
             default:
                 break;
-                this.props.onAddNote(this.state.type, info);
-                this.setState({ txt: '', title: '' })
         }
 
     }
@@ -109,8 +109,15 @@ export class KeepApp extends React.Component {
     render() {
         return (
             <section >
+                <div className='add-container'>
+
                 <AddNote onAddNote={this.onAddNote} />
-                {this.state.notes.map(note => <NotePreview key={note.id} note={note} onEdit={this.onEdit} onChangeColor={this.onChangeColor} onChangePinned={this.onChangePinned} onDelete={this.onDelete} />)}
+                </div>
+                
+
+                <div className='notes-container'>
+                {this.state.notes.map(note => <NotePreview key={note.id} OnDoneAt={this.OnDoneAt} note={note} onEdit={this.onEdit} onChangeColor={this.onChangeColor} onChangePinned={this.onChangePinned} onDelete={this.onDelete} />)}
+                </div>
             </section>
         )
     }
