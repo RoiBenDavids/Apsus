@@ -10,10 +10,11 @@ export class AddNote extends React.Component {
 
 
     handleChange = ({ target }) => {
-        this.setState({ txt: target.value }, () => { console.log(this.state.txt); })
+        this.setState({ txt: target.value })
     }
 
     handleSubmit = () => {
+        event.preventDefault
         var info = {}
         switch (this.state.type) {
             case "NoteText":
@@ -23,14 +24,14 @@ export class AddNote extends React.Component {
                 var strs = this.state.txt.split(" ");
                 var url = strs.pop();
                 if (strs.length > 0) var title = strs.join(' ');
-                info = { url, title: (title) ? title : null }
+                info = { url, title: (title) ? title : '' }
                 break;
             case "NoteVideo":
                 var strs = this.state.txt.split(" ");
                 var url = strs.pop();
                 if (strs.length > 0) var title = strs.join(' ');
                 url = `https://www.youtube.com/embed/${url.split('watch?v=')[1]}`
-                info = { url, title: (title) ? title : null }
+                info = { url, title: (title) ? title : '' }
                 break;
 
             default:
@@ -49,6 +50,14 @@ export class AddNote extends React.Component {
         this.setState({ type: "NoteText" })
     }
 
+    getPlaceholder=()=>{
+        if(this.state.type==='NoteText') return 'Enter a text'
+        if(this.state.type==='NoteImg') return 'Enter a title and an image url'
+        if(this.state.type==='NoteVideo') return 'Enter a title and an Youtube url' 
+    }
+
+   
+
 
     render() {
         return (
@@ -58,7 +67,7 @@ export class AddNote extends React.Component {
                     <div>
 
                         <form onSubmit={this.handleSubmit}>
-                            <input className='add-note-input' value={this.state.txt} type="text" placeholder="Add note"
+                            <input className='add-note-input' value={this.state.txt} type="text" placeholder={this.getPlaceholder()}
                                 onChange={this.handleChange} />
                         </form>
                         <div className="add-note-btn-container flex justify-between">
