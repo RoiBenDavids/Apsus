@@ -33,3 +33,44 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+function transformTimeStamp(timeStamp){
+    const today = new Date().setHours(0, 0, 0, 0);
+    const dayToCHeck = new Date(timeStamp).setHours(0, 0, 0, 0);
+    const date = new Date(timeStamp)
+    if(today===dayToCHeck){
+        const hours = date.getHours()
+        const minutes=date.getMinutes()
+      return hours+':'+minutes
+    }
+    else if(date.getFullYear===today.getFullYear){
+        const month = monthToName(date.getMonth())
+        const dateV = date.getDate()
+        return month+' '+dateV
+    }
+    else{
+        const year=date.getFullYear()
+        const month = monthToName(date.getMonth())
+        const dateV = date.getDate()
+        return month+' '+dateV+' '+year
+
+    }
+
+}
+
+function monthToName(month){
+    switch (month){
+        case 0:return 'January';
+        case 1:return 'February';
+        case 2:return 'March';
+        case 3:return 'April';
+        case 4:return 'May';
+        case 5:return 'June';
+        case 6:return 'July';
+        case 7:return 'August';
+        case 8:return 'September';
+        case 9:return 'October';
+        case 10:return 'November';
+        case 11:return 'December';
+    }
+}

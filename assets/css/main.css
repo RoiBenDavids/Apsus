@@ -1,12 +1,12 @@
 
 
-@import url(/mailApp/styles/mail.css);
-@import url(/keepApp/styles/keep.css);
+@import url(../../mailApp/styles/mail.css);
+@import url(../../keepApp/styles/keep.css);
 
 /* FONTS */
 @font-face {
     font-family: Ubuntu-regular;
-    src: url(/assets/fonts/Ubuntu-Regular.ttf);
+    src: url(../fonts/Ubuntu-Regular.ttf);
 }
 *{
     box-sizing: border-box;
