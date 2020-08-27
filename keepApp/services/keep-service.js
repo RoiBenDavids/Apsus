@@ -49,6 +49,7 @@ var beforeStorage = [
         info: {
             url: "https://www.youtube.com/embed/d60H5D9GefE",
             title: "omer adam"
+            //https://www.youtube.com/watch?v=d60H5D9GefE
         }
     }
 ];
@@ -65,7 +66,7 @@ function query() {
 
 
 function create(type, info) {
-    newNote = {
+    var newNote = {
         color: getColor(),
         id: makeId(),
         type,
@@ -73,6 +74,7 @@ function create(type, info) {
         info
     }
     _add(newNote);
+    console.log(newNote);
 }
 
 function remove(noteId) {
@@ -80,7 +82,7 @@ function remove(noteId) {
 }
 
 function _add(note) {
-    notes.push(note);
+    notes.unshift(note);
 }
 
 function changePinned(noteId) {

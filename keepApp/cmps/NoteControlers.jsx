@@ -21,7 +21,6 @@ export class NoteControlers extends React.Component{
                 <button onClick={()=>this.props.onChangePinned(this.props.noteId)}><i className="fas fa-thumbtack"></i></button>
                 <button><i className="fas fa-edit"></i></button>
             </div>
-            {console.log('aaaaaaaa',this.props.onChangeColor)}
                 {this.state.isColorShown && <Color noteId={this.props.noteId} onChangeColor={(noteId, color)=>this.props.onChangeColor(noteId, color)}/>}
             </div>
     
