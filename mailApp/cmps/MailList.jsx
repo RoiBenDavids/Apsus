@@ -1,14 +1,27 @@
-import { MailPreview} from "./MailPreview.jsx"
+import { MailPreview } from "./MailPreview.jsx"
 
-export function MailList({ mails,toggleStar }) {
+export function MailList({ mails, toggleStar, onCheck,handleListBtns,toggleSelectAll, checkedItems }) {
+
+    function handleSelectAll(ev){
+        toggleSelectAll(ev.target.checked)
+
+    }
 
     return (
-        <ul >
-            {
-            mails.map(mail =>{
-                return <MailPreview key={mail.id} mail={mail} toggleStar={toggleStar}  />
-            })
-            }
-        </ul>
+        <div className="mail-list ">
+            <div className={'mail-list'}>
+                <input onChange={handleSelectAll} type='checkbox' name='checkAll'  />
+                <i onClick={()=>handleListBtns('trash')} className="fas fa-trash"></i>
+                <i onClick={()=>handleListBtns('read')} className="fas fa-envelope-open"></i>
+                <i onClick={()=>handleListBtns('unread')} className="fas fa-envelope"></i>
+            </div>
+            <ul >
+                {
+                    mails.map(mail => {
+                        return <MailPreview key={mail.id} mail={mail} toggleStar={toggleStar} onCheck={onCheck} checkedItems={checkedItems} />
+                    })
+                }
+            </ul>
+        </div>
     )
 }

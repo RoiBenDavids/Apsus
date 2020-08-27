@@ -11,7 +11,8 @@ export class MailApp extends React.Component {
         mails: [],
         isCompose: false,
         chosenMail: '',
-        filterBy: ''
+        filterBy: '',
+        checkedItems: []
     }
 
     componentDidMount() {
@@ -24,10 +25,10 @@ export class MailApp extends React.Component {
 
     }
     mailsToRender() {
-        if(!this.state.filterBy) return this.state.mails
-       var mailsToRender= this.state.mails.filter(mail=>mail[this.state.filterBy]===false)
-       return mailsToRender
-        
+        if (!this.state.filterBy) return this.state.mails
+        var mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
+        return mailsToRender
+
     }
 
     toggleCompose = () => {
@@ -42,40 +43,78 @@ export class MailApp extends React.Component {
         this.loadMail()
     }
     onDeleteMail = (mailId) => {
+        console.log('gege');
         mailService.deleteMail(mailId);
         this.loadMail()
     }
 
     filterBy = (filter) => {
-        if(this.state.filterBy===filter) this.setState({filterBy:''})
-       else this.setState({ filterBy: filter })
+        if (this.state.filterBy === filter) this.setState({ filterBy: '' })
+        else this.setState({ filterBy: filter })
     }
 
-    toggleStar=(mailId)=>{
+    toggleStar = (mailId) => {
         mailService.toggleStar(mailId);
         this.loadMail()
+    }
+    checkBoxHandler = (mailId, status) => {
+        let checkedItems = this.state.checkedItems;
+        if (status) {
+            checkedItems.push(mailId)
+            this.setState({ checkedItems })
+        }
+        else {
+            const removeIdx = checkedItems.findIndex(item => item === mailId)
+            checkedItems.splice(removeIdx, 1)
+            this.setState({ checkedItems })
+        }
+    }
+    markAsRead=(mailId)=>{
+        mailService.markAsRead(mailId)
+        this.loadMail()
+    }
+    markAsUnRead(mailId){
+        mailService.markAsUnRead(mailId)
+        this.loadMail()
+
+    }
+    handleListBtns=(handler)=>{
+        switch(handler){
+            case 'trash': this.state.checkedItems.forEach(item=>this.onDeleteMail(item));
+            break;
+            case 'read':this.state.checkedItems.forEach(item=>this.markAsRead(item))
+            break;
+            case 'unread':this.state.checkedItems.forEach(item=>this.markAsUnRead(item));
+        }
+    }
+    toggleSelectAll=(value)=>{
+        if(value){
+            const checkedItems = this.state.mails.map(mail=>mail.id)
+            this.setState({checkedItems})
+        }
+        else{
+            this.setState({checkedItems:[]})
+        }
+
     }
 
 
 
     render() {
         const mails = this.mailsToRender()
-        if (!mails[0]) return <div>111</div>
         return (
             <section className={'mail-app flex'}>
                 <div className={'side-bar flex column'}>
-                
+
                     <div className='flex align-center' onClick={() => this.toggleCompose()}>compose</div>
-                    <p className={!this.state.filterBy?'active':''} onClick={() => this.filterBy('')} >inbox</p>
-                    <p className={this.state.filterBy==='isRead'?'active':''} onClick={() => this.filterBy('isRead')} >Unread</p>
-                    <p className={this.state.filterBy==='isStarred'?'active':''} onClick={() => this.filterBy('isStarred')}>Starred</p>
-                    <p>Sent</p>
+                    <p className={!this.state.filterBy ? 'active' : ''} onClick={() => this.filterBy('')} ><i className="fas fa-inbox"></i>inbox</p>
+                    <p className={this.state.filterBy === 'isRead' ? 'active' : ''} onClick={() => this.filterBy('isRead')} ><i className="fas fa-envelope-open"></i>Unread</p>
+                    <p className={this.state.filterBy === 'isStarred' ? 'active' : ''} onClick={() => this.filterBy('isStarred')}><i className='fas fa-star'></i>Starred</p>
+                    <p><i className="fas fa-paper-plane"></i>Sent</p>
                 </div>
                 <Switch>
                     <Route exact path={'/mail'}>
-                        <div className="mail-list ">
-                            <MailList mails={mails} toggleStar={this.toggleStar} />
-                        </div>
+                            <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns} toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} />
                     </Route>
                     <Route path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>
                     </Route>
