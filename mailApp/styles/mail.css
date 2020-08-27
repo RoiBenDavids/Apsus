@@ -1,3 +1,8 @@
+@font-face {
+    font-family: FontA;
+    src: url(https://kit-free.fontawesome.com);
+}
+
 p,h1{
     margin: 0;
     padding: 0;
@@ -121,3 +126,20 @@ p,h1{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }
+.side-bar .active{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: aliceblue;
+
+}
+
+/* MAIL PREVIEW */
+
+.fa-star::before{
+    color:yellow;
+    cursor: pointer;
+}
+.preview-content{
+    flex:1
+}
+

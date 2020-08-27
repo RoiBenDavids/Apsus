@@ -51,6 +51,11 @@ export class MailApp extends React.Component {
        else this.setState({ filterBy: filter })
     }
 
+    toggleStar=(mailId)=>{
+        mailService.toggleStar(mailId);
+        this.loadMail()
+    }
+
 
 
     render() {
@@ -61,15 +66,15 @@ export class MailApp extends React.Component {
                 <div className={'side-bar flex column'}>
                 
                     <div className='flex align-center' onClick={() => this.toggleCompose()}>compose</div>
-                    <p  >inbox</p>
-                    <p onClick={() => this.filterBy('isRead')} >Unread</p>
-                    <p>Starred</p>
+                    <p className={!this.state.filterBy?'active':''} onClick={() => this.filterBy('')} >inbox</p>
+                    <p className={this.state.filterBy==='isRead'?'active':''} onClick={() => this.filterBy('isRead')} >Unread</p>
+                    <p className={this.state.filterBy==='isStarred'?'active':''} onClick={() => this.filterBy('isStarred')}>Starred</p>
                     <p>Sent</p>
                 </div>
                 <Switch>
                     <Route exact path={'/mail'}>
                         <div className="mail-list ">
-                            <MailList mails={mails} />
+                            <MailList mails={mails} toggleStar={this.toggleStar} />
                         </div>
                     </Route>
                     <Route path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>

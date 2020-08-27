@@ -3,7 +3,8 @@ export const mailService = {
     createMail,
     getMailById,
     deleteMail,
-    markAsRead
+    markAsRead,
+    toggleStar
 }
 
 var mails = [
@@ -13,7 +14,8 @@ var mails = [
         subject: 'Blabla',
         body: 'yes and no are both answers',
         isRead: false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        isStarred:true
     },
     {
         id: makeId(),
@@ -21,7 +23,8 @@ var mails = [
         subject: 'Blabla222',
         body: 'yes and no are both answers balbal',
         isRead: false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        isStarred: false
     }
 ]
 
@@ -36,7 +39,8 @@ function createMail(subject, body) {
         subject,
         body,
         isRead:false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        isStarred:false
     })
 }
 
@@ -52,8 +56,19 @@ function deleteMail(mailId){
     mails = mails.filter(mail => mail.id !== mailId)
 }
 
-function markAsRead(mailId){
-    const mailIdx= mails.findIndex(mail=>{
+function getIdxById(mailId){
+    return mails.findIndex(mail=>{
         return mail.id==mailId})
+
+}
+
+function markAsRead(mailId){
+    const mailIdx= getIdxById(mailId)
     mails[mailIdx].isRead=true;
+}
+
+function toggleStar(mailId){
+    const mailIdx= getIdxById(mailId)
+    mails[mailIdx].isStarred=!mails[mailIdx].isStarred;
+
 }

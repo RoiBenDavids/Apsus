@@ -1,16 +1,19 @@
-const { Link,withRouter } = ReactRouterDOM
-function _MailPreview({ mail }) {
+const { Link, withRouter } = ReactRouterDOM
+function _MailPreview({ mail, toggleStar }) {
 
-    const style = mail.isRead ? 'mail-preview flex justify-between' : 'mail-preview flex justify-between unread'
+    const style = mail.isRead ? 'mail-preview flex ' : 'mail-preview flex  unread'
+    const starStyle= mail.isStarred?'far fa-star':'fas fa-star'
 
     return (
-        <Link to={`/mail/${mail.id}`}>
-            <li className={style}>
+        <li className={style}>
+
+            <i className={starStyle} onClick={()=>toggleStar(mail.id)}></i>
+            <Link to={`/mail/${mail.id}`} className={'preview-content flex justify-between'}>
                 <p>{mail.from}</p>
                 <p>{mail.subject}</p>
                 <p>{mail.sentAt}</p>
-            </li>
-        </Link>
+            </Link>
+        </li>
     )
 }
 export const MailPreview = withRouter(_MailPreview)
