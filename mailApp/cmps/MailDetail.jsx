@@ -1,5 +1,5 @@
 import { mailService } from "../services/mail-service.js"
-const { Link } = ReactRouterDOM
+const { Link, Route } = ReactRouterDOM
 
 export class MailDetail extends React.Component {
     state = {
@@ -7,14 +7,22 @@ export class MailDetail extends React.Component {
     }
 
     componentDidMount() {
+        this.loadMail()
+
+    }
+    loadMail=()=> {
+        
         mailService.getMailById(this.props.match.params)
             .then(mail => {
+                console.log(mail);
                 const { prevMailId, nextMailId } = mailService.getNextPrev(mail.id)
-                this.setState({ mail,prevMailId,nextMailId })
+                this.setState({ mail, prevMailId, nextMailId })
                 this.markAsRead()
-    
-                console.log(prevMailId, nextMailId);
+
             })
+    }
+    redirect=(to)=>{
+        this.loadMail()
 
     }
     deleteMail = () => {
@@ -31,9 +39,11 @@ export class MailDetail extends React.Component {
             <section className={'mail-list mail-details'}>
                 <div className='flex justify-between'>
                     <h1>{this.state.mail.subject}</h1>
-                    <Link to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
-                    <Link to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
+
+                    <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
+                    <Link onClick={() => this.redirect(this.state.nextMailId)} to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
                     <Link to={'/mail'}> <p onClick={() => this.deleteMail()}><i className="fas fa-trash"></i></p> </Link>
+
 
                 </div>
                 <div className='flex justify-between'>

@@ -40,7 +40,8 @@ function transformTimeStamp(timeStamp){
     const date = new Date(timeStamp)
     if(today===dayToCHeck){
         const hours = date.getHours()
-        const minutes=date.getMinutes()
+        let minutes=date.getMinutes()
+        minutes=minutes<10?0+''+minutes:minutes;
       return hours+':'+minutes
     }
     else if(date.getFullYear===today.getFullYear){

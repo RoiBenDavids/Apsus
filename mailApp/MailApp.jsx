@@ -16,6 +16,8 @@ export class MailApp extends React.Component {
     }
 
     componentDidMount() {
+        const filterBy = new URLSearchParams(this.props.location.search).get('filterBy') || ''
+        this.setState({ filterBy })
         this.loadMail()
 
     }
@@ -49,8 +51,15 @@ export class MailApp extends React.Component {
     }
 
     filterBy = (filter) => {
-        if (this.state.filterBy === filter) this.setState({ filterBy: '' })
-        else this.setState({ filterBy: filter })
+        if (this.state.filterBy === filter){
+            this.props.history.push(`/mail`)
+            this.setState({ filterBy: '' })
+        } 
+        else {
+            this.props.history.push(`/mail?filterBy=${filter}`)
+            this.setState({ filterBy: filter })
+        }
+
     }
 
     toggleStar = (mailId) => {
@@ -69,31 +78,31 @@ export class MailApp extends React.Component {
             this.setState({ checkedItems })
         }
     }
-    markAsRead=(mailId)=>{
+    markAsRead = (mailId) => {
         mailService.markAsRead(mailId)
         this.loadMail()
     }
-    markAsUnRead(mailId){
+    markAsUnRead(mailId) {
         mailService.markAsUnRead(mailId)
         this.loadMail()
 
     }
-    handleListBtns=(handler)=>{
-        switch(handler){
-            case 'trash': this.state.checkedItems.forEach(item=>this.onDeleteMail(item));
-            break;
-            case 'read':this.state.checkedItems.forEach(item=>this.markAsRead(item))
-            break;
-            case 'unread':this.state.checkedItems.forEach(item=>this.markAsUnRead(item));
+    handleListBtns = (handler) => {
+        switch (handler) {
+            case 'trash': this.state.checkedItems.forEach(item => this.onDeleteMail(item));
+                break;
+            case 'read': this.state.checkedItems.forEach(item => this.markAsRead(item))
+                break;
+            case 'unread': this.state.checkedItems.forEach(item => this.markAsUnRead(item));
         }
     }
-    toggleSelectAll=(value)=>{
-        if(value){
-            const checkedItems = this.state.mails.map(mail=>mail.id)
-            this.setState({checkedItems})
+    toggleSelectAll = (value) => {
+        if (value) {
+            const checkedItems = this.state.mails.map(mail => mail.id)
+            this.setState({ checkedItems })
         }
-        else{
-            this.setState({checkedItems:[]})
+        else {
+            this.setState({ checkedItems: [] })
         }
 
     }
@@ -113,15 +122,15 @@ export class MailApp extends React.Component {
                     <p><i className="fas fa-paper-plane"></i>Sent</p>
                 </div>
                 <Switch>
-                    <Route exact path={'/mail'}>
-                            <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns} toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} />
+                    <Route exact path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>
                     </Route>
-                    <Route path={`/mail/:mailId`} render={props => <MailDetail {...props} cb={this.onDeleteMail} />}>
+                    <Route exact path={'/mail'}>
+                        <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns} toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} />
                     </Route>
 
                 </Switch>
 
-                {this.state.isCompose && <MailCompose cb={this.sendMail} />}
+                {this.state.isCompose && <MailCompose cb={this.sendMail}  toggleCompose={this.toggleCompose }/>}
             </section>
         )
     }

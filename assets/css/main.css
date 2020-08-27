@@ -14,9 +14,11 @@
 }
 html{
     font-family: Ubuntu-regular;
+    background: linear-gradient( rgba(75,75,75,1) 0%,rgba(75,75,75,1) 8% , rgba(216,221,239,1) 80%);
+    height: 100%;
 }
 body {
-    background-color: rgb(216, 229, 231);
+    
     margin: 0;
 }
 ul{
@@ -48,10 +50,44 @@ button{
 .column{
     flex-flow: column;
 }
+.justify-center{
+    justify-content: center;
+}
 
 /* NAVBAR */
 .nav-bar{
-    background-color: orange;
+    background-color: rgb(23, 23, 31);
     padding: 20px;
+    position: relative;
+      
+}
+.nav-bar a,.fa-th{
+    color:rgba(216,221,239,1);
+
+}
+
+.nav-bar .clipboard,.envelopeN{
+    position: absolute;
+    right: 20px;
+    top:70px
+ 
+}
+
+/* HOMEPAGE */
+.envelope{
+    max-width:60vw;
+    height: 80vh;
+    margin: 0 auto;
     
 }
+
+.envelope .fas{
+    font-size: 150px;
+    color:rgb(23, 23, 31);
+}
+.envelope .fa-clipboard{
+    padding-right: 50px;
+}
+
+
+

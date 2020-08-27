@@ -26,7 +26,7 @@ var mails = [
         body: 'I just wanted to inform you that you are the best',
         isRead: false,
         sentAt: Date.now(),
-        isStarred: false
+        isStarred: true
     },
     {
         id: makeId(),
@@ -35,7 +35,7 @@ var mails = [
         body: 'I would like to invite you to play with us in the mavs team, we will send you all the gear and the plane tickets, see you soon, love luca magic',
         isRead: false,
         sentAt: 50000005318,
-        isStarred: false
+        isStarred: true
     },
     {
         id: makeId(),
