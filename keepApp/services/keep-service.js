@@ -3,7 +3,9 @@ export const keepService = {
     create,
     remove,
     changePinned,
-    ChangeColor
+    ChangeColor,
+    getById,
+    edit
 }
 
 const KEY_STORAGE = 'notesService'
@@ -95,4 +97,16 @@ function ChangeColor(noteId,color){
     var idx = notes.findIndex(note => note.id === noteId);
     notes[idx].color = color
     notes = [...notes];
+}
+
+function getById(id){
+    return notes.find((note)=>note.id===id)
+}
+
+function edit(noteId,info){
+    let editedNotes=[...notes];
+    const idx=editedNotes.findIndex(note=>note.id===noteId)
+    editedNotes[idx].info={...info}
+    notes=editedNotes
+    saveToStorage(KEY_STORAGE, notes);
 }

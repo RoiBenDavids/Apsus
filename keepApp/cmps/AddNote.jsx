@@ -1,4 +1,5 @@
 import { AddNoteTodos } from './AddNoteTodos.jsx'
+import eventBus from '../../services/event-bus-service.js'
 export class AddNote extends React.Component {
 
     state = {
@@ -6,6 +7,7 @@ export class AddNote extends React.Component {
         txt: '',
         type: 'NoteText'
     }
+   
 
     handleChange = ({ target }) => {
         this.setState({ txt: target.value }, () => { console.log(this.state.txt); })
@@ -38,15 +40,20 @@ export class AddNote extends React.Component {
         this.setState({ txt: '', title: '' })
     }
 
-    addTodo=(todos)=>{
-        this.props.onAddNote('NoteTodos', {todos});
+    addTodo = (todos) => {
+        this.props.onAddNote('NoteTodos', { todos });
+        this.returnToAddNote();
+    }
+
+    returnToAddNote = () => {
+        this.setState({ type: "NoteText" })
     }
 
 
     render() {
         return (
             <div className='add-note'>
-                {(this.state.type === 'NoteTodos') && <AddNoteTodos addTodo={this.addTodo} />}
+                {(this.state.type === 'NoteTodos') && <AddNoteTodos returnToAddNote={this.returnToAddNote} addTodo={this.addTodo} />}
                 {(this.state.type !== 'NoteTodos') &&
                     <div>
 

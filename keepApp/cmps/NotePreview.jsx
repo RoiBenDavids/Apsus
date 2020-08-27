@@ -2,19 +2,19 @@ import { NoteTxt } from './NoteTxt.jsx'
 import { NoteImg } from './NoteImg.jsx'
 import { NoteVideo } from './NoteVideo.jsx'
 import { NoteTodos } from './NoteTodos.jsx'
-export function NotePreview({note,onDelete,onChangePinned,onChangeColor}) {
+export function NotePreview({note,onDelete,onChangePinned,onChangeColor,onEdit}) {
 
     switch (note.type) {
         case 'NoteText':
-            return <NoteTxt onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
+            return <NoteTxt onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
         case 'NoteImg':
-            return <NoteImg onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
+            return <NoteImg onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
         case 'NoteVideo':
-            return <NoteVideo onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
+            return <NoteVideo onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
         case 'NoteTodos':
-            return <NoteTodos onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
+            return <NoteTodos onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
         default:
-            return<NoteTxt onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
+            return<NoteTxt onEdit={onEdit} onChangeColor={onChangeColor} onChangePinned={onChangePinned} onDelete={onDelete} note={note}/>
     }
 
 }

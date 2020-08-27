@@ -1,10 +1,12 @@
 import {TodoPreview} from './TodoPreview.jsx'
+import eventBus from '../../services/event-bus-service.js'
 export class AddNoteTodos extends React.Component {
 
     state = {
         todos: [],
         newTodo: ''
     }
+    
 
     handleChange = ({ target }) => {
         this.setState({ newTodo: target.value }, () => { console.log(this.state.newTodo) })
@@ -22,6 +24,7 @@ export class AddNoteTodos extends React.Component {
 
     onSaveTodo = ()=>{
         this.props.addTodo(this.state.todos)
+        this.setState({ todos:[],newTodo: ''})
     } 
 
 
@@ -39,6 +42,7 @@ export class AddNoteTodos extends React.Component {
                             onChange={this.handleChange} />
                         <button onClick={() => this.handleSubmit}><i className="fas fa-plus"></i></button>
                         <button onClick={() => this.onSaveTodo()}><i className="far fa-save"></i></button>
+                        <button onClick={() =>this.props.returnToAddNote()}><i className="fas fa-undo"></i></button>
                     </form>
 
 
