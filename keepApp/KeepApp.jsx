@@ -7,17 +7,10 @@ export class KeepApp extends React.Component {
     state = {
         notes: []
     }
-    unsubscribe;
+  
 
-    componentDidMount() {
-        this.unsubscribe = eventBus.on('editNote', (data) => {
-            // this.setState({ isShown: true, msg: data.msg, type: data.type })
-            // setTimeout(() => this.setState({ isShown: false }), 3000)
-        })
-    }
-    componentWillUnmount() {
-        this.unsubscribe()
-    }
+
+    
 
     handleChange = ({ target }) => {
         this.setState({ newTodo: target.value }, () => { console.log(this.state.newTodo) })
@@ -78,9 +71,6 @@ export class KeepApp extends React.Component {
 
     }
 
-    componentWillUnmount() {
-        this.unsubscribe()
-    }
 
     handleChange = ({ target }) => {
         this.setState({ txt: target.value }, () => { console.log(this.state.txt); })
