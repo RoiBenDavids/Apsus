@@ -6,7 +6,9 @@ export const keepService = {
     ChangeColor,
     getById,
     edit,
-    doneAt
+    doneAt,
+    removeTodo,
+    addTodo
 }
 
 const KEY_STORAGE = 'notesService'
@@ -87,6 +89,24 @@ function doneAt(noteId, todoId) {
     const todoIdx = editedNotes[noteIdx].info.todos.findIndex(todo => todo.id === todoId)
     const doneAt = editedNotes[noteIdx].info.todos[todoIdx].doneAt
     editedNotes[noteIdx].info.todos[todoIdx].doneAt = (doneAt) ? null : Date.now();
+    notes = editedNotes
+    saveToStorage(KEY_STORAGE, notes);
+}
+
+function removeTodo(noteId, todoId){
+    let editedNotes = [...notes];
+    const idx = editedNotes.findIndex(note => note.id === noteId)
+    editedNotes[idx].info.todos=editedNotes[idx].info.todos.filter(todo=>todo.id!==todoId);
+    notes = editedNotes
+    saveToStorage(KEY_STORAGE, notes);
+}
+
+function addTodo(noteId,txt){
+    let editedNotes = [...notes];
+    const idx = editedNotes.findIndex(note => note.id === noteId)
+    editedNotes[idx].info.todos
+    editedNotes[idx].info.todos.unshift({txt,id:makeId(),doneAt:null})
+    editedNotes[idx].info.todos
     notes = editedNotes
     saveToStorage(KEY_STORAGE, notes);
 }
