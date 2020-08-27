@@ -43,7 +43,8 @@ export class NoteTodos extends React.Component {
                     onChangeColor={this.props.onChangeColor}
                     onChangePinned={this.props.onChangePinned}
                     onDelete={this.props.onDelete}
-                    noteId={this.props.note.id} />
+                    noteId={this.props.note.id}
+                    note={this.props.note} />
             </div>
         )
 

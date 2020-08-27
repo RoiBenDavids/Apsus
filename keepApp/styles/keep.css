@@ -81,6 +81,11 @@
     height: 30px;
     border: 1px solid black;
     margin: 5px;
+    opacity: 0;
+}
+
+.todo-preview-line button:hover{
+    opacity: 1;
 }
 
 .note-controler button:hover{

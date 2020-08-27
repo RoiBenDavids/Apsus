@@ -31,7 +31,11 @@ export class NoteImg extends React.Component {
                         onChange={this.handleChange} />
                 </form>
                 <img className="note-img" src={this.props.note.info.url} alt="img" />
-                <NoteControlers onEdit={this.props.onEdit} onChangeColor={this.props.onChangeColor} onChangePinned={this.props.onChangePinned} onDelete={this.props.onDelete} noteId={this.props.note.id} />
+                <NoteControlers onEdit={this.props.onEdit}
+                 onChangeColor={this.props.onChangeColor}
+                  onChangePinned={this.props.onChangePinned} 
+                  onDelete={this.props.onDelete}
+                   noteId={this.props.note.id} />
             </div>
         )
     }
