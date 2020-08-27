@@ -37,7 +37,7 @@ export class MailDetail extends React.Component {
         if (!this.state.mail) return <div></div>
         return (
             <section className={'mail-list mail-details'}>
-                <div className='flex justify-between'>
+                <div className='mail-list-header flex justify-between'>
                     <h1>{this.state.mail.subject}</h1>
 
                     <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>

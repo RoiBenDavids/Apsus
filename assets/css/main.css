@@ -14,8 +14,8 @@
 }
 html{
     font-family: Ubuntu-regular;
-    background: linear-gradient( rgba(75,75,75,1) 0%,rgba(75,75,75,1) 8% , rgba(216,221,239,1) 80%);
-    height: 100%;
+    background: linear-gradient( rgba(75,75,75,1) 0%,rgba(75,75,75,1) 8% , rgba(216,221,239,1) 80%,rgba(216,221,239,1) 500%);
+    min-height: 100%;
 }
 body {
     
@@ -69,9 +69,28 @@ button{
 .nav-bar .clipboard,.envelopeN{
     position: absolute;
     right: 20px;
-    top:70px
- 
+    top:-20px;
+    
 }
+
+.nav-bar .downClip{
+    top:70px;
+    animation-name:downClip;
+    animation-duration:4s  
+}
+.nav-bar .downEnv{
+    top:100px;
+    animation-name:downEnv;
+    animation-duration:4s 
+}
+@keyframes downClip {
+    from {top: 0px;}
+    to {top: 70px}
+  }
+@keyframes downEnv {
+    from {top: 0px;}
+    to {top: 100px}
+  }
 
 /* HOMEPAGE */
 .envelope{
@@ -91,3 +110,60 @@ button{
 
 
 
+@media (max-width: 950px){
+    .side-bar-btns{
+        flex-direction: row;
+        transform: translateX(-150px);
+        position: fixed;
+        transition: transform .3s
+    }
+    .mobile-side-open{
+        transform: translateX(0);
+        transform: translateY(60px);
+        width: 90vw;
+        background-color:rgba(216,221,239,1);
+        height: 100vh;
+    }
+    .mobile-side-open p{
+        padding: 40px;
+    }
+    .side-bar .compose{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 5;
+    }
+    .mobile-menu{
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    .preview-content p:first-of-type{
+        display: none;
+    }
+    .compose-mail{
+        right: 0;
+        width:100%;
+        height: 100vh;
+    }
+        
+  
+}
+
+@media (max-width: 470px){
+
+    .mail-preview div:first-child{
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+    }
+
+    .preview-content p:last-child{
+        font-size: 0.7rem;
+    }
+   
+
+    
+
+}

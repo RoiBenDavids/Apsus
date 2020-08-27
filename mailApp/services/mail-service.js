@@ -9,7 +9,7 @@ export const mailService = {
     getNextPrev
 }
 
-var mails = [
+var mailsi = [
     {
         id: makeId(),
         from:'moshiko@yahoo.com',
@@ -47,7 +47,13 @@ var mails = [
         isStarred: false
     }
 ]
+const KEY_STORAGE = 'mailsService'
 
+var mails = loadFromStorage(KEY_STORAGE)
+if (!mails) {
+    mails = mailsi;
+    saveToStorage(KEY_STORAGE, mails);
+}
 
 function query() {
     return Promise.resolve(mails)
@@ -62,6 +68,7 @@ function createMail(subject, body) {
         sentAt: Date.now(),
         isStarred:false
     })
+    saveToStorage(KEY_STORAGE, mails);
 }
 
 
@@ -74,6 +81,7 @@ function getMailById(mailId){
 
 function deleteMail(mailId){
     mails = mails.filter(mail => mail.id !== mailId)
+    saveToStorage(KEY_STORAGE, mails);
 }
 
 function getIdxById(mailId){
@@ -85,15 +93,18 @@ function getIdxById(mailId){
 function markAsRead(mailId){
     const mailIdx= getIdxById(mailId)
     mails[mailIdx].isRead=true;
+    saveToStorage(KEY_STORAGE, mails);
 }
 function markAsUnRead(mailId){
     const mailIdx= getIdxById(mailId)
     mails[mailIdx].isRead=false;
+    saveToStorage(KEY_STORAGE, mails);
 }
 
 function toggleStar(mailId){
     const mailIdx= getIdxById(mailId)
     mails[mailIdx].isStarred=!mails[mailIdx].isStarred;
+    saveToStorage(KEY_STORAGE, mails);
 
 }
 

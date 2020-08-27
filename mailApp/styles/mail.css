@@ -11,6 +11,13 @@ p,h1{
 .mail-app{
     margin-block-start:40px ;
 }
+@media (max-width: 950px){
+    .mail-app{
+        margin-block-start:0 ;
+        flex-direction: column;
+    }
+
+}
 
 
 .unread{
@@ -28,6 +35,7 @@ p,h1{
     box-shadow: 0 0 10px 5px rgb(14, 13, 13,0.3);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    z-index: 1;
     
 }
 .compose-mail .compose-header{
@@ -65,14 +73,16 @@ p,h1{
 
 /* MAIL DETAIL */
 .mail-details{
-    padding: 20px 50px 0 50px;
+    /* padding: 20px 50px 0 50px; */
     
 }
-.mail-details div{
+.mail-details div:last-of-type{
    margin-bottom: 40px;
+   padding: 20px 50px 0 50px;
 }
 .mail-details>p{
    padding: 0 40px 0 40px;
+   padding: 20px 90px 0 90px;
 }
 
 /* MAIL LIST */
@@ -81,8 +91,9 @@ p,h1{
     background-color: rgba(216,221,239,1);
     margin: 0 20px 0 20px;
     border-radius: 5px;
-    
-
+}
+.mail-list i,input{
+    cursor: pointer;
 }
 
 .mail-list ul{
@@ -97,16 +108,37 @@ p,h1{
     border-bottom: 0.4px solid rgb(128, 128, 128,0.5);
 }
 
+.mail-list-header{
+    padding: 20px;
+    background-color: rgb(23, 23, 31);
+    color:rgba(216,221,239,1) ;
+    max-height: 55px;
+}
+.mail-list-header i{
+    padding-left: 20px;
+    color:rgba(216,221,239,1) ;
+}
+.mobile-menu{
+    display: none;
+}
+@media (max-width: 950px){
+    .mail-list{
+        width:100vw ;
+        margin: 0;
+    }
+
+}
+
 /* SIDE BAr */
 .mail-app .side-bar{
     min-width:200px;
     padding-inline-start:20px ;
     padding-inline-end:20px ;
+    z-index: 5;
 }
 
-.side-bar div{
+.side-bar div:first-of-type{
     background-color: aliceblue;
-    /* display: inline-block; */
     text-align: center;
     padding: 10px;
     border-radius: 40px;
@@ -114,7 +146,7 @@ p,h1{
     cursor: pointer;
 }
 
-.side-bar div::before{
+.side-bar div:first-of-type::before{
     content:url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
     height: 5px;
     margin: 0 15px 25px 10px;
@@ -133,8 +165,12 @@ p,h1{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     background-color: aliceblue;
-
 }
+.side-bar i{
+    margin-right: 5px;
+}
+
+
 
 /* MAIL PREVIEW */
 
@@ -142,7 +178,23 @@ p,h1{
     color:yellow;
     cursor: pointer;
 }
-.preview-content{
-    flex:1
+.mail-preview div{
+    margin-right: 20px;
+}
+.preview-content {
+    flex: 1;
+}
+.preview-content p:first-of-type{
+    min-width: 300px;
+}
+.preview-content p:nth-of-type(2){
+    flex: 1;
+}
+.name-circle{
+    border-radius: 50%;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    text-transform: uppercase;
 }
 
