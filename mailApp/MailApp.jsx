@@ -45,7 +45,6 @@ export class MailApp extends React.Component {
         this.loadMail()
     }
     onDeleteMail = (mailId) => {
-        console.log('gege');
         mailService.deleteMail(mailId);
         this.loadMail()
     }

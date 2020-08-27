@@ -1,5 +1,4 @@
 function on(eventName, listener) {
-    console.log('hi');
     const callListener = ({ detail }) => {
         listener(detail)
     }
@@ -10,7 +9,6 @@ function on(eventName, listener) {
 }
 
 function emit(eventName, data) {
-    console.log('hi');
     window.dispatchEvent(new CustomEvent(eventName, { detail: data }));
 }
 

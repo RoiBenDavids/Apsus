@@ -9,13 +9,13 @@ export class AddNoteTodos extends React.Component {
 
 
     handleChange = ({ target }) => {
-        this.setState({ newTodo: target.value }, () => { console.log(this.state.newTodo) })
+        this.setState({ newTodo: target.value })
     }
 
     handleSubmit = () => {
         let todos = [...this.state.todos];
         todos.push({ id: makeId(), txt: this.state.newTodo, doneAt: null });
-        this.setState({ todos, newTodo: '' }, () => { console.log(this.state.newTodo) });
+        this.setState({ todos, newTodo: '' });
     }
 
     removeTodo = (todoId) => {

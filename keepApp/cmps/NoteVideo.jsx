@@ -10,8 +10,8 @@ export class NoteVideo extends React.Component {
     }
 
     handleSubmit = () => {
+        event.preventDefault();
         var txt = this.state.txt
-        console.log(txt);
         this.props.onEdit(txt, this.props.note.id)
     }
 
@@ -21,7 +21,7 @@ export class NoteVideo extends React.Component {
 
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note'>
-                {this.props.note.isPinned && <h1>📌</h1>}
+                {this.props.note.isPinned && <img className='pin' src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt=""/>}
                 <form onSubmit={this.handleSubmit}>
                     <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"
                         onChange={this.handleChange} />

@@ -6,6 +6,8 @@
     text-align: center; 
 }
 
+
+
 /* todos */
 .done{
     text-decoration: line-through;
@@ -22,24 +24,26 @@
     height: 15px;
     border-radius: 50%;
     border:none;
-    
 }
 .color-picker{
     position: absolute;
     z-index: 1;
     padding: 10px 10px;
     background-color: #fff;
-    border-radius: 7px;
+    border-radius: 3px;
     left:60px;  
 }
 
 /* notes box  */
+.pin{
+    width: 20px;
+}
 .keep-note{
     text-align: center;
     display: inline-block;
     width: 350px;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 3px;
     position: relative;
 }
 
@@ -59,6 +63,9 @@
     padding-bottom: 5px ;
 
 }
+.note-controler button:hover{
+    color: rgb(48, 48, 53);
+}
 
 /* add note */
 .add-note{
@@ -73,10 +80,15 @@
 .add-note-input{
     width: 300px;
     height: 40px;
-    border-radius: 10px;
-    border: 1px solid black;
+    border: 0;
+    border-bottom: 1px solid rgb(23, 23, 31);
     margin-bottom:10px;
     font-size: 1.3rem;
+    background-color: transparent;
+}
+
+.add-note-input::placeholder {
+    color: rgb(23, 23, 31);
 }
 
 .add-note-btn-container button{
@@ -84,6 +96,13 @@
     background-color: inherit;
     border: none;
     font-size: 1.2rem;
+    transition: .4s ease-in-out all;
+    height: 45px;
+    width: 50px;
+}
+.add-note-btn-container button:hover{
+    color: rgb(48, 48, 53);
+    font-size: 1.7rem;
 }
 .add-note .add-note-todos{
     padding: 0;
@@ -98,9 +117,13 @@
 }
 
 .add-note-todos form div button{
+    color: rgb(23, 23, 31);
     background-color: inherit;
     border: none;
     font-size: 1.2rem;
+}
+.add-note-todos form div button:hover{
+    color: rgb(48, 48, 53);
 }
 
 .todo-list{
@@ -108,7 +131,6 @@
     position: absolute;
     z-index: 1;
     width: 300px;
-    border-radius: 15px;
     
 }
 
@@ -128,6 +150,10 @@
     width: 30px;
     height: 30px;
     border: 1px solid black;
+}
+
+.todo button:hover{
+    color: rgb(48, 48, 53);
 }
 
 /* notes titles  */

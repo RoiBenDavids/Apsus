@@ -13,7 +13,7 @@ export class KeepApp extends React.Component {
     
 
     handleChange = ({ target }) => {
-        this.setState({ newTodo: target.value }, () => { console.log(this.state.newTodo) })
+        this.setState({ newTodo: target.value })
     }
 
     componentDidMount() {
@@ -75,7 +75,7 @@ export class KeepApp extends React.Component {
 
 
     handleChange = ({ target }) => {
-        this.setState({ txt: target.value }, () => { console.log(this.state.txt); })
+        this.setState({ txt: target.value })
     }
 
     handleSubmit = () => {
