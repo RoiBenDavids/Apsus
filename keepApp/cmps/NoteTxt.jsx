@@ -20,7 +20,7 @@ export class NoteTxt extends React.Component {
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note' >
 
-                {this.props.note.isPinned && <h1>pinned</h1>}
+                {this.props.note.isPinned && <h1>📌</h1>}
 
                 <form onSubmit={this.handleSubmit}>
                 <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"

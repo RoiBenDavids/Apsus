@@ -8,7 +8,7 @@ export function NoteTodos({onEdit, note, onDelete,onChangePinned,onChangeColor,O
 
     return (
         <div style={{backgroundColor: `${note.color}`}} className='keep-note'>
-            {note.isPinned && <h1>pinned</h1>}
+            {note.isPinned && <h1>📌</h1>}
             <ul>
                 {note.info.todos.map(todo => <li onClick={()=>{OnDoneAt(note.id,todo.id)}} className={`todo-note-list ${isDone(todo.doneAt)}`} key={todo.id}>{todo.txt}</li>)}
             </ul>

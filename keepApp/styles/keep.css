@@ -52,6 +52,7 @@
     transition: 0.3s;
 }
 .note-controler button{
+    color: rgb(23, 23, 31);
     font-size: 1.2rem;
     background-color: inherit;
     border: 10px;
@@ -79,6 +80,7 @@
 }
 
 .add-note-btn-container button{
+    color: rgb(23, 23, 31);
     background-color: inherit;
     border: none;
     font-size: 1.2rem;
@@ -120,6 +122,7 @@
 }
 
 .todo button{
+    color: rgb(23, 23, 31);
     background-color: inherit;
     border-radius: 50%;
     width: 30px;

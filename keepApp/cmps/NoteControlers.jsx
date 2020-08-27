@@ -5,6 +5,10 @@ export class NoteControlers extends React.Component{
         isColorShown:false
     }
 
+    colorClose=()=>{
+        this.setState({isColorShown:false})
+    }
+
     
     
     
@@ -21,7 +25,7 @@ export class NoteControlers extends React.Component{
                 <button onClick={()=>this.props.onChangePinned(this.props.noteId)}><i className="fas fa-thumbtack"></i></button>
                 <button onClick={()=>{this.props.onEdit(this.props.noteId)}}><i className="fas fa-edit"></i></button>
             </div>
-                {this.state.isColorShown && <Color noteId={this.props.noteId} onChangeColor={(noteId, color)=>this.props.onChangeColor(noteId, color)}/>}
+                {this.state.isColorShown && <Color colorClose={this.colorClose} noteId={this.props.noteId} onChangeColor={(noteId, color)=>this.props.onChangeColor(noteId, color)}/>}
             </div>
     
         )
