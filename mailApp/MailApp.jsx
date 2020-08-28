@@ -42,7 +42,6 @@ export class MailApp extends React.Component {
         if (!this.state.filterBy) return this.state.mails
         console.log(this.state.filterBy);
         if(this.state.filterBy==='search'){
-            console.log('serching...');
             const mailsToRender = this.state.mails.filter(mail => {
                 if(mail.from.toLowerCase().includes(this.state.searchInput.input.toLowerCase())) return mail
             })
