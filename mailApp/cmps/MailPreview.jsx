@@ -1,14 +1,15 @@
-const { Link, withRouter } = ReactRouterDOM
-function _MailPreview({ mail, toggleStar, onCheck, checkedItems }) {
+import { LongText } from "../../cmps/LongText.jsx"
+const { Link } = ReactRouterDOM
+export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWidth,mailToPreview, displayMail}) {
 
     const style = mail.isRead ? 'mail-preview flex ' : 'mail-preview flex  unread'
     const starStyle = mail.isStarred ? 'far fa-star' : 'fas fa-star'
+    console.log(displayMail);
+    
     function checkBoxEv(ev) {
         onCheck(ev.target.value, ev.target.checked)
     }
     function isSelected(mailId) {
-        // console.log(checkedItems);
-        // console.log(mailId, 'is sr');
         const isSelected = checkedItems.find(item => item === mailId)
         if (isSelected) return true
         return false
@@ -16,6 +17,7 @@ function _MailPreview({ mail, toggleStar, onCheck, checkedItems }) {
     }
 
     return (
+        <React-fragment>
         <li className={style}>
 
             <div className={'flex align-center'}>
@@ -23,13 +25,18 @@ function _MailPreview({ mail, toggleStar, onCheck, checkedItems }) {
                 <i className={starStyle} onClick={() => toggleStar(mail.id)}></i>
             </div>
 
-            <Link to={`/mail/${mail.id}`} className={'preview-content flex align-center'}>
+            {/* <Link to={`/mail/${mail.id}`} className={'preview-content flex align-center'}> */}
+            <div className={'preview-content flex align-center'} onClick={()=>mailToPreview(mail.id)}>
                 <div className='name-circle flex justify-center align-center'>{mail.from.substring(0, 2)}</div>
-                <p>{mail.from}</p>
-                <p>{mail.subject}</p>
+                <p>{mail.username}</p>
+                <LongText subject={mail.subject} body={mail.body} windowWidth={windowWidth}/>
                 <p>{transformTimeStamp(mail.sentAt)}</p>
-            </Link>
+            </div>
+            {/* </Link> */}
         </li>
+        
+        {displayMail===mail.id && <li> hi</li>}
+
+        </React-fragment>
     )
 }
-export const MailPreview = withRouter(_MailPreview)

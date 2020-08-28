@@ -164,9 +164,7 @@ textarea {
         right: 20px;
     }
 
-    .preview-content p:first-of-type{
-        display: none;
-    }
+   
     .compose-mail{
         right: 0;
         width:100%;
@@ -186,6 +184,9 @@ textarea {
 
     .preview-content p:last-child{
         font-size: 0.7rem;
+    }
+    .preview-content p:first-of-type{
+        display: none;
     }
    
 

@@ -76,7 +76,7 @@ p,h1{
     /* padding: 20px 50px 0 50px; */
     
 }
-.mail-details div:last-of-type{
+.mail-details>div:last-of-type{
    margin-bottom: 40px;
    padding: 20px 50px 0 50px;
 }
@@ -185,7 +185,7 @@ p,h1{
     flex: 1;
 }
 .preview-content p:first-of-type{
-    min-width: 300px;
+    min-width: 100px;
 }
 .preview-content p:nth-of-type(2){
     flex: 1;
