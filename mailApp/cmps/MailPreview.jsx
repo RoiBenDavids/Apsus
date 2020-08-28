@@ -1,4 +1,5 @@
 import { LongText } from "../../cmps/LongText.jsx"
+import { MailSmallDetail } from "./mailSmallDetail.jsx"
 const { Link } = ReactRouterDOM
 export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWidth,mailToPreview, displayMail}) {
 
@@ -35,7 +36,7 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
             {/* </Link> */}
         </li>
         
-        {displayMail===mail.id && <li> hi</li>}
+        {displayMail===mail.id && <MailSmallDetail mail={mail} />}
 
         </React-fragment>
     )

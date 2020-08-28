@@ -91,6 +91,7 @@ p,h1{
     background-color: rgba(216,221,239,1);
     margin: 0 20px 0 20px;
     border-radius: 5px;
+    min-height: 70vh;
 }
 .mail-list i,input{
     cursor: pointer;
@@ -196,5 +197,18 @@ p,h1{
     width: 40px;
     height: 40px;
     text-transform: uppercase;
+}
+
+
+/* SMALLDETAIL */
+
+.small-detail{
+    padding: 40px;
+    border-bottom: 0.3px solid grey;
+    max-height: 200px;
+    overflow: hidden;
+}
+.small-detail p{
+    padding: 0 40px;
 }
 
