@@ -15,6 +15,13 @@ export class NoteTxt extends React.Component {
         this.props.onEdit(txt, this.props.note.id)
     }
 
+    getRows=()=>{
+        var txt=this.state.txt.split('');
+        var rows=Math.floor(txt.length/20)+2;
+        return rows+''
+
+    }
+
 
     render() {
         return (
@@ -23,7 +30,7 @@ export class NoteTxt extends React.Component {
                 {this.props.note.isPinned && <img className='pin' src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />}
 
                 <form onSubmit={this.handleSubmit}>
-                    <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"
+                    <textarea rows={this.getRows()} className='note-title' value={this.state.txt} type="text" placeholder="Note title"
                         onChange={this.handleChange} />
                 </form>
 
@@ -32,7 +39,8 @@ export class NoteTxt extends React.Component {
                     onChangePinned={this.props.onChangePinned}
                     onDelete={this.props.onDelete}
                     noteId={this.props.note.id}
-                    onShare={this.props.onShare} />
+                    onShare={this.props.onShare}
+                    txt={this.state.txt} />
             </div>
 
         )

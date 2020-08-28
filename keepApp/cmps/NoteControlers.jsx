@@ -24,8 +24,8 @@ export class NoteControlers extends React.Component{
                 <button onClick={()=>this.props.onDelete(this.props.noteId)}><i className="fas fa-trash"></i></button>
                 <button onClick={()=>{this.setState({isColorShown:!this.state.isColorShown})}}><i className="fas fa-palette"></i></button>
                 <button onClick={()=>this.props.onChangePinned(this.props.noteId)}><i className="fas fa-thumbtack"></i></button>
-                <button onClick={()=>this.props.onShare(this.props.noteId)}><i className="fas fa-share-alt"></i></button>
-                {!this.props.note && <button onClick={()=>{this.props.onEdit(this.props.noteId)}}><i className="fas fa-edit"></i></button>}
+                <button onClick={()=>this.props.onShare(this.props.noteId)}><i className="fas fa-share-square"></i></button>
+                {!this.props.note && <button onClick={()=>{this.props.onEdit(this.props.txt,this.props.noteId)}}><i className="fas fa-edit"></i></button>}
             </div>
                 {this.state.isColorShown && <Color noteId={this.props.noteId} colorClose={this.colorClose} onChangeColor={(noteId, color)=>this.props.onChangeColor(noteId, color)}/>}
             </div>

@@ -33,7 +33,8 @@ export class NoteVideo extends React.Component {
                  onChangePinned={this.props.onChangePinned}
                   onDelete={this.props.onDelete} 
                   noteId={this.props.note.id}
-                  onShare={this.props.onShare} />
+                  onShare={this.props.onShare}
+                  txt={this.state.txt} />
             </div>
         )
     }

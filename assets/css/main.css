@@ -33,6 +33,10 @@ a{
 button{
     cursor: pointer;
 }
+textarea { 
+    height: auto; 
+    width: auto;
+}
 
 /* HELPERS */
 .flex{
@@ -83,6 +87,26 @@ button{
     animation-name:downEnv;
     animation-duration:4s 
 }
+
+/* notification  */
+
+.notification{
+    background-color: #fff;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 3px;
+}
+
+.notification h2{
+    padding: 0 10px ;
+}
+.notification span{
+    padding: 2px ;
+}
+
+
+
 @keyframes downClip {
     from {top: 0px;}
     to {top: 70px}

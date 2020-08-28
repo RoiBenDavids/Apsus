@@ -202,6 +202,8 @@ font-size: 1.5rem;
 cursor: pointer;
 }
 
+
+
 @media(max-width:1070px){
     .notes-container{
         max-width: 720px;
