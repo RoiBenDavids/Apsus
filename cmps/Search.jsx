@@ -1,7 +1,8 @@
-const { NavLink,withRouter } = ReactRouterDOM
+const { NavLink, withRouter } = ReactRouterDOM
+import eventBus from '../services/event-bus-service.js'
 class _Search extends React.Component {
-    state={
-        page:'/'
+    state = {
+        page: '/'
 
     }
 
@@ -9,12 +10,21 @@ class _Search extends React.Component {
         console.log(this.props);
     }
     componentDidUpdate() {
-        console.log(this.props.location.pathname);
+        let path = this.props.location.pathname
+        path = path.split('/')[1] || '/'
+        if (this.state.page !== path) this.setState({ page: path })
+
     }
- 
+    setSearch=(ev)=>{
+        this.props.history.push(`/${this.state.page}?filterBy=search&search=${ev.target.value}`)
+        eventBus.emit('search', { input:ev.target.value })
+    }
+
     render() {
-        return <div></div>
-       
+        if(this.state.page==='/') return <div></div>
+        return <input onChange={this.setSearch} placeholder={'search ' + this.state.page} type="text" />
+
+
     }
 
 }

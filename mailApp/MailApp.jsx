@@ -2,6 +2,7 @@ import { mailService } from "../mailApp/services/mail-service.js"
 import { MailList } from "../mailApp/cmps/MailList.jsx"
 import { MailCompose } from "../mailApp/cmps/MailCompose.jsx"
 import { MailDetail } from "./cmps/MailDetail.jsx"
+import eventBus from '../services/event-bus-service.js'
 // import {  } from "../lib/react-router-dom.min.js"
 const { Route, Switch, Link } = ReactRouterDOM
 
@@ -13,15 +14,25 @@ export class MailApp extends React.Component {
         chosenMail: '',
         filterBy: '',
         checkedItems: [],
-        mobileSideOpen:false
+        mobileSideOpen:false,
+        noteToCompose:{}
     }
 
-    componentDidMount() {
+    componentDidMount=()=> {
         const filterBy = new URLSearchParams(this.props.location.search).get('filterBy') || ''
+        const body = new URLSearchParams(this.props.location.search).get('body') || ''
+        const subject = new URLSearchParams(this.props.location.search).get('subject') || ''
+       this.unsubscribe= eventBus.on('search', (data) => {
+            this.setState({filterBy:'search', searchInput:data })
+        })
+        if(subject&&body) this.addNoteToCompose(subject,body)
         this.setState({ filterBy })
         this.loadMail()
-
     }
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+
     loadMail = () => {
         const mails = mailService.query()
             .then(mails => this.setState({ mails }))
@@ -29,7 +40,16 @@ export class MailApp extends React.Component {
     }
     mailsToRender() {
         if (!this.state.filterBy) return this.state.mails
-        var mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
+        console.log(this.state.filterBy);
+        if(this.state.filterBy==='search'){
+            console.log('serching...');
+            const mailsToRender = this.state.mails.filter(mail => {
+                if(mail.from.toLowerCase().includes(this.state.searchInput.input.toLowerCase())) return mail
+            })
+            
+            return mailsToRender
+        }
+        const mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
         return mailsToRender
 
     }
@@ -112,6 +132,12 @@ export class MailApp extends React.Component {
         this.setState({mobileSideOpen:!this.state.mobileSideOpen})
     }
 
+    addNoteToCompose(subject,body){
+        this.toggleCompose()
+        console.log(subject,body,'sdfsdf');
+        this.setState({noteToCompose:{subject,body}})
+    }
+
 
 
     render() {
@@ -139,7 +165,7 @@ export class MailApp extends React.Component {
 
                 </Switch>
 
-                {this.state.isCompose && <MailCompose cb={this.sendMail} toggleCompose={this.toggleCompose} />}
+                {this.state.isCompose && <MailCompose cb={this.sendMail} toggleCompose={this.toggleCompose} noteToCompose={this.state.noteToCompose} />}
             </section>
         )
     }
