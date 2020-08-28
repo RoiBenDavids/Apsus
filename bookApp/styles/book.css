@@ -139,6 +139,7 @@ ul.book-list{
 
 .book-details-preview{
     text-align: center;
+    display: flex;
 }
 
 .book-details-preview h4{
@@ -154,7 +155,68 @@ ul.book-list{
     width: 200px;
     display: block;
 }
+.book-description{
+    margin: 5px;
+}
 
 .edit-book-container form{
     flex-direction: column; 
+}
+
+.book-details-preview div{
+    margin: 5px;
+}
+.book-details-preview section{
+    width: 50%;
+}
+
+.book-details-preview div label{
+    margin-right: 5px;
+}
+
+/* reviews list */
+
+.reviews-list{
+    width: 50%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+}
+
+.reviews-list-btn button{
+    background-color: inherit;
+    border:none;
+    font-size: 1.2rem;
+}
+.save-review-btn{
+    width: 53%;
+    text-align: right;
+}
+
+.save-review-btn button{
+    background-color: inherit;
+    border: none;
+    font-size: 1.2rem;
+    
+}
+
+.return-books{
+    font-size: 2.5rem;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+}
+
+
+@media(max-width: 630px){
+    .book-details-preview{
+        
+        display: inline-block;
+    }
+    .book-details-preview section{
+        width: 100%;
+    }
+    .reviews-list{
+        width: 100%;
+    }
 }

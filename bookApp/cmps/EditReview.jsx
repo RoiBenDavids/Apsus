@@ -56,7 +56,9 @@ export class EditReview extends React.Component {
                             onChange={ev => this.handleChange(ev.target)}
                         />
                     </div>
-                    <button >save review</button>
+                    <div className='save-review-btn'>
+                        <button  ><i class="far fa-save"></i></button>
+                    </div>
                 </form>
             </div>
         )

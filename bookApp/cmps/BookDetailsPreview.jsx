@@ -76,9 +76,11 @@ export class BookDetailsPreview extends React.Component {
         }
 
         return <section className="book-details-preview">
+            <section>
+
             <img src={this.state.book.thumbnail} alt="book" />
             {this.state.book.isOnSale && <img src="../assets/img/sale.png" alt="book" />}
-            <Link to='/book'><i className="fas fa-book"></i></Link>
+            <Link to='/book'><i className="fas fa-book return-books"></i></Link>
             <h3>{this.state.book.title}</h3>
             <h4>{this.state.book.subtitle}</h4>
             <h4>{this.getPublishAt()}</h4>
@@ -86,6 +88,7 @@ export class BookDetailsPreview extends React.Component {
             <h4 style={this.getPriceColor()}>price: {this.state.book.listPrice.amount}{this.getCurr()}</h4>
             <Description text={this.state.book.description} />
             <EditReview renderReviews={this.setReviews}  bookId={this.state.book.id} />
+            </section>
             <ReviewsList renderReviews={this.setReviews} bookId={this.state.book.id} reviews={this.state.reviews}  />
         </section>
     }

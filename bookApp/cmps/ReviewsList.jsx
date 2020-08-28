@@ -30,27 +30,33 @@ export class ReviewsList extends React.Component {
             .then(book => { this.props.renderReviews([...book.reviews]) })
 
 
-}
+    }
+
+    getRate = (num) => {
+        let rate= '🌟'.repeat(num);
+        rate+='⭐'.repeat(5-num)
+        return rate
+    }
 
 
 
 
-
-
-render() {
-    return (
-        <div>
-            {this.props.reviews &&
-                (this.props.reviews).map(review =>
-                    <div key={review.id}>
-                        <h4>{review.rate}</h4>
-                        <h4>{review.txt}</h4>
-                        <button onClick={() => { this.onEditReview(review) }}>edit</button>
-                        <button onClick={() => { this.onDeleteReview(review) }}>delete</button>
-                    </div>
-                )}
-        </div>
-    )
-}
+    render() {
+        return (
+            <div className='reviews-list'>
+                {this.props.reviews &&
+                    (this.props.reviews).map(review =>
+                        <div key={review.id}>
+                            <h4>{this.getRate(review.rate)}</h4>
+                            <h4>{review.txt}</h4>
+                            <div className='reviews-list-btn flex justify-around'>
+                                <button onClick={() => { this.onEditReview(review) }}><i class="fas fa-edit"></i></button>
+                                <button onClick={() => { this.onDeleteReview(review) }}><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    )}
+            </div>
+        )
+    }
 
 }
