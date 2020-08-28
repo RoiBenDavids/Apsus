@@ -255,16 +255,24 @@ textarea {
         align-items: center;
         position: absolute;
         top: 119px;
-         background-color: rgb(23, 23, 31);
+        background-color: rgb(23, 23, 31);
         height: 150px;
         width: 100px;
         right: 0;
+        display: none;
+    }
+    .menu-btns-active{
+        display: flex;
     }
     .elipsis{
         display: block;
     }
     .mail-detail-icons i{
         padding: 10px 0;
+    }
+
+    .mail-details>p{
+        padding: 20px 50px;
     }
    
 
