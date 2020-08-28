@@ -30,7 +30,10 @@ export class MailDetail extends React.Component {
     }
     markAsRead = () => {
         mailService.markAsRead(this.state.mail.id)
+    }
 
+    sendToNotes = ()=>{
+        this.props.history.push(`/keep?subject=${this.state.mail.subject}&body=${this.state.mail.body}`)
     }
 
     render() {
@@ -42,6 +45,7 @@ export class MailDetail extends React.Component {
 
                     <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
                     <Link onClick={() => this.redirect(this.state.nextMailId)} to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
+                    <i onClick={()=>this.sendToNotes()} className="fas fa-share-square"></i>
                     <Link to={'/mail'}> <p onClick={() => this.deleteMail()}><i className="fas fa-trash"></i></p> </Link>
 
 
