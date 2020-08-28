@@ -14,7 +14,7 @@ export class AddNote extends React.Component {
     }
 
     handleSubmit = () => {
-        event.preventDefault
+        event.preventDefault();
         var info = {}
         switch (this.state.type) {
             case "NoteText":

@@ -94,6 +94,7 @@ textarea {
     font-size: 1.2rem;
     background-color: inherit;
     border: none;
+    color: rgb(174, 179, 199);
    
 }
 
@@ -145,7 +146,7 @@ textarea {
     padding-right: 50px;
 }
 .home{
-    background-color: rgb(23, 23, 31);;
+    background-color: rgb(23, 23, 31);
 }
 
 .home img:first-of-type{
