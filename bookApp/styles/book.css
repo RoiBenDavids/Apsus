@@ -3,12 +3,22 @@
 
 /* add book  */
 .add-book-container{
-    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .add-book-container input{
-    border-radius: 5px;
+    
     font-size: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom:1px solid black ;
+    
+}
+
+.add-book-container input::placeholder {
+    color: rgb(23, 23, 31);
 }
 
 .add-book-container label{
@@ -16,9 +26,13 @@
 }
 
 .add-book-list{
+    margin: 0 auto;
+    width: 50%;
     position: absolute;
     background-color: #fff;
     z-index: 2;
+    left: 25%;
+    top: 120px;
 }
 
 .title{
@@ -39,10 +53,31 @@
 
 /* book filter  */
 
+.book-filter{
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.book-filter h2{
+    margin: 0;
+}
+
+.book-filter input{
+    margin-left: 3px;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom:1px solid black ;
+}
 
 
+.book-filter input::placeholder {
+    color: rgb(23, 23, 31);
+}
 
-
+.books-app h2{
+    padding-left: 10px;
+}
 
 /* book list  */
 .book-list{
@@ -50,6 +85,11 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+}
+
+ul.book-list{
+    padding: 0 ;
+    margin: 0 10px;
 }
 
 .book-list li{
@@ -72,5 +112,49 @@
     width: 100%;
 }
 
+/* add book  */
+
+.title{
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+.title p{
+    margin: 12px 49px 12px 12px;
+}
+
+.title button{
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 25px;
+    height:25px;
+    padding: 0;
+    margin-right: 12px ;
+    background-color: inherit;
+    border: 1px solid black;
+}
 
 
+/* book details preview */
+
+.book-details-preview{
+    text-align: center;
+}
+
+.book-details-preview h4{
+    margin: 5px;
+}
+
+.book-details-preview h3{
+    margin: 8px;
+}
+
+.book-details-preview img{
+    margin: 20px auto 0;
+    width: 200px;
+    display: block;
+}
+
+.edit-book-container form{
+    flex-direction: column; 
+}

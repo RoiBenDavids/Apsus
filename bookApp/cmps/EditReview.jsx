@@ -38,20 +38,24 @@ export class EditReview extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='edit-book-container' >
                 {/* <form onSubmit={(ev) => { this.createReview(ev) }}> */}
-                <form onSubmit={(ev) => { this.createReview(ev) }}>
-                    <label htmlFor="rate">Rate</label>
-                    <input name="rate" value={this.state.rate}
-                        type="range" min='1' max='5'
-                        onChange={ev => this.handleChange(ev.target)}
-                    />
-                    <label htmlFor="txt">Your review</label>
-                    <textarea name="txt" value={this.state.txt}
-                        placeholder="Your review" type="text"
-                        onChange={ev => this.handleChange(ev.target)}
+                <form className='flex align-center' onSubmit={(ev) => { this.createReview(ev) }}>
+                    <div className='flex align-center'>
+                        <label htmlFor="rate">Rate:</label>
+                        <input name="rate" value={this.state.rate}
+                            type="range" min='1' max='5'
+                            onChange={ev => this.handleChange(ev.target)}
+                        />
+                    </div>
+                    <div className='flex align-center'>
 
-                    />
+                        <label htmlFor="txt">Your review:</label>
+                        <textarea name="txt" value={this.state.txt}
+                            placeholder="Your review" type="text"
+                            onChange={ev => this.handleChange(ev.target)}
+                        />
+                    </div>
                     <button >save review</button>
                 </form>
             </div>

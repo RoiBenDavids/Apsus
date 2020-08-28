@@ -29,7 +29,7 @@ export class AddBook extends React.Component {
 
     render() {
         return <div className='add-book-container'>
-            <label htmlFor="">Enter book name:</label>
+            <label htmlFor="">Add a book:</label>
             <input value={this.state.bookName} type="text" placeholder="Book name"
                 onChange={this.handleChange} />
                 <BookTitles clear={this.clearSearching} renderBook={this.props.renderBook} list={this.state.results}/>
