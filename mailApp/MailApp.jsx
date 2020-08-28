@@ -14,7 +14,8 @@ export class MailApp extends React.Component {
         filterBy: '',
         checkedItems: [],
         mobileSideOpen: false,
-        noteToCompose: {}
+        noteToCompose: {},
+        displayMail:''
     }
 
     componentDidMount() {
@@ -34,7 +35,7 @@ export class MailApp extends React.Component {
             }
         })
         if (subject && body) this.addNoteToCompose(subject, body)
-        this.setState({ filterBy })
+        this.setState({ filterBy,windowWidth:window.innerWidth })
         this.loadMail()
     }
     componentWillUnmount() {
@@ -141,10 +142,19 @@ export class MailApp extends React.Component {
         console.log(subject, body, 'sdfsdf');
         this.setState({ noteToCompose: { subject, body } })
     }
+    mailToPreview=(mailId)=>{
+        console.log(mailId);
+        if(mailId===this.state.displayMail){
+            this.setState({displayMail:''})
+            return
+        }
+        this.setState({displayMail:mailId})
+    }
 
 
 
     render() {
+        console.log(this.state.displayMail,'render');
         const mails = this.mailsToRender()
         return (
             <section className={'mail-app flex'}>
@@ -164,7 +174,8 @@ export class MailApp extends React.Component {
                     </Route>
                     <Route exact path={'/mail'}>
                         <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns}
-                            toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar} />
+                            toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar}
+                             windowWidth={this.state.windowWidth} mailToPreview={this.mailToPreview} displayMail={this.state.displayMail} />
                     </Route>
 
                 </Switch>

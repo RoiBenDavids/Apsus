@@ -1,7 +1,7 @@
 import { MailPreview } from "./MailPreview.jsx"
 
-export function MailList({ mails, toggleStar, onCheck,handleListBtns,toggleSelectAll, checkedItems,openSideBar }) {
-
+export function MailList({ mails, toggleStar, onCheck,handleListBtns,toggleSelectAll, checkedItems,openSideBar , windowWidth, mailToPreview, displayMail }) {
+console.log(displayMail,'sdfsdfd');
     function handleSelectAll(ev){
         toggleSelectAll(ev.target.checked)
 
@@ -19,7 +19,8 @@ export function MailList({ mails, toggleStar, onCheck,handleListBtns,toggleSelec
             <ul >
                 {
                     mails.map(mail => {
-                        return <MailPreview key={mail.id} mail={mail} toggleStar={toggleStar} onCheck={onCheck} checkedItems={checkedItems} />
+                        return <MailPreview key={mail.id} mail={mail} toggleStar={toggleStar} onCheck={onCheck} checkedItems={checkedItems}
+                         windowWidth={windowWidth} mailToPreview={mailToPreview} displayMail={displayMail} />
                     })
                 }
             </ul>
