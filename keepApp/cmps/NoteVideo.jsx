@@ -28,7 +28,12 @@ export class NoteVideo extends React.Component {
                 </form>
 
                 <iframe width="300" height="250" src={this.props.note.info.url}></iframe>
-                <NoteControlers onEdit={this.props.onEdit} onChangeColor={this.props.onChangeColor} onChangePinned={this.props.onChangePinned} onDelete={this.props.onDelete} noteId={this.props.note.id} />
+                <NoteControlers onEdit={this.props.onEdit}
+                 onChangeColor={this.props.onChangeColor} 
+                 onChangePinned={this.props.onChangePinned}
+                  onDelete={this.props.onDelete} 
+                  noteId={this.props.note.id}
+                  onShare={this.props.onShare} />
             </div>
         )
     }

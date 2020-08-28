@@ -2,7 +2,7 @@ import { NoteTxt } from './NoteTxt.jsx'
 import { NoteImg } from './NoteImg.jsx'
 import { NoteVideo } from './NoteVideo.jsx'
 import { NoteTodos } from './NoteTodos.jsx'
-export function NotePreview({ note, onDelete, onChangePinned, onChangeColor, onEdit, OnDoneAt,removeTodo,addTodo }) {
+export function NotePreview({ note, onDelete, onChangePinned, onChangeColor, onEdit, OnDoneAt,removeTodo,addTodo,onShare }) {
 
     switch (note.type) {
         case 'NoteText':
@@ -10,19 +10,22 @@ export function NotePreview({ note, onDelete, onChangePinned, onChangeColor, onE
                 onChangeColor={onChangeColor}
                 onChangePinned={onChangePinned}
                 onDelete={onDelete}
-                note={note} />
+                note={note}
+                onShare={onShare} />
         case 'NoteImg':
             return <NoteImg onEdit={onEdit}
                 onChangeColor={onChangeColor}
                 onChangePinned={onChangePinned}
                 onDelete={onDelete}
-                note={note} />
+                note={note}
+                onShare={onShare} />
         case 'NoteVideo':
             return <NoteVideo onEdit={onEdit} 
             onChangeColor={onChangeColor} 
             onChangePinned={onChangePinned} 
             onDelete={onDelete} 
-            note={note} />
+            note={note} 
+            onShare={onShare}/>
         case 'NoteTodos':
             return <NoteTodos OnDoneAt={OnDoneAt} 
             onEdit={onEdit} 
@@ -31,13 +34,15 @@ export function NotePreview({ note, onDelete, onChangePinned, onChangeColor, onE
             onDelete={onDelete} 
             note={note}
             addTodo={addTodo} 
-            removeTodo={removeTodo}/>
+            removeTodo={removeTodo}
+            onShare={onShare}/>
         default:
             return <NoteTxt onEdit={onEdit} 
             onChangeColor={onChangeColor} 
             onChangePinned={onChangePinned} 
             onDelete={onDelete} 
-            note={note} />
+            note={note}
+            onShare={onShare} />
     }
 
 }
