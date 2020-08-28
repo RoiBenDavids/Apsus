@@ -5,7 +5,8 @@ import eventBus from '../services/event-bus-service.js'
 export class KeepApp extends React.Component {
 
     state = {
-        notes: []
+        notes: [],
+        filterBy: ''
     }
 
 
@@ -23,8 +24,29 @@ export class KeepApp extends React.Component {
         if (subject || body) {
             var info = { txt: body + subject + ' ' }
             this.onAddNote('NoteText', info);
-            
         }
+        this.unsubscribe = eventBus.on('filterKeep', (data) => {
+            this.setState({ filterBy:data.input })
+        })
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+
+    filterBy() {
+        var { notes, filterBy } = this.state
+        if (!filterBy) return notes
+        return notes = notes.filter(note => {
+            if (note.type === 'NoteImg' || note.type === 'NoteVideo') return note.info.title.includes(filterBy);
+            if (note.type === 'NoteText') return note.info.txt.includes(filterBy);
+            if (note.type === 'NoteTodos') {
+                let todosStrs = note.info.todos.map(todo => todo.txt)
+                return todosStrs.join(' ').includes(filterBy);
+            }
+            return false;
+        })
+
     }
 
     loadNotes = () => {
@@ -168,7 +190,7 @@ export class KeepApp extends React.Component {
 
 
                 <div className='notes-container'>
-                    {this.state.notes.map(note => <NotePreview removeTodo={this.removeTodo}
+                    {this.filterBy().map(note => <NotePreview removeTodo={this.removeTodo}
                         key={note.id}
                         OnDoneAt={this.OnDoneAt}
                         note={note}

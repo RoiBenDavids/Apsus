@@ -20,6 +20,7 @@ class _Search extends React.Component {
     }
     setSearch=(ev)=>{
         if(this.state.page==='mail') eventBus.emit('search', { input:ev.target.value })
+        if(this.state.page==='keep') eventBus.emit('filterKeep', { input:ev.target.value })
         
     }
 
