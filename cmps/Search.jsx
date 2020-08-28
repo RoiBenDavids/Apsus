@@ -21,12 +21,13 @@ class _Search extends React.Component {
     setSearch=(ev)=>{
         if(this.state.page==='mail') eventBus.emit('search', { input:ev.target.value })
         if(this.state.page==='keep') eventBus.emit('filterKeep', { input:ev.target.value })
+        if(this.state.page==='book') eventBus.emit('filterBook', { input:ev.target.value })
         
     }
 
     render() {
-        if(this.state.page==='/') return <div></div>
-        return <input onChange={this.setSearch} placeholder={'search ' + this.state.page} type="text" />
+        if(this.state.page!=='mail' && this.state.page!=='keep' && this.state.page!=='book') return <div></div>
+        return <input className='search-input' onChange={this.setSearch} placeholder={'search ' + this.state.page} type="text" />
 
 
     }

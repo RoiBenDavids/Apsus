@@ -2,8 +2,8 @@ import { bookService } from '../service/book-service.js'
 import { BookFilter } from './BookFilter.jsx'
 import { BookPreview } from './BookPreview.jsx'
 import { AddBook } from './AddBook.jsx'
-// import eventBus from '../services/event-bus-service.js'
-// import { BookDetailsPreview } from '../cmps/books-app/BookDetailsPreview.jsx'
+import eventBus from '../../services/event-bus-service.js'
+
 
 
 
@@ -17,7 +17,13 @@ export class Books extends React.Component {
 
     componentDidMount() {
         this.loadBooks();
+        this.unsubscribe = eventBus.on('filterBook', (data) => {
+            console.log(data);
+            this.setState({ filterBy:data.input })
+        })
+        
     }
+
 
 
     loadBooks() {
@@ -56,10 +62,10 @@ export class Books extends React.Component {
     render() {
         const books = this.getBooksForDisplay();
         return (
-            <section className="books-app">
+            <section className="books-app" >
                 <AddBook renderBook={() => this.loadBooks()} />
-                <h2>Books</h2>
-                <BookFilter onFilter={this.setFilter} />
+                {/* <h2>Books</h2>
+                <BookFilter onFilter={this.setFilter} /> */}
                 <ul className="book-list">
                     {
                         books.map(book =>

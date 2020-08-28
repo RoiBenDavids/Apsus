@@ -89,6 +89,18 @@ textarea {
     animation-duration:4s 
 }
 
+.search-input{
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: inherit;
+    border: none;
+   
+}
+
+.search-input::placeholder {
+    color: rgb(174, 179, 199);
+}
+
 /* notification  */
 
 .notification{

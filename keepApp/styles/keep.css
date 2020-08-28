@@ -1,49 +1,55 @@
 /* helper */
-.unshown{
+
+.unshown {
     opacity: 0;
 }
 
 /* home */
-.notes-container{
+
+.notes-container {
     max-width: 1070px;
     margin: 0 auto;
-    column-count: 3;  
-    text-align: center; 
+    column-count: 3;
+    text-align: center;
 }
 
-
-
 /* todos */
-.done{
+
+.done {
     text-decoration: line-through;
 }
 
 /* imgs */
-.note-img{
+
+.note-img {
     width: 300px;
 }
 
 /* color picker */
-.color-picker button{
+
+.color-picker button {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border:none;
+    border: none;
 }
-.color-picker{
+
+.color-picker {
     position: absolute;
     z-index: 1;
     padding: 10px 10px;
     background-color: #fff;
     border-radius: 3px;
-    left:60px;  
+    left: 60px;
 }
 
 /* notes box  */
-.pin{
+
+.pin {
     width: 20px;
 }
-.keep-note{
+
+.keep-note {
     text-align: center;
     display: inline-block;
     width: 350px;
@@ -53,36 +59,36 @@
 }
 
 /* notes controler  */
-.note-controler{
+
+.note-controler {
     opacity: 0;
 }
-.note-controler:hover{
+
+.note-controler:hover {
     opacity: 1;
     transition: 0.3s;
 }
-.note-controler button{
+
+.note-controler button {
     color: rgb(23, 23, 31);
     font-size: 1.2rem;
     background-color: inherit;
     border: 10px;
-    padding-bottom: 5px ;
-
+    padding-bottom: 5px;
 }
 
-.todo-preview-line{
+.todo-preview-line {
     border-bottom: 1px solid black;
     padding: 0 10px 5px 10px;
 }
 
-
-
-.todo-preview-line li{
+.todo-preview-line li {
     text-align: left;
 }
 
-.todo-preview-line button{
+.todo-preview-line button {
     background-color: inherit;
-    border-radius: 50% ;
+    border-radius: 50%;
     width: 30px;
     height: 30px;
     border: 1px solid black;
@@ -90,25 +96,26 @@
     opacity: 0;
 }
 
-.todo-preview-line button:hover{
+.todo-preview-line button:hover {
     opacity: 1;
 }
 
-.note-controler button:hover{
+.note-controler button:hover {
     color: rgb(48, 48, 53);
 }
 
 /* add note */
-.add-note{
+
+.add-note {
     display: flex;
 }
 
-.add-note div{
+.add-note div {
     margin: 0 auto;
     padding: 10px;
 }
 
-.add-note-input{
+.add-note-input {
     width: 300px;
     height: 40px;
     border: 0;
@@ -121,7 +128,7 @@
     color: rgb(23, 23, 31);
 }
 
-.add-note-btn-container button{
+.add-note-btn-container button {
     color: rgb(23, 23, 31);
     background-color: inherit;
     border: none;
@@ -130,18 +137,21 @@
     height: 45px;
     width: 50px;
 }
-.add-note-btn-container button:hover{
+
+.add-note-btn-container button:hover {
     font-size: 1.7rem;
 }
-.add-note .add-note-todos{
+
+.add-note .add-note-todos {
     padding: 0;
     margin: 0;
 }
-.add-note-todos form{
+
+.add-note-todos form {
     flex-direction: column;
 }
 
-.add-note-todos form div{
+.add-note-todos form div {
     width: 100%;
 }
 
@@ -158,7 +168,7 @@
     font-size: 1.7rem;
 } */
 
-.add-note-todos form div button{
+.add-note-todos form div button {
     color: rgb(23, 23, 31);
     background-color: inherit;
     border: none;
@@ -167,29 +177,29 @@
     height: 45px;
     width: 50px;
 }
-.add-note-todos form div button:hover{
+
+.add-note-todos form div button:hover {
     font-size: 1.7rem;
 }
 
-.todo-list{
+.todo-list {
     background-color: #fff;
     position: absolute;
     z-index: 1;
     width: 300px;
     min-height: 70px;
-    
 }
 
-.todo{
+.todo {
     align-items: center;
     background-color: inherit;
 }
 
-.todo h5{
+.todo h5 {
     margin: 0;
 }
 
-.todo button{
+.todo button {
     color: rgb(23, 23, 31);
     background-color: inherit;
     border-radius: 50%;
@@ -198,12 +208,13 @@
     border: 1px solid black;
 }
 
-.todo button:hover{
+.todo button:hover {
     color: rgb(48, 48, 53);
 }
 
 /* notes titles  */
-.note-title{
+
+.note-title {
     background-color: inherit;
     width: auto;
     font-size: 1.5rem;
@@ -214,29 +225,31 @@
 
 /* todo-note-list */
 
-.keep-note ul{
+.keep-note ul {
     padding-left: 0;
 }
 
-.todo-note-list{
-font-size: 1.5rem;
-cursor: pointer;
+.todo-note-list {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-
-
-@media(max-width:1070px){
-    .notes-container{
+@media(max-width:1070px) {
+    .notes-container {
         max-width: 720px;
-        column-count: 2;  
+        column-count: 2;
     }
 }
 
-@media(max-width:720px){
-    .notes-container{
-        column-count: 1;  
+@media(max-width:720px) {
+    .notes-container {
+        column-count: 1;
+    }
+    .note-controler {
+        opacity: 1;
+    }
+
+    .todo-preview-line button {
+        opacity: 1;
     }
 }
-
-
-

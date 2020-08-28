@@ -5,7 +5,7 @@
 .add-book-container{
     text-align: center;
     width: 100%;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .add-book-container input{
@@ -74,6 +74,7 @@
 .book-filter input::placeholder {
     color: rgb(23, 23, 31);
 }
+
 
 .books-app h2{
     padding-left: 10px;
