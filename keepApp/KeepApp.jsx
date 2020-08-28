@@ -147,12 +147,12 @@ export class KeepApp extends React.Component {
             default:
                 break;
         }
-        // var body = 'hy'
         this.props.history.push(`/mail?subject=${subject}&body=${body}`)
         eventBus.emit('notify', { msg: 'Send to mail', type: 'notification' })
     }
 
     handleSubmit = () => {
+        event.stopPropagation();
         var info = {}
         switch (this.state.type) {
             case "NoteText":
