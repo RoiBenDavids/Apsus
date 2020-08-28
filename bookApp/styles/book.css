@@ -1,0 +1,76 @@
+
+/* books */
+
+/* add book  */
+.add-book-container{
+    padding: 20px;
+}
+
+.add-book-container input{
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.add-book-container label{
+    font-size: 20px;
+}
+
+.add-book-list{
+    position: absolute;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+}
+
+.title p{
+    margin-top: 10px;
+    margin-right: 50px ;    
+}
+
+.title button{
+ position: absolute ;
+ right: 0;
+}
+    
+
+/* book filter  */
+
+
+
+
+
+
+/* book list  */
+.book-list{
+    text-align: center;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+}
+
+.book-list li{
+    position: relative;
+    margin-bottom: 30px;
+
+}
+
+.book-list li button{
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background-color: #00000000;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.book-preview img{
+    width: 100%;
+}
+
+
+

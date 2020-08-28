@@ -7,6 +7,7 @@ export class Home extends React.Component {
                 <div className='envelope flex align-center justify-center'>
                 <Link to='/keep'><i className="fas fa-clipboard"></i> </Link>
                 <Link to='/mail'><i className="fas fa-envelope"></i></Link>
+                <Link to='/book'><i className="fas fa-book"></i></Link>
                     
                     
                 </div>

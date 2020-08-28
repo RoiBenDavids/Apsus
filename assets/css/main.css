@@ -2,6 +2,7 @@
 
 @import url(../../mailApp/styles/mail.css);
 @import url(../../keepApp/styles/keep.css);
+@import url(../../bookApp/styles/book.css);
 
 /* FONTS */
 @font-face {

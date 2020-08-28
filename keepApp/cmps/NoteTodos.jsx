@@ -21,12 +21,18 @@ export class NoteTodos extends React.Component {
         else return 'done'
     }
 
+    getPinClass = () => {
+        let pinClass=(this.props.note.isPinned) ? 'pin' : 'pin unshown'
+        console.log(pinClass);
+        return pinClass
+    }
+
 
     render() {
 
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note'>
-                {this.props.note.isPinned && <img className='pin' src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />}
+               <img className={this.getPinClass()} src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />
                 <ul>
                     {this.props.note.info.todos.map(todo =>
                         <div key={todo.id} className='todo-preview-line flex justify-between align-center'>

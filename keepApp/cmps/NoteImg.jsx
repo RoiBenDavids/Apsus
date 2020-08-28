@@ -18,6 +18,12 @@ export class NoteImg extends React.Component {
         this.props.onEdit(txt, this.props.note.id)
     }
 
+    getPinClass = () => {
+        let pinClass=(this.props.note.isPinned) ? 'pin' : 'pin unshown'
+        console.log(pinClass);
+        return pinClass
+    }
+
 
 
 
@@ -25,7 +31,7 @@ export class NoteImg extends React.Component {
 
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note'>
-                {this.props.note.isPinned && <img className='pin' src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt=""/>}
+                <img className={this.getPinClass()} src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />
                 <form onSubmit={this.handleSubmit}>
                     <input className='note-title' value={this.state.txt} type="text" placeholder="Note title"
                         onChange={this.handleChange} />

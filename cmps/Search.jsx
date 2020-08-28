@@ -25,7 +25,6 @@ class _Search extends React.Component {
     }
 
     render() {
-        console.log(this.state.page);
         if(this.state.page==='/') return <div></div>
         return <input onChange={this.setSearch} placeholder={'search ' + this.state.page} type="text" />
 

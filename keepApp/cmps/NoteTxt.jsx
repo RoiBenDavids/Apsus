@@ -1,6 +1,6 @@
 import { NoteControlers } from './NoteControlers.jsx'
 export class NoteTxt extends React.Component {
-    
+
     state = {
         txt: this.props.note.info.txt
     }
@@ -15,19 +15,27 @@ export class NoteTxt extends React.Component {
         this.props.onEdit(txt, this.props.note.id)
     }
 
-    getRows=()=>{
-        var txt=this.state.txt.split('');
-        var rows=Math.floor(txt.length/20)+2;
-        return rows+''
+    getRows = () => {
+        var txt = this.state.txt.split('');
+        var rows = Math.floor(txt.length / 20) + 2;
+        return rows + ''
 
     }
+
+    getPinClass = () => {
+        let pinClass=(this.props.note.isPinned) ? 'pin' : 'pin unshown'
+        console.log(pinClass);
+        return pinClass
+    }
+
+
 
 
     render() {
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note' >
 
-                {this.props.note.isPinned && <img className='pin' src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />}
+                <img className={this.getPinClass()} src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />
 
                 <form onSubmit={this.handleSubmit}>
                     <textarea rows={this.getRows()} className='note-title' value={this.state.txt} type="text" placeholder="Note title"
