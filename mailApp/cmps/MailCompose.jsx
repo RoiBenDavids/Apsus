@@ -7,8 +7,8 @@ export class MailCompose extends React.Component {
     }
 
     componentDidMount() { 
-       console.log( this.props.noteToCompose.body);
-        if (this.props.noteToCompose) this.setState({subject:'From my notes '+this.props.noteToCompose.subject,body:this.props.noteToCompose.body})
+       console.log( this.props.noteToCompose);
+        if (this.props.noteToCompose.body) this.setState({subject:'From my notes '+this.props.noteToCompose.subject,body:this.props.noteToCompose.body})
      
      
     }
