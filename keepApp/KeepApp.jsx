@@ -18,6 +18,12 @@ export class KeepApp extends React.Component {
 
     componentDidMount() {
         this.loadNotes();
+        const subject = new URLSearchParams(this.props.location.search).get('subject') || ''
+        const body = new URLSearchParams(this.props.location.search).get('body') || ''
+        if (subject || body){
+            var info = { txt: body + subject+ ' ' }
+            this.onAddNote('NoteText', info);
+        }
     }
 
     loadNotes = () => {
@@ -89,6 +95,14 @@ export class KeepApp extends React.Component {
         this.setState({ txt: target.value })
     }
 
+    onShare = (noteId)=>{
+        var note= keepService.getById(noteId)
+        var subject=note.type;
+        var body= 'hy'
+        console.log(subject,body);
+        this.props.history.push(`/mail?subject=${subject}&body=${body}`)
+    }
+
     handleSubmit = () => {
         var info = {}
         switch (this.state.type) {
@@ -135,7 +149,8 @@ export class KeepApp extends React.Component {
                         onChangeColor={this.onChangeColor}
                         onChangePinned={this.onChangePinned}
                         addTodo={this.addTodo}
-                        onDelete={this.onDelete} />)}
+                        onDelete={this.onDelete} 
+                        onShare={this.onShare}/>)}
                 </div>
             </section>
         )

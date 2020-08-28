@@ -44,7 +44,8 @@ export class NoteTodos extends React.Component {
                     onChangePinned={this.props.onChangePinned}
                     onDelete={this.props.onDelete}
                     noteId={this.props.note.id}
-                    note={this.props.note} />
+                    note={this.props.note}
+                    onShare={this.props.onShare} />
             </div>
         )
 
