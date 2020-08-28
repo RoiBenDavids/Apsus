@@ -43,17 +43,22 @@ export class MailDetail extends React.Component {
                 <div className='mail-list-header flex justify-between'>
                     <h1>{this.state.mail.subject}</h1>
 
-                    <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
-                    <Link onClick={() => this.redirect(this.state.nextMailId)} to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
-                    <i onClick={() => this.sendToNotes()} className="fas fa-share-square"></i>
-                    <Link to={'/mail'}> <p onClick={() => this.deleteMail()}><i className="fas fa-trash"></i></p> </Link>
+                    <Link to='/mail'><i className="fas fa-undo-alt"></i></Link>  
+                    <i className="fas fa-ellipsis-h elipsis "></i>
+
+                    <div className='flex justify-between mail-detail-icons'>
+                        <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
+                        <Link onClick={() => this.redirect(this.state.nextMailId)} to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
+                        <i onClick={() => this.sendToNotes()} className="fas fa-share-square"></i>
+                        <Link to={'/mail'}> <p onClick={() => this.deleteMail()}><i className="fas fa-trash"></i></p> </Link>
+                    </div>
 
 
                 </div>
-                <div className='flex justify-between'>
-                    <div className='flex'>
+                <div className=' flex justify-between'>
+                    <div className='mail-details-from flex'>
                         <h1>{this.state.mail.username}</h1>
-                        <p>{'<'+this.state.mail.from+'>'}</p>
+                        <p>{'<' + this.state.mail.from + '>'}</p>
                     </div>
                     <h1>{transformTimeStamp(this.state.mail.sentAt)}</h1>
 
