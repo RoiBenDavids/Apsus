@@ -226,7 +226,7 @@ textarea {
         padding: 40px;
     }
     .side-bar .compose {
-        position: absolute;
+        position: fixed;
         right: 10px;
         bottom: 10px;
         z-index: 5;
@@ -333,14 +333,12 @@ textarea {
         top: 300px;
         padding: 10px 0;
     }
-<<<<<<< HEAD
 
     .mail-details>p{
         padding: 20px 50px;
     }
    
 
-=======
     .home h1 {
         left: 25px;
         font-size: 1.2rem;
@@ -357,7 +355,6 @@ textarea {
     .notes-home {
         left: 50px;
     }
->>>>>>> b962c9c057ca1eef2f3eeae56132bc95d97dee8a
     
     .mail-home {
         left: 130px;
