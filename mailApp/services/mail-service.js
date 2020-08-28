@@ -13,6 +13,7 @@ var mailsi = [
     {
         id: makeId(),
         from:'moshiko@yahoo.com',
+        username:'moshiko',
         subject: 'vey important notice',
         body: 'yes and no are both answers',
         isRead: false,
@@ -22,6 +23,7 @@ var mailsi = [
     {
         id: makeId(),
         from:'YaroniPoni@walla.com',
+        username:'Yaroni',
         subject: 'you are the best',
         body: 'I just wanted to inform you that you are the best',
         isRead: false,
@@ -31,6 +33,7 @@ var mailsi = [
     {
         id: makeId(),
         from:'LDonchich@walla.com',
+        username:'LucaD',
         subject: 'come play with us',
         body: 'I would like to invite you to play with us in the mavs team, we will send you all the gear and the plane tickets, see you soon, love luca magic',
         isRead: false,
@@ -40,6 +43,7 @@ var mailsi = [
     {
         id: makeId(),
         from:'OsamaBenLaden@walla.com',
+        username:'OsamaBL',
         subject: 'are you free next winter?',
         body: 'we have some new operations coming soon, let me know if you are interested taking part with us',
         isRead: false,
@@ -61,7 +65,8 @@ function query() {
 function createMail(subject, body) {
     mails.unshift({
         id: makeId(),
-        from:'Me',
+        from:'wethebest@apsus.gr',
+        username:'Me',
         subject,
         body,
         isRead:false,

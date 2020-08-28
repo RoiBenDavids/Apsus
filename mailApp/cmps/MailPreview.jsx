@@ -25,7 +25,7 @@ function _MailPreview({ mail, toggleStar, onCheck, checkedItems }) {
 
             <Link to={`/mail/${mail.id}`} className={'preview-content flex align-center'}>
                 <div className='name-circle flex justify-center align-center'>{mail.from.substring(0, 2)}</div>
-                <p>{mail.from}</p>
+                <p>{mail.username}</p>
                 <p>{mail.subject}</p>
                 <p>{transformTimeStamp(mail.sentAt)}</p>
             </Link>

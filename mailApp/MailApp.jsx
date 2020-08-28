@@ -11,21 +11,29 @@ export class MailApp extends React.Component {
     state = {
         mails: [],
         isCompose: false,
-        chosenMail: '',
         filterBy: '',
         checkedItems: [],
-        mobileSideOpen:false,
-        noteToCompose:{}
+        mobileSideOpen: false,
+        noteToCompose: {}
     }
 
-    componentDidMount=()=> {
+    componentDidMount() {
         const filterBy = new URLSearchParams(this.props.location.search).get('filterBy') || ''
         const body = new URLSearchParams(this.props.location.search).get('body') || ''
         const subject = new URLSearchParams(this.props.location.search).get('subject') || ''
-       this.unsubscribe= eventBus.on('search', (data) => {
-            this.setState({filterBy:'search', searchInput:data })
+        const searchInput = new URLSearchParams(this.props.location.search).get('searchInput') || ''
+        if (searchInput) this.setState({ searchInput: { input: searchInput } })
+        this.unsubscribe = eventBus.on('search', (data) => {
+            if (data.input) {
+                this.props.history.push(`/mail?filterBy=search&searchInput=${data.input}`)
+                this.setState({ filterBy: 'search', searchInput: data })
+            }
+            else{
+                this.props.history.push(`/mail`)
+                this.setState({ filterBy:'' })
+            }
         })
-        if(subject&&body) this.addNoteToCompose(subject,body)
+        if (subject && body) this.addNoteToCompose(subject, body)
         this.setState({ filterBy })
         this.loadMail()
     }
@@ -41,11 +49,11 @@ export class MailApp extends React.Component {
     mailsToRender() {
         if (!this.state.filterBy) return this.state.mails
         console.log(this.state.filterBy);
-        if(this.state.filterBy==='search'){
+        if (this.state.filterBy === 'search') {
             const mailsToRender = this.state.mails.filter(mail => {
-                if(mail.from.toLowerCase().includes(this.state.searchInput.input.toLowerCase())) return mail
+                if (mail.from.toLowerCase().includes(this.state.searchInput.input.toLowerCase())) return mail
             })
-            
+
             return mailsToRender
         }
         const mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
@@ -78,9 +86,6 @@ export class MailApp extends React.Component {
             this.props.history.push(`/mail?filterBy=${filter}`)
             this.setState({ filterBy: filter })
         }
-        
-        
-
     }
 
     toggleStar = (mailId) => {
@@ -127,14 +132,14 @@ export class MailApp extends React.Component {
         }
     }
 
-    toggleMenueBar=()=>{
-        this.setState({mobileSideOpen:!this.state.mobileSideOpen})
+    toggleMenueBar = () => {
+        this.setState({ mobileSideOpen: !this.state.mobileSideOpen })
     }
 
-    addNoteToCompose(subject,body){
+    addNoteToCompose(subject, body) {
         this.toggleCompose()
-        console.log(subject,body,'sdfsdf');
-        this.setState({noteToCompose:{subject,body}})
+        console.log(subject, body, 'sdfsdf');
+        this.setState({ noteToCompose: { subject, body } })
     }
 
 
@@ -146,7 +151,7 @@ export class MailApp extends React.Component {
                 <div className={'side-bar flex column'}>
 
                     <div className='compose flex align-center' onClick={() => this.toggleCompose()}>compose</div>
-                    <div className={this.state.mobileSideOpen?'mobile-side-open side-bar-btns':'side-bar-btns'}>
+                    <div className={this.state.mobileSideOpen ? 'mobile-side-open side-bar-btns' : 'side-bar-btns'}>
                         <p className={!this.state.filterBy ? 'active' : ''} onClick={() => this.filterBy('')} ><i className="fas fa-inbox"></i>inbox</p>
                         <p className={this.state.filterBy === 'isRead' ? 'active' : ''} onClick={() => this.filterBy('isRead')} ><i className="fas fa-envelope-open"></i>Unread</p>
                         <p className={this.state.filterBy === 'isStarred' ? 'active' : ''} onClick={() => this.filterBy('isStarred')}><i className='fas fa-star'></i>Starred</p>
@@ -159,7 +164,7 @@ export class MailApp extends React.Component {
                     </Route>
                     <Route exact path={'/mail'}>
                         <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns}
-                         toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar} />
+                            toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar} />
                     </Route>
 
                 </Switch>
