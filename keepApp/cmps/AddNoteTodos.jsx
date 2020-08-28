@@ -13,6 +13,7 @@ export class AddNoteTodos extends React.Component {
     }
 
     handleSubmit = () => {
+        event.preventDefault();
         let todos = [...this.state.todos];
         todos.push({ id: makeId(), txt: this.state.newTodo, doneAt: null });
         this.setState({ todos, newTodo: '' });
