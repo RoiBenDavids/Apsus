@@ -1,101 +1,109 @@
-
-
 @import url(../../mailApp/styles/mail.css);
 @import url(../../keepApp/styles/keep.css);
 @import url(../../bookApp/styles/book.css);
-
 /* FONTS */
+
 @font-face {
     font-family: Ubuntu-regular;
     src: url(../fonts/Ubuntu-Regular.ttf);
 }
-*{
+
+* {
     box-sizing: border-box;
     outline: none;
 }
-html{
+
+html {
     font-family: Ubuntu-regular;
-    background: linear-gradient( rgba(75,75,75,1) 0%,rgba(75,75,75,1) 8% , rgba(216,221,239,1) 80%,rgba(216,221,239,1) 500%);
+    background: linear-gradient( rgba(75, 75, 75, 1) 0%, rgba(75, 75, 75, 1) 8%, rgba(216, 221, 239, 1) 80%, rgba(216, 221, 239, 1) 500%);
     min-height: 100%;
 }
+
 body {
-    
     margin: 0;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
     cursor: pointer;
 }
-button{
+
+button {
     cursor: pointer;
 }
-textarea { 
-    height: auto; 
+
+textarea {
+    height: auto;
     width: auto;
 }
 
 /* HELPERS */
-.flex{
+
+.flex {
     display: flex;
 }
-.justify-between{
+
+.justify-between {
     justify-content: space-between;
 }
-.justify-around{
+
+.justify-around {
     justify-content: space-around;
 }
-.align-center{
+
+.align-center {
     align-items: center;
 }
-.column{
+
+.column {
     flex-flow: column;
 }
-.justify-center{
+
+.justify-center {
     justify-content: center;
 }
 
 /* NAVBAR */
-.nav-bar{
+
+.nav-bar {
     background-color: rgb(23, 23, 31);
     padding: 20px;
     position: relative;
-      
-}
-.nav-bar a,.fa-th{
-    color:rgba(216,221,239,1);
-
 }
 
-.nav-bar .clipboard,.envelopeN{
+.nav-bar a, .fa-th {
+    color: rgba(216, 221, 239, 1);
+}
+
+.nav-bar .clipboard, .envelopeN {
     position: absolute;
     right: 20px;
-    top:-20px;
-    
+    top: -20px;
 }
 
-.nav-bar .downClip{
-    top:70px;
-    animation-name:downClip;
-    animation-duration:4s  
-}
-.nav-bar .downEnv{
-    top:100px;
-    animation-name:downEnv;
-    animation-duration:4s 
+.nav-bar .downClip {
+    top: 70px;
+    animation-name: downClip;
+    animation-duration: 4s
 }
 
-.search-input{
+.nav-bar .downEnv {
+    top: 100px;
+    animation-name: downEnv;
+    animation-duration: 4s
+}
+
+.search-input {
     text-align: center;
     font-size: 1.2rem;
     background-color: inherit;
     border: none;
     color: rgb(174, 179, 199);
-   
 }
 
 .search-input::placeholder {
@@ -104,7 +112,7 @@ textarea {
 
 /* notification  */
 
-.notification{
+.notification {
     background-color: #fff;
     position: fixed;
     right: 0px;
@@ -112,44 +120,54 @@ textarea {
     border-radius: 3px;
 }
 
-.notification h2{
-    padding: 0 10px ;
-}
-.notification span{
-    padding: 2px ;
+.notification h2 {
+    padding: 0 10px;
 }
 
-
+.notification span {
+    padding: 2px;
+}
 
 @keyframes downClip {
-    from {top: 0px;}
-    to {top: 70px}
-  }
+    from {
+        top: 0px;
+    }
+    to {
+        top: 70px
+    }
+}
+
 @keyframes downEnv {
-    from {top: 0px;}
-    to {top: 100px}
-  }
+    from {
+        top: 0px;
+    }
+    to {
+        top: 100px
+    }
+}
 
 /* HOMEPAGE */
-.envelope{
-    max-width:60vw;
+
+.envelope {
+    max-width: 60vw;
     height: 80vh;
     margin: 0 auto;
-    
 }
 
-.envelope .fas{
+.envelope .fas {
     font-size: 150px;
-    color:rgb(23, 23, 31);
+    color: rgb(23, 23, 31);
 }
-.envelope .fa-clipboard{
+
+.envelope .fa-clipboard {
     padding-right: 50px;
 }
-.home{
+
+.home {
     background-color: rgb(23, 23, 31);
 }
 
-.home img:first-of-type{
+.home img:first-of-type {
     display: block;
     margin: 0 auto;
     width: 98vw;
@@ -157,118 +175,182 @@ textarea {
     object-fit: cover;
     object-position: right;
 }
-.home h1{
+
+.home h1 {
     position: absolute;
-    top:200px;
-    left:200px;
+    top: 200px;
+    left: 200px;
     font-size: 3rem;
 }
-.home .arrow{
+
+.home .arrow {
     position: absolute;
-    top:300px;
+    top: 300px;
     left: 480px;
     font-size: 3rem;
 }
-.notes-home,.mail-home, .books-home{
-    font-size:5rem;
+
+.notes-home, .mail-home, .books-home {
+    font-size: 5rem;
     position: absolute;
     top: 500px;
-    
 }
-.notes-home{
+
+.notes-home {
     left: 200px;
 }
 
-.mail-home{
+.mail-home {
     left: 462px;
 }
-.books-home{
+
+.books-home {
     left: 724px;
 }
 
-
-
-
-@media (max-width: 950px){
-    .side-bar-btns{
+@media (max-width: 950px) {
+    .side-bar-btns {
         flex-direction: row;
         transform: translateX(-150px);
         position: fixed;
         transition: transform .3s
     }
-    .mobile-side-open{
+    .mobile-side-open {
         transform: translateX(0);
         transform: translateY(60px);
         width: 90vw;
-        background-color:rgba(216,221,239,1);
+        background-color: rgba(216, 221, 239, 1);
         height: 100vh;
     }
-    .mobile-side-open p{
+    .mobile-side-open p {
         padding: 40px;
     }
-    .side-bar .compose{
+    .side-bar .compose {
         position: absolute;
         right: 10px;
         bottom: 10px;
         z-index: 5;
     }
-    .mobile-menu{
+    .mobile-menu {
         display: block;
         position: absolute;
         right: 20px;
     }
-
-   
-    .compose-mail{
+    .compose-mail {
         right: 0;
-        width:100%;
+        width: 100%;
         height: 100vh;
     }
-        
-  
+    .home h1 {
+        left: 100px;
+        font-size: 2.5rem;
+    }
+    .home .arrow {
+        top: 280px;
+        left: 350px;
+        font-size: 2.5rem;
+    }
+    .notes-home, .mail-home, .books-home {
+        top: 400px;
+        font-size: 4rem;
+    }
+    .notes-home {
+        left: 150px;
+    }
+    
+    .mail-home {
+        left: 330px;
+    }
+    
+    .books-home {
+        left: 480px;
+    }
 }
 
-@media (max-width: 470px){
+@media (max-width: 650px) {
+    .home h1 {
+        left: 50px;
+        font-size: 1.8rem;
+    }
+    .home .arrow {
+        top: 260px;
+        left: 200px;
+        font-size: 1.8rem;
+    }
+    .notes-home, .mail-home, .books-home {
+        font-size: 3rem;
+        top: 350px
+    }
+    .notes-home {
+        left: 80px;
+    }
+    
+    .mail-home {
+        left: 190px;
+    }
+    
+    .books-home {
+        left: 300px;
+    }
+}
 
-    .mail-preview div:first-child{
+@media (max-width: 470px) {
+    .mail-preview div:first-child {
         display: flex;
         flex-direction: column;
         margin: 5px;
     }
-
-    .preview-content p:last-child{
+    .preview-content p:last-child {
         font-size: 0.7rem;
     }
-    .preview-content p:first-of-type{
+    .preview-content p:first-of-type {
         display: none;
     }
-
-    .mail-details-from{
+    .mail-details-from {
         flex-direction: column;
     }
-
-    .mail-list-header h1{
-        font-size:0.8rem
+    .mail-list-header h1 {
+        font-size: 0.8rem
     }
-
-    .mail-detail-icons{
+    .mail-detail-icons {
         flex-direction: column;
         align-items: center;
         position: absolute;
         top: 119px;
-         background-color: rgb(23, 23, 31);
+        background-color: rgb(23, 23, 31);
         height: 150px;
         width: 100px;
         right: 0;
     }
-    .elipsis{
+    .elipsis {
         display: block;
     }
-    .mail-detail-icons i{
+    .mail-detail-icons i {
+        top: 300px;
         padding: 10px 0;
     }
-   
-
+    .home h1 {
+        left: 25px;
+        font-size: 1.2rem;
+    }
+    .home .arrow {
+        top: 240px;
+        left: 140px;
+        font-size: 1.2rem;
+    }
+    .notes-home, .mail-home, .books-home {
+        top: 300px;
+        font-size: 1.5rem;
+    }
+    .notes-home {
+        left: 50px;
+    }
     
-
+    .mail-home {
+        left: 130px;
+    }
+    
+    .books-home {
+        left: 210px;
+    }
 }
