@@ -7,20 +7,24 @@ class _Search extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
+        this.getPage()
     }
     componentDidUpdate() {
+        this.getPage()
+    }
+    getPage(){
+
         let path = this.props.location.pathname
         path = path.split('/')[1] || '/'
         if (this.state.page !== path) this.setState({ page: path })
-
     }
     setSearch=(ev)=>{
-        this.props.history.push(`/${this.state.page}?filterBy=search&search=${ev.target.value}`)
-        eventBus.emit('search', { input:ev.target.value })
+        if(this.state.page==='mail') eventBus.emit('search', { input:ev.target.value })
+        
     }
 
     render() {
+        console.log(this.state.page);
         if(this.state.page==='/') return <div></div>
         return <input onChange={this.setSearch} placeholder={'search ' + this.state.page} type="text" />
 
