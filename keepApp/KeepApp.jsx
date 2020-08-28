@@ -7,10 +7,10 @@ export class KeepApp extends React.Component {
     state = {
         notes: []
     }
-  
 
 
-    
+
+
 
     handleChange = ({ target }) => {
         this.setState({ newTodo: target.value })
@@ -47,20 +47,20 @@ export class KeepApp extends React.Component {
         this.loadNotes();
     }
 
-    onEdit = (txt,noteId) => {
+    onEdit = (txt, noteId) => {
         var editNote = keepService.getById(noteId)
         this.setState({ id: editNote.id, type: editNote.type, })
         switch (editNote.type) {
             case 'NoteText':
-                var info={ txt }
-                keepService.edit(noteId,info)
+                var info = { txt }
+                keepService.edit(noteId, info)
                 this.loadNotes();
                 break;
             case 'NoteImg':
             case 'NoteVideo':
-                var url=keepService.getById(noteId).info.url
+                var url = keepService.getById(noteId).info.url
                 info = { title: txt, url }
-                keepService.edit(noteId,info)
+                keepService.edit(noteId, info)
                 this.loadNotes();
                 break;
         }
@@ -68,9 +68,20 @@ export class KeepApp extends React.Component {
 
     }
 
-    OnDoneAt=(noteId,todoId)=>{
-        keepService.doneAt(noteId,todoId);
+    OnDoneAt = (noteId, todoId) => {
+        keepService.doneAt(noteId, todoId);
         this.loadNotes();
+    }
+
+    removeTodo = (noteId, todoId) => {
+        keepService.removeTodo(noteId, todoId);
+        this.loadNotes();
+    }
+
+    addTodo = (noteId, txt) => {
+        keepService.addTodo(noteId, txt);
+        this.loadNotes();
+
     }
 
 
@@ -111,12 +122,20 @@ export class KeepApp extends React.Component {
             <section >
                 <div className='add-container'>
 
-                <AddNote onAddNote={this.onAddNote} />
+                    <AddNote onAddNote={this.onAddNote} />
                 </div>
-                
+
 
                 <div className='notes-container'>
-                {this.state.notes.map(note => <NotePreview key={note.id} OnDoneAt={this.OnDoneAt} note={note} onEdit={this.onEdit} onChangeColor={this.onChangeColor} onChangePinned={this.onChangePinned} onDelete={this.onDelete} />)}
+                    {this.state.notes.map(note => <NotePreview removeTodo={this.removeTodo}
+                        key={note.id}
+                        OnDoneAt={this.OnDoneAt}
+                        note={note}
+                        onEdit={this.onEdit}
+                        onChangeColor={this.onChangeColor}
+                        onChangePinned={this.onChangePinned}
+                        addTodo={this.addTodo}
+                        onDelete={this.onDelete} />)}
                 </div>
             </section>
         )
