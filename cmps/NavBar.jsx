@@ -1,12 +1,18 @@
-const { NavLink } = ReactRouterDOM
+import { Search } from "./Search.jsx"
+const { NavLink,withRouter } = ReactRouterDOM
 
 export class NavBar extends React.Component {
     state={
         envelopeClass:'envelopeN',
-        clipboardClass:'clipboard'
+        clipboardClass:'clipboard',
 
     }
 
+    componentDidMount() {
+        // console.log(this.props.location.pathname);
+       
+    }
+   
     animate=()=>{
         if(this.state.envelopeClass==='envelopeN downEnv')this.setState({envelopeClass:'envelopeN', clipboardClass:'clipboard'})
         else this.setState({envelopeClass:'envelopeN downEnv', clipboardClass:'clipboard downClip'})
@@ -18,6 +24,7 @@ export class NavBar extends React.Component {
     render() {
        return <nav className='nav-bar flex justify-between align-center'>
             <NavLink to='/'> <div>LOGO</div></NavLink>
+            <Search />
             <input type="text" />
             <div className={this.state.clipboardClass}><NavLink to='/keep'><i className="fas fa-clipboard"></i> </NavLink></div>
             <div className={this.state.envelopeClass}> <NavLink to='/mail'><i className="fas fa-envelope"></i></NavLink></div>
@@ -26,5 +33,4 @@ export class NavBar extends React.Component {
 
         </nav>
     }
-
 }

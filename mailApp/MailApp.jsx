@@ -59,6 +59,8 @@ export class MailApp extends React.Component {
             this.props.history.push(`/mail?filterBy=${filter}`)
             this.setState({ filterBy: filter })
         }
+        
+        
 
     }
 
