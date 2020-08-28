@@ -78,7 +78,6 @@ p,h1{
    padding: 20px 50px 0 50px;
 }
 .mail-details>p{
-   padding: 0 40px 0 40px;
    padding: 20px 90px 0 90px;
 }
 
@@ -184,6 +183,9 @@ p,h1{
     color:yellow;
     cursor: pointer;
 }
+.mail-preview{
+    background-color: rgba(216,221,239,1);
+}
 .mail-preview div{
     margin-right: 20px;
 }
@@ -217,3 +219,27 @@ p,h1{
     padding: 0 40px;
 }
 
+.color1{
+    background-color:#ea5455;
+}
+.color2{
+    background-color:#8fc0a9;
+}
+.color3{
+    background-color:#8675a9;
+}
+.color4{
+    background-color:#ffc1fa;
+}
+.color5{
+    background-color:#ede682;
+}
+.color6{
+    background-color:#ffa931;
+}
+.color7{
+    background-color:#12cad6;
+}
+.color8{
+    background-color:#ede682;
+}

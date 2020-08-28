@@ -20,7 +20,7 @@ export class LongText extends React.Component {
             charLength = 50;
         }
         const leftOver = charLength - this.props.subject.length - 3;
-        this.setState({ text: <p>{this.props.subject.length>charLength?this.props.subject.substring(0, charLength-3)+'...':this.props.subject+' - '} 
+        this.setState({ text: <p>{this.props.subject.length>charLength?this.props.subject.substring(0, charLength-3):this.props.subject+' - '} 
         <span>{this.props.body.substring(0,leftOver )+(leftOver<this.props.body.length?'...':'')}</span></p> })
         
     }

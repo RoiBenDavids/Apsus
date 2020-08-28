@@ -226,7 +226,7 @@ textarea {
         padding: 40px;
     }
     .side-bar .compose {
-        position: absolute;
+        position: fixed;
         right: 10px;
         bottom: 10px;
         z-index: 5;
@@ -321,6 +321,10 @@ textarea {
         height: 150px;
         width: 100px;
         right: 0;
+        display: none;
+    }
+    .menu-btns-active{
+        display: flex;
     }
     .elipsis {
         display: block;
@@ -329,6 +333,12 @@ textarea {
         top: 300px;
         padding: 10px 0;
     }
+
+    .mail-details>p{
+        padding: 20px 50px;
+    }
+   
+
     .home h1 {
         left: 25px;
         font-size: 1.2rem;

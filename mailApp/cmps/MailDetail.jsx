@@ -3,6 +3,7 @@ const { Link, Route } = ReactRouterDOM
 
 export class MailDetail extends React.Component {
     state = {
+        menuBtns:false
 
     }
 
@@ -35,8 +36,12 @@ export class MailDetail extends React.Component {
     sendToNotes = () => {
         this.props.history.push(`/keep?subject=${this.state.mail.subject}&body=${this.state.mail.body}`)
     }
+    togleMenu=()=>{
+        this.setState({menuBtns:!this.state.menuBtns})
+    }
 
     render() {
+        const styleMenu= this.state.menuBtns?'flex justify-between mail-detail-icons menu-btns-active':'flex justify-between mail-detail-icons'
         if (!this.state.mail) return <div></div>
         return (
             <section className={'mail-list mail-details'}>
@@ -44,9 +49,9 @@ export class MailDetail extends React.Component {
                     <h1>{this.state.mail.subject}</h1>
 
                     <Link to='/mail'><i className="fas fa-undo-alt"></i></Link>  
-                    <i className="fas fa-ellipsis-h elipsis "></i>
+                    <i onClick={()=>this.togleMenu()} className="fas fa-ellipsis-h elipsis "></i>
 
-                    <div className='flex justify-between mail-detail-icons'>
+                    <div className={styleMenu}>
                         <Link onClick={() => this.redirect(this.state.prevMailId)} to={`/mail/${this.state.prevMailId}`}><i className="fas fa-angle-left"></i></Link>
                         <Link onClick={() => this.redirect(this.state.nextMailId)} to={`/mail/${this.state.nextMailId}`}><i className="fas fa-angle-right"></i></Link>
                         <i onClick={() => this.sendToNotes()} className="fas fa-share-square"></i>

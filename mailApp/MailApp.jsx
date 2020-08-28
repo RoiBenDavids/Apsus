@@ -149,6 +149,7 @@ export class MailApp extends React.Component {
             return
         }
         this.setState({displayMail:mailId})
+        this.markAsRead(mailId)
     }
 
 
@@ -175,7 +176,8 @@ export class MailApp extends React.Component {
                     <Route exact path={'/mail'}>
                         <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns}
                             toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar}
-                             windowWidth={this.state.windowWidth} mailToPreview={this.mailToPreview} displayMail={this.state.displayMail} />
+                             windowWidth={this.state.windowWidth} mailToPreview={this.mailToPreview} displayMail={this.state.displayMail}
+                             markAsRead={this.markAsRead} />
                     </Route>
 
                 </Switch>
