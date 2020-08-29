@@ -35,9 +35,7 @@ p,h1{
    background-color:rgb(23, 23, 31) ;
 }
 .compose-mail button{
-   /* padding: 15px; */
    margin:0 auto;
-   /* border-radius: 50%; */
    background-color: inherit;
    border: 0;
    font-size: 2rem;
