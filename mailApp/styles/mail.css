@@ -6,6 +6,7 @@ p,h1{
 
 .mail-app{
     margin-block-start:40px ;
+    position: relative;
 }
 
 /* COMPOSE MAIL */
@@ -23,25 +24,30 @@ p,h1{
 }
 .compose-mail .compose-header{
     flex-basis: 50px;
-    background-color: rgb(75, 75, 75);
-    color: white;
-    padding: 0 20px 0 20px;
+    background-color: rgb(23, 23, 31);
+    color: rgb(216, 221, 239);
+    padding: 0 20px ;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px; 
 }
 .compose-mail .compose-footer{
    height: 80px;
+   background-color:rgb(23, 23, 31) ;
 }
 .compose-mail button{
-   padding: 15px;
-   margin-left:20px;
-   border-radius: 5px;
-   
+   /* padding: 15px; */
+   margin:0 auto;
+   /* border-radius: 50%; */
+   background-color: inherit;
+   border: 0;
+   font-size: 2rem;
+   color: rgb(216, 221, 239);
 }
 .compose-mail input{
     border:0;
     border-bottom: 0.1px solid grey;
     flex-basis: 50px;
+    
   
 }
 .compose-mail input::placeholder{
@@ -132,7 +138,7 @@ p,h1{
 .side-bar div:first-of-type::before{
     content:url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
     height: 5px;
-    margin: 0 15px 25px 1px;
+    margin: 0 15px 25px 0px;
 }
 .side-bar p {
     padding:10px ;

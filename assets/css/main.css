@@ -20,7 +20,7 @@
 .nav-bar {
     background-color: rgb(23, 23, 31);
     padding: 20px;
-    position: relative;
+    /* position: relative; */
 }
 
 .nav-bar a, .fa-th {
