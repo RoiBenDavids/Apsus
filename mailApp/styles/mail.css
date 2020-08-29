@@ -12,10 +12,7 @@ p,h1{
     margin-block-start:40px ;
 }
 @media (max-width: 950px){
-    .mail-app{
-        margin-block-start:0 ;
-        flex-direction: column;
-    }
+    
 
 }
 
@@ -127,10 +124,7 @@ p,h1{
     display: none;
 }
 @media (max-width: 950px){
-    .mail-list{
-        width:100vw ;
-        margin: 0;
-    }
+    
 
 }
 
