@@ -50,13 +50,19 @@ export class MailApp extends React.Component {
     mailsToRender() {
         if (!this.state.filterBy) return this.state.mails
         console.log(this.state.filterBy);
+        const input =this.state.searchInput? this.state.searchInput.input.toLowerCase():''
         if (this.state.filterBy === 'search') {
             const mailsToRender = this.state.mails.filter(mail => {
-                if (mail.from.toLowerCase().includes(this.state.searchInput.input.toLowerCase())) return mail
+                if (mail.from.toLowerCase().includes(input)||
+                mail.body.toLowerCase().includes(input)||
+                mail.subject.toLowerCase().includes(input)) return mail
             })
-
             return mailsToRender
-        }
+        }else if(this.state.filterBy === 'sent'){
+            const mailsToRender = this.state.mails.filter(mail => {
+                if (mail.username==='Me') return mail
+            })
+            return mailsToRender}
         const mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
         return mailsToRender
 
@@ -166,7 +172,7 @@ export class MailApp extends React.Component {
                         <p className={!this.state.filterBy ? 'active' : ''} onClick={() => this.filterBy('')} ><i className="fas fa-inbox"></i>inbox</p>
                         <p className={this.state.filterBy === 'isRead' ? 'active' : ''} onClick={() => this.filterBy('isRead')} ><i className="fas fa-envelope-open"></i>Unread</p>
                         <p className={this.state.filterBy === 'isStarred' ? 'active' : ''} onClick={() => this.filterBy('isStarred')}><i className='fas fa-star'></i>Starred</p>
-                        <p><i className=" fas fa-paper-plane"></i>Sent</p>
+                        <p className={this.state.filterBy === 'sent' ? 'active' : ''} onClick={() => this.filterBy('sent')}><i className=" fas fa-paper-plane"></i>Sent</p>
 
                     </div>
                 </div>

@@ -12,10 +12,21 @@ export const mailService = {
 var mailsi = [
     {
         id: makeId(),
-        from:'moshiko@yahoo.com',
-        username:'moshiko',
+        from:'Petermoshiko@yahoo.com',
+        username:'Peter',
         subject: 'vey important notice',
         body: 'yes and no are both answers',
+        isRead: true,
+        sentAt: Date.now(),
+        isStarred:false
+    },
+    {
+        id: makeId(),
+        from:'CssGod@css.bg',
+        username:'Vivi',
+        subject: 'How to CSS',
+        body: `If you would have taken your time at the beggining to think about the layout it would have been much easier to 
+        build this app, learn from your mistakes, the CSS god`,
         isRead: false,
         sentAt: Date.now(),
         isStarred:false
@@ -24,11 +35,34 @@ var mailsi = [
         id: makeId(),
         from:'YaroniPoni@walla.com',
         username:'Yaroni',
-        subject: 'you are the best',
-        body: 'I just wanted to inform you that you are the best',
-        isRead: false,
+        subject: 'Frozen jeans',
+        body: 'Hi Roi, did you get your jeans out of the freezer?',
+        isRead: true,
         sentAt: Date.now(),
         isStarred: true
+    },
+    {
+        id: makeId(),
+        from:'Abubu@walla.com',
+        username:'abed',
+        subject: 'Oriental Cooking',
+        body: `Hello Or , regarding the cooking course that you were intrested,
+        it will be starting next week, the price is as said $5000 and we will teach you all of our
+        great traditions and cooking secrets, looking forward to see you, best regards, abed`,
+        isRead: false,
+        sentAt: Date.now()-15000000,
+        isStarred: false
+    },
+    {
+        id: makeId(),
+        from:'ziso@walla.com',
+        username:'zohar ziso',
+        subject: 'marketing',
+        body: `Hi, I would like to invete you to our new marketing course that will take part next month in Bet-Lehem, we will learn a
+        lot of usefull ways to market and sell whatever you can think about, the course is for males strickly`,
+        isRead: false,
+        sentAt: Date.now()-115900000,
+        isStarred: false
     },
     {
         id: makeId(),
