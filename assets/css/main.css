@@ -26,6 +26,20 @@
     padding: 20px;
     /* position: relative; */
 }
+
+.links-container{
+    background-color: rgb(23, 23, 31);
+    width: 100px;
+    position: absolute;
+    right: 0px;
+    top: 85px;
+    border-radius:3px ;
+}
+
+.links-container div{
+    padding: 10px 0;
+}
+
 .logo{
     font-family: Flower;
     font-size: 2rem;
