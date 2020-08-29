@@ -468,6 +468,7 @@ function getBookById(bookId) {
 
 
 function getBookList(bookName) {
+  if(!bookName) return Promise.resolve([]);
   var prmRes = axios.get(`https://www.googleapis.com/books/v1/volumes?printType=books&q=${bookName}`)
   return prmRes.then(res => {
     return res.data

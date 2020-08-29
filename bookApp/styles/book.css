@@ -1,31 +1,29 @@
-
 /* books */
 
 /* add book  */
-.add-book-container{
+
+.add-book-container {
     text-align: center;
     width: 100%;
-    margin: 20px;
+    margin: 20px 0;
 }
 
-.add-book-container input{
-    
+.add-book-container input {
     font-size: 20px;
     background-color: transparent;
     border: none;
-    border-bottom:1px solid black ;
-    
+    border-bottom: 1px solid black;
 }
 
 .add-book-container input::placeholder {
     color: rgb(23, 23, 31);
 }
 
-.add-book-container label{
+.add-book-container label {
     font-size: 20px;
 }
 
-.add-book-list{
+.add-book-list {
     margin: 0 auto;
     width: 50%;
     position: absolute;
@@ -35,71 +33,68 @@
     top: 120px;
 }
 
-.title{
+.title {
     display: flex;
     align-items: center;
 }
 
-.title p{
+.title p {
     margin-top: 10px;
-    margin-right: 50px ;    
+    margin-right: 50px;
 }
 
-.title button{
- position: absolute ;
- right: 0;
+.title button {
+    position: absolute;
+    right: 0;
 }
-    
 
 /* book filter  */
 
-.book-filter{
+.book-filter {
     align-items: flex-end;
     margin-bottom: 20px;
 }
 
-.book-filter h2{
+.book-filter h2 {
     margin: 0;
 }
 
-.book-filter input{
+.book-filter input {
     margin-left: 3px;
     font-size: 1.1rem;
     background-color: transparent;
     border: none;
-    border-bottom:1px solid black ;
+    border-bottom: 1px solid black;
 }
-
 
 .book-filter input::placeholder {
     color: rgb(23, 23, 31);
 }
 
-
-.books-app h2{
+.books-app h2 {
     padding-left: 10px;
 }
 
 /* book list  */
-.book-list{
+
+.book-list {
     text-align: center;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 }
 
-ul.book-list{
-    padding: 0 ;
-    margin: 0 10px;
+ul.book-list {
+    margin: 0;
+    padding: 0 10px;
 }
 
-.book-list li{
+.book-list li {
     position: relative;
     margin-bottom: 30px;
-
 }
 
-.book-list li button{
+.book-list li button {
     position: absolute;
     bottom: -30px;
     right: 0;
@@ -109,115 +104,127 @@ ul.book-list{
     font-size: 20px;
 }
 
-.book-preview img{
+.book-preview img {
     width: 100%;
 }
 
 /* add book  */
 
-.title{
+.title {
     border-bottom: 1px solid black;
     text-align: left;
 }
 
-.title p{
+.title p {
     margin: 12px 49px 12px 12px;
 }
 
-.title button{
+.title button {
     font-size: 1.2rem;
     border-radius: 50%;
     width: 25px;
-    height:25px;
+    height: 25px;
     padding: 0;
-    margin-right: 12px ;
+    margin-right: 12px;
     background-color: inherit;
     border: 1px solid black;
 }
 
-
 /* book details preview */
 
-.book-details-preview{
-    text-align: center;
-    display: flex;
+.img-and-books-details {
+    align-items: start;
 }
 
-.book-details-preview h4{
-    margin: 5px;
+.book-details-preview div.books-details {
+    padding-top:20px ;
+    width: 50%;
+    margin: 0;
 }
 
-.book-details-preview h3{
-    margin: 8px;
+.books-details * {
+    margin: 0;
 }
 
-.book-details-preview img{
+.book-details-preview img {
     margin: 20px auto 0;
     width: 200px;
     display: block;
 }
-.book-description{
+
+.book-description {
     margin: 5px;
 }
 
-.edit-book-container form{
-    flex-direction: column; 
+.edit-book-container {
+    /* background-color: rgb(157, 191, 207); */
+    border-radius: 3px;
 }
 
-.book-details-preview div{
-    margin: 5px;
-}
-.book-details-preview section{
-    width: 50%;
+.edit-book-container textarea {
+    background-color: inherit;
+    border: none;
 }
 
-.book-details-preview div label{
-    margin-right: 5px;
+.edit-book-container form {
+    flex-direction: column;
+}
+
+.book-details-preview div {
+    padding: 5px;
+}
+
+.book-details-preview section {
+    width: 100%;
 }
 
 /* reviews list */
 
-.reviews-list{
-    width: 50%;
+.reviews-list {
+    width: 100%;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    margin: 0;
 }
 
-.reviews-list-btn button{
+.reviews-list * {
+    margin: 0;
+}
+
+.reviews-list-btn button {
     background-color: inherit;
-    border:none;
+    border: none;
     font-size: 1.2rem;
 }
-.save-review-btn{
+
+.save-review-btn {
     width: 53%;
     text-align: right;
 }
 
-.save-review-btn button{
+.save-review-btn button {
     background-color: inherit;
     border: none;
     font-size: 1.2rem;
-    
 }
 
-.return-books{
+.return-books {
     font-size: 2.5rem;
     position: absolute;
     top: 80px;
     left: 20px;
 }
 
-
-@media(max-width: 630px){
-    .book-details-preview{
-        
-        display: inline-block;
+@media(max-width: 630px) {
+    .img-and-books-details {
+        flex-direction: column;
     }
-    .book-details-preview section{
+    .reviews-list {
         width: 100%;
     }
-    .reviews-list{
+    .books-details{
+        text-align: center;
         width: 100%;
     }
 }

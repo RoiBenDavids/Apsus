@@ -32,6 +32,35 @@ export class EditReview extends React.Component {
         this.setState({ [target.name]: target.value })
     }
 
+    changeRate = (rate) => {
+        this.setState({ rate })
+    }
+
+    getRate = (num) => {
+        var arr = []
+        var fiveMinusArr = []
+        for (let i = 0; i < num; i++) {
+            arr.push(i);
+        }
+        for (let i = 0; i < 5 - num; i++) {
+            fiveMinusArr.push(i)
+
+        }
+        return <div className='flex justify-around'>
+
+            {arr.map((i, idx) =>
+                <div key={idx}>
+                    <i onClick={() => { this.changeRate(idx+1) }} className="fas fa-star"></i>
+                </div>
+            )}
+            {fiveMinusArr.map((i, idx) =>
+                <div key={idx}>
+                    <i onClick={() => { this.changeRate(this.state.rate+idx+1) }} className="far fa-star"></i>
+                </div>
+            )}
+        </div>
+    }
+
 
 
 
@@ -39,25 +68,20 @@ export class EditReview extends React.Component {
     render() {
         return (
             <div className='edit-book-container' >
-                {/* <form onSubmit={(ev) => { this.createReview(ev) }}> */}
+                <h2>add review</h2>
                 <form className='flex align-center' onSubmit={(ev) => { this.createReview(ev) }}>
                     <div className='flex align-center'>
-                        <label htmlFor="rate">Rate:</label>
-                        <input name="rate" value={this.state.rate}
-                            type="range" min='1' max='5'
-                            onChange={ev => this.handleChange(ev.target)}
-                        />
+                        {this.getRate(this.state.rate)}
                     </div>
                     <div className='flex align-center'>
 
-                        <label htmlFor="txt">Your review:</label>
-                        <textarea name="txt" value={this.state.txt}
+                        <textarea rows='3' name="txt" value={this.state.txt}
                             placeholder="Your review" type="text"
                             onChange={ev => this.handleChange(ev.target)}
                         />
                     </div>
                     <div className='save-review-btn'>
-                        <button  ><i class="far fa-save"></i></button>
+                        <button  ><i className="far fa-save"></i></button>
                     </div>
                 </form>
             </div>
