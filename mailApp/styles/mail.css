@@ -1,7 +1,3 @@
-@font-face {
-    font-family: FontA;
-    src: url(https://kit-free.fontawesome.com);
-}
 
 p,h1{
     margin: 0;
@@ -11,14 +7,6 @@ p,h1{
 .mail-app{
     margin-block-start:40px ;
 }
-@media (max-width: 950px){
-    
-
-}
-
-
-
-
 
 /* COMPOSE MAIL */
 .compose-mail{
@@ -123,10 +111,6 @@ p,h1{
 .mobile-menu{
     display: none;
 }
-@media (max-width: 950px){
-    
-
-}
 
 /* SIDE BAr */
 .mail-app .side-bar{
@@ -148,7 +132,7 @@ p,h1{
 .side-bar div:first-of-type::before{
     content:url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
     height: 5px;
-    margin: 0 15px 25px 10px;
+    margin: 0 15px 25px 1px;
 }
 .side-bar p {
     padding:10px ;
