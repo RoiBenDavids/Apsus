@@ -223,7 +223,7 @@ ul.book-list {
     .reviews-list {
         width: 100%;
     }
-    .books-details{
+    .book-details-preview div.books-details{
         text-align: center;
         width: 100%;
     }

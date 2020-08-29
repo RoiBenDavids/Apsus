@@ -11,7 +11,7 @@ export class NoteTodos extends React.Component {
     }
 
     handleSubmit = () => {
-        event.preventDefault;
+        event.preventDefault();
         this.props.addTodo(this.props.note.id, this.state.txt)
         this.setState({ txt: '' })
     }
