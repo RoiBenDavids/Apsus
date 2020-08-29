@@ -9,6 +9,7 @@ function saveToStorage(key, val) {
 
 function loadFromStorage(key) {
     var str = localStorage.getItem(key);
+    console.log(str);
     var val = JSON.parse(str)
     return val;
 }
