@@ -20,9 +20,7 @@ p,h1{
 }
 
 
-.unread{
-    font-weight: bold;
-}
+
 
 
 /* COMPOSE MAIL */
@@ -72,6 +70,9 @@ p,h1{
 
 
 /* MAIL DETAIL */
+.mail-details{
+    background-color:rgb(241, 244, 248);;
+}
 
 .mail-details>div:last-of-type{
    margin-bottom: 40px;
@@ -92,10 +93,9 @@ p,h1{
 /* MAIL LIST */
 .mail-list{
     flex: 1;
-    background-color: rgba(216,221,239,1);
     margin: 0 20px 0 20px;
     border-radius: 5px;
-    min-height: 70vh;
+    min-height: 80vh;
 }
 .mail-list i,input{
     cursor: pointer;
@@ -184,7 +184,12 @@ p,h1{
     cursor: pointer;
 }
 .mail-preview{
-    background-color: rgba(216,221,239,1);
+    background-color: rgb(241, 244, 248);
+    cursor: pointer;
+}
+.unread{
+    font-weight: bold;
+    background-color: rgb(216,221,239,1);
 }
 .mail-preview div{
     margin-right: 20px;
@@ -211,6 +216,8 @@ p,h1{
 
 .small-detail{
     padding: 40px;
+    background-color: rgb(241, 244, 248);
+    
     border-bottom: 0.3px solid grey;
     max-height: 200px;
     overflow: hidden;
