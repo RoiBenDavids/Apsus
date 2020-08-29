@@ -1,7 +1,6 @@
 import { MailPreview } from "./MailPreview.jsx"
 
 export function MailList({ mails, toggleStar, onCheck,handleListBtns,toggleSelectAll, checkedItems,openSideBar , windowWidth, mailToPreview, displayMail, markAsRead }) {
-console.log(displayMail,'sdfsdfd');
     function handleSelectAll(ev){
         toggleSelectAll(ev.target.checked)
 

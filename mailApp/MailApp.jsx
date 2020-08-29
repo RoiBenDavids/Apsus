@@ -49,7 +49,6 @@ export class MailApp extends React.Component {
     }
     mailsToRender() {
         if (!this.state.filterBy) return this.state.mails
-        console.log(this.state.filterBy);
         const input =this.state.searchInput? this.state.searchInput.input.toLowerCase():''
         if (this.state.filterBy === 'search') {
             const mailsToRender = this.state.mails.filter(mail => {
@@ -145,11 +144,9 @@ export class MailApp extends React.Component {
 
     addNoteToCompose(subject, body) {
         this.toggleCompose()
-        console.log(subject, body, 'sdfsdf');
         this.setState({ noteToCompose: { subject, body } })
     }
     mailToPreview=(mailId)=>{
-        console.log(mailId);
         if(mailId===this.state.displayMail){
             this.setState({displayMail:''})
             return
@@ -161,7 +158,6 @@ export class MailApp extends React.Component {
 
 
     render() {
-        console.log(this.state.displayMail,'render');
         const mails = this.mailsToRender()
         return (
             <section className={'mail-app flex'}>
