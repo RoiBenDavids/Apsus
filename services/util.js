@@ -36,6 +36,7 @@ function getRandomIntInclusive(min, max) {
 
 function transformTimeStamp(timeStamp){
     const today = new Date().setHours(0, 0, 0, 0);
+    const thisYear = new Date().getFullYear()
     const dayToCHeck = new Date(timeStamp).setHours(0, 0, 0, 0);
     const date = new Date(timeStamp)
     if(today===dayToCHeck){
@@ -44,7 +45,7 @@ function transformTimeStamp(timeStamp){
         minutes=minutes<10?0+''+minutes:minutes;
       return hours+':'+minutes
     }
-    else if(date.getFullYear===today.getFullYear){
+    else if(date.getFullYear()===thisYear){
         const month = monthToName(date.getMonth())
         const dateV = date.getDate()
         return month+' '+dateV
