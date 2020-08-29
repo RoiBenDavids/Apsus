@@ -23,7 +23,7 @@ export class NavBar extends React.Component {
 
     render() {
        return <nav className='nav-bar flex justify-between align-center'>
-            <NavLink to='/'> <div className='logo'>Luca</div></NavLink>
+            <NavLink to='/'> <div className='logo'>Apsus</div></NavLink>
             <Search />
             <div className={this.state.clipboardClass}><NavLink to='/keep'><i className="fas fa-clipboard"></i> </NavLink></div>
             <div className={this.state.envelopeClass}> <NavLink to='/mail'><i className="fas fa-envelope"></i></NavLink></div>
