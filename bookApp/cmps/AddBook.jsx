@@ -3,21 +3,16 @@ import { BookTitles } from './BookTitles.jsx'
 
 export class AddBook extends React.Component {
 
-
     state = {
         bookName: '',
         results: []
     }
-
-    componentDidMount() { }
 
     getBookList = (bookName) => {
         bookService.getBookList(bookName)
             .then(bookList => { this.setState({ results: bookList }) })
 
     }
-
-
 
     handleChange = ({ target }) => {
         this.setState({ bookName: target.value }, () => this.getBookList(this.state.bookName))
@@ -32,7 +27,7 @@ export class AddBook extends React.Component {
             <label htmlFor="">Add a book:</label>
             <input value={this.state.bookName} type="text" placeholder="Book name"
                 onChange={this.handleChange} />
-                <BookTitles clear={this.clearSearching} renderBook={this.props.renderBook} list={this.state.results}/>
+            <BookTitles clear={this.clearSearching} renderBook={this.props.renderBook} list={this.state.results} />
         </div>
 
 

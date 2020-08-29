@@ -9,12 +9,13 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
     function checkBoxEv(ev) {
         onCheck(ev.target.value, ev.target.checked)
     }
+
     function isSelected(mailId) {
         const isSelected = checkedItems.find(item => item === mailId)
         if (isSelected) return true
         return false
-
     }
+
     function getStyle(letter){
         let style= 'name-circle flex justify-center align-center ';
         if(letter>='a'&&letter<='e'){
@@ -33,7 +34,6 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
             style+='color7';
         }else style+='color8';
         return style
-
     }
 
     return (
@@ -52,9 +52,7 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
                 <p>{transformTimeStamp(mail.sentAt)}</p>
             </div>
         </li>
-        
         {displayMail===mail.id && <MailSmallDetail mail={mail} />}
-
         </React-fragment>
     )
 }

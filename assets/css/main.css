@@ -5,9 +5,7 @@
 @import url(./helpers.css);
 @import url(./mediaquerries.css);
 
-
 /* FONTS */
-
 @font-face {
     font-family: Ubuntu-regular;
     src: url(../fonts/Ubuntu-Regular.ttf);
@@ -17,17 +15,14 @@
     src: url(../fonts/CoveredByYourGrace-Regular.ttf);
 }
 
-
-
 /* NAVBAR */
-
 .nav-bar {
     background-color: rgb(23, 23, 31);
     padding: 20px;
-    /* position: relative; */
 }
 
 .links-container{
+    overflow-x: hidden;
     background-color: rgb(23, 23, 31);
     width: 200px;
     height: 100px;
@@ -44,6 +39,7 @@
 .unshown-navbar{
     width: 0;
 }
+
 .unshown-navbar *{
     font-size: 0rem;
 }
@@ -64,7 +60,6 @@
     color: rgba(216, 221, 239, 1);
 }
 
-
 .search-input {
     text-align: center;
     font-size: 1rem;
@@ -79,7 +74,6 @@
 }
 
 /* notification  */
-
 .notification {
     background-color: #fff;
     position: fixed;
@@ -95,12 +89,3 @@
 .notification span {
     padding: 2px;
 }
-
-
-
-/* HOMEPAGE */
-
-
-
-
-

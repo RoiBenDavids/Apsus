@@ -8,6 +8,7 @@ export const bookService = {
   getBookList
 
 }
+
 const list = [
   {
     "id": "OXeMG8wNskc",
@@ -450,12 +451,10 @@ const list = [
     }
   }
 ]
+
 const STORAGE_KEY_BOOK = 'booksList'
 let books = (loadFromStorage(STORAGE_KEY_BOOK)) ? loadFromStorage(STORAGE_KEY_BOOK) : list
 window.theBooks = books;
-
-
-
 
 function query() {
   return Promise.resolve(books)
@@ -464,8 +463,6 @@ function query() {
 function getBookById(bookId) {
   return Promise.resolve(books.find(book => book.id === bookId))
 }
-
-
 
 function getBookList(bookName) {
   if(!bookName) return Promise.resolve([]);
@@ -480,18 +477,7 @@ function addBook(book) {
   saveToStorage(STORAGE_KEY_BOOK, books);
 }
 
-
-
 function remove(bookId) {
   books = books.filter(book => book.id !== bookId)
   saveToStorage(STORAGE_KEY_BOOK, books);
 }
-
-// function makeId(length=5) {
-//     var txt = '';
-//     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//     for (var i = 0; i < length; i++) {
-//         txt += possible.charAt(Math.floor(Math.random() * possible.length));
-//     }
-//     return txt;
-// }

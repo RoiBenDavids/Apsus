@@ -155,19 +155,6 @@
     width: 100%;
 }
 
-/* .add-note-btn-container button{
-    color: rgb(23, 23, 31);
-    background-color: inherit;
-    border: none;
-    font-size: 1.2rem;
-    transition: .4s ease-in-out all;
-    height: 45px;
-    width: 50px;
-}
-.add-note-btn-container button:hover{
-    font-size: 1.7rem;
-} */
-
 .add-note-todos form div button {
     color: rgb(23, 23, 31);
     background-color: inherit;
@@ -248,7 +235,6 @@
     .note-controler {
         opacity: 1;
     }
-
     .todo-preview-line button {
         opacity: 1;
     }

@@ -1,7 +1,3 @@
-// export const utils = {
-//     makeId
-// }
-
 function makeId(length = 5) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -23,7 +19,7 @@ function getColor() {
         '#c70039'
     ];
 
-    var idx=getRandomIntInclusive(0, 7)
+    var idx = getRandomIntInclusive(0, 7)
     return colors[idx];
 }
 
@@ -34,45 +30,43 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-function transformTimeStamp(timeStamp){
+function transformTimeStamp(timeStamp) {
     const today = new Date().setHours(0, 0, 0, 0);
     const thisYear = new Date().getFullYear()
     const dayToCHeck = new Date(timeStamp).setHours(0, 0, 0, 0);
     const date = new Date(timeStamp)
-    if(today===dayToCHeck){
+    if (today === dayToCHeck) {
         const hours = date.getHours()
-        let minutes=date.getMinutes()
-        minutes=minutes<10?0+''+minutes:minutes;
-      return hours+':'+minutes
+        let minutes = date.getMinutes()
+        minutes = minutes < 10 ? 0 + '' + minutes : minutes;
+        return hours + ':' + minutes
     }
-    else if(date.getFullYear()===thisYear){
+    else if (date.getFullYear() === thisYear) {
         const month = monthToName(date.getMonth())
         const dateV = date.getDate()
-        return month+' '+dateV
+        return month + ' ' + dateV
     }
-    else{
-        const year=date.getFullYear()
+    else {
+        const year = date.getFullYear()
         const month = monthToName(date.getMonth())
         const dateV = date.getDate()
-        return month+' '+dateV+' '+year
-
+        return month + ' ' + dateV + ' ' + year
     }
-
 }
 
-function monthToName(month){
-    switch (month){
-        case 0:return 'January';
-        case 1:return 'February';
-        case 2:return 'March';
-        case 3:return 'April';
-        case 4:return 'May';
-        case 5:return 'June';
-        case 6:return 'July';
-        case 7:return 'August';
-        case 8:return 'September';
-        case 9:return 'October';
-        case 10:return 'November';
-        case 11:return 'December';
+function monthToName(month) {
+    switch (month) {
+        case 0: return 'January';
+        case 1: return 'February';
+        case 2: return 'March';
+        case 3: return 'April';
+        case 4: return 'May';
+        case 5: return 'June';
+        case 6: return 'July';
+        case 7: return 'August';
+        case 8: return 'September';
+        case 9: return 'October';
+        case 10: return 'November';
+        case 11: return 'December';
     }
 }

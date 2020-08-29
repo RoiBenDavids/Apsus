@@ -23,25 +23,18 @@ export class NoteTxt extends React.Component {
     }
 
     getPinClass = () => {
-        let pinClass=(this.props.note.isPinned) ? 'pin' : 'pin unshown'
-        console.log(pinClass);
+        let pinClass = (this.props.note.isPinned) ? 'pin' : 'pin unshown';
         return pinClass
     }
-
-
-
 
     render() {
         return (
             <div style={{ backgroundColor: `${this.props.note.color}` }} className='keep-note' >
-
                 <img className={this.getPinClass()} src="http://www.pngall.com/wp-content/uploads/4/Red-Pin-PNG.png" alt="" />
-
                 <form onSubmit={this.handleSubmit}>
                     <textarea rows={this.getRows()} className='note-title' value={this.state.txt} type="text" placeholder="Note title"
                         onChange={this.handleChange} />
                 </form>
-
                 <NoteControlers onEdit={this.props.onEdit}
                     onChangeColor={this.props.onChangeColor}
                     onChangePinned={this.props.onChangePinned}

@@ -10,9 +10,6 @@ export class Home extends React.Component {
                 <Link to='/keep'><i className="notes-home fas fa-clipboard"></i> </Link>
                 <Link to='/mail'><i className="mail-home fas fa-envelope"></i></Link>
                 <Link to='/book'><i className="books-home fas fa-book"></i></Link>
-                
-
-                {/* </div> */}
             </section>
         )
     }

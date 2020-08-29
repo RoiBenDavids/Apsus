@@ -125,8 +125,7 @@ export class KeepApp extends React.Component {
     onShare = (noteId) => {
         var note = keepService.getById(noteId)
         var subject = note.type;
-        var body = ''
-        console.log(subject, body);
+        var body = '';
         switch (subject) {
             case 'NoteText':
                 body = note.info.txt

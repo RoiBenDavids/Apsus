@@ -6,8 +6,6 @@ export class Description extends React.Component {
 
     componentDidMount() {
         this.setText();
-
-
     }
 
     setText = () => {
@@ -21,7 +19,6 @@ export class Description extends React.Component {
     }
 
     render() {
-
         return <p className="book-description">
             {this.state.text}
             {(this.props.text.length > 100) && <span onClick={this.readMore}>...</span>}

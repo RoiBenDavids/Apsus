@@ -17,10 +17,7 @@ export class ReviewsList extends React.Component {
 
     }
 
-
-
     onEditReview = (review) => {
-
         eventBus.emit('onEdit', { id: review.id, rate: review.rate, txt: review.txt })
     }
 
@@ -28,37 +25,32 @@ export class ReviewsList extends React.Component {
         reviewService.remove(this.props.bookId, review.id)
         reviewService.getBookReviewsById(this.props.bookId)
             .then(book => { this.props.renderReviews([...book.reviews]) })
-
-
     }
 
     getRate = (num) => {
-        var arr=[]
-        var fiveMinusArr=[]
+        var arr = []
+        var fiveMinusArr = []
         for (let i = 0; i < num; i++) {
             arr.push(i);
         }
-        for (let i = 0; i < 5-num ; i++) {
+        for (let i = 0; i < 5 - num; i++) {
             fiveMinusArr.push(i)
-            
+
         }
         return <div className='flex justify-around'>
 
-        {arr.map((i,idx)=>
-            <div  key={idx}>
-                <i className="fas fa-star"></i>
-            </div>
-        )}
-        {fiveMinusArr.map((i,idx)=>
-            <div  key={idx}>
-               <i className="far fa-star"></i>
-            </div>
-        )}
+            {arr.map((i, idx) =>
+                <div key={idx}>
+                    <i className="fas fa-star"></i>
+                </div>
+            )}
+            {fiveMinusArr.map((i, idx) =>
+                <div key={idx}>
+                    <i className="far fa-star"></i>
+                </div>
+            )}
         </div>
     }
-
-
-
 
     render() {
         return (
@@ -66,9 +58,9 @@ export class ReviewsList extends React.Component {
                 {this.props.reviews &&
                     (this.props.reviews).map(review =>
                         <div key={review.id}>
-                            
+
                             <h4>{this.getRate(review.rate)}</h4>
-                            
+
                             <h4>{review.txt}</h4>
                             <div className='reviews-list-btn flex justify-around'>
                                 <button onClick={() => { this.onEditReview(review) }}><i className="fas fa-edit"></i></button>
