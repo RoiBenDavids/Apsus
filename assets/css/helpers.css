@@ -4,8 +4,7 @@
 }
 
 html {
-    font-family: Ubuntu-regular;
-    
+    font-family: Ubuntu-regular;  
 }
 
 body {
@@ -58,4 +57,3 @@ textarea {
 .justify-center {
     justify-content: center;
 }
-

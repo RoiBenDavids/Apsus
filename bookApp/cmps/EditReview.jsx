@@ -8,15 +8,12 @@ export class EditReview extends React.Component {
     }
 
     unsubscribe;
+
     componentDidMount() {
         this.unsubscribe = eventBus.on('onEdit', (review) => {
-            console.log(review);
             this.setState({ ...review })
-
         })
     }
-
-
 
     createReview = (ev) => {
         ev.preventDefault();
@@ -50,20 +47,16 @@ export class EditReview extends React.Component {
 
             {arr.map((i, idx) =>
                 <div key={idx}>
-                    <i onClick={() => { this.changeRate(idx+1) }} className="fas fa-star"></i>
+                    <i onClick={() => { this.changeRate(idx + 1) }} className="fas fa-star"></i>
                 </div>
             )}
             {fiveMinusArr.map((i, idx) =>
                 <div key={idx}>
-                    <i onClick={() => { this.changeRate(this.state.rate+idx+1) }} className="far fa-star"></i>
+                    <i onClick={() => { this.changeRate(this.state.rate + idx + 1) }} className="far fa-star"></i>
                 </div>
             )}
         </div>
     }
-
-
-
-
 
     render() {
         return (
@@ -87,5 +80,4 @@ export class EditReview extends React.Component {
             </div>
         )
     }
-
 }

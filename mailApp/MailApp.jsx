@@ -3,9 +3,7 @@ import { MailList } from "../mailApp/cmps/MailList.jsx"
 import { MailCompose } from "../mailApp/cmps/MailCompose.jsx"
 import { MailDetail } from "./cmps/MailDetail.jsx"
 import eventBus from '../services/event-bus-service.js'
-// import {  } from "../lib/react-router-dom.min.js"
 const { Route, Switch, Link } = ReactRouterDOM
-
 
 export class MailApp extends React.Component {
     state = {
@@ -15,7 +13,7 @@ export class MailApp extends React.Component {
         checkedItems: [],
         mobileSideOpen: false,
         noteToCompose: {},
-        displayMail:''
+        displayMail: ''
     }
 
     componentDidMount() {
@@ -29,15 +27,16 @@ export class MailApp extends React.Component {
                 this.props.history.push(`/mail?filterBy=search&searchInput=${data.input}`)
                 this.setState({ filterBy: 'search', searchInput: data })
             }
-            else{
+            else {
                 this.props.history.push(`/mail`)
-                this.setState({ filterBy:'' })
+                this.setState({ filterBy: '' })
             }
         })
         if (subject && body) this.addNoteToCompose(subject, body)
-        this.setState({ filterBy,windowWidth:window.innerWidth })
+        this.setState({ filterBy, windowWidth: window.innerWidth })
         this.loadMail()
     }
+
     componentWillUnmount() {
         this.unsubscribe()
     }
@@ -45,26 +44,26 @@ export class MailApp extends React.Component {
     loadMail = () => {
         const mails = mailService.query()
             .then(mails => this.setState({ mails }))
-
     }
+
     mailsToRender() {
         if (!this.state.filterBy) return this.state.mails
-        const input =this.state.searchInput? this.state.searchInput.input.toLowerCase():''
+        const input = this.state.searchInput ? this.state.searchInput.input.toLowerCase() : ''
         if (this.state.filterBy === 'search') {
             const mailsToRender = this.state.mails.filter(mail => {
-                if (mail.from.toLowerCase().includes(input)||
-                mail.body.toLowerCase().includes(input)||
-                mail.subject.toLowerCase().includes(input)) return mail
+                if (mail.from.toLowerCase().includes(input) ||
+                    mail.body.toLowerCase().includes(input) ||
+                    mail.subject.toLowerCase().includes(input)) return mail
             })
             return mailsToRender
-        }else if(this.state.filterBy === 'sent'){
+        } else if (this.state.filterBy === 'sent') {
             const mailsToRender = this.state.mails.filter(mail => {
-                if (mail.username==='Me') return mail
+                if (mail.username === 'Me') return mail
             })
-            return mailsToRender}
+            return mailsToRender
+        }
         const mailsToRender = this.state.mails.filter(mail => mail[this.state.filterBy] === false)
         return mailsToRender
-
     }
 
     toggleCompose = () => {
@@ -78,6 +77,7 @@ export class MailApp extends React.Component {
         this.toggleCompose()
         this.loadMail()
     }
+
     onDeleteMail = (mailId) => {
         mailService.deleteMail(mailId);
         this.loadMail()
@@ -98,6 +98,7 @@ export class MailApp extends React.Component {
         mailService.toggleStar(mailId);
         this.loadMail()
     }
+
     checkBoxHandler = (mailId, status) => {
         let checkedItems = this.state.checkedItems;
         if (status) {
@@ -110,15 +111,18 @@ export class MailApp extends React.Component {
             this.setState({ checkedItems })
         }
     }
+
     markAsRead = (mailId) => {
         mailService.markAsRead(mailId)
         this.loadMail()
     }
+
     markAsUnRead(mailId) {
         mailService.markAsUnRead(mailId)
         this.loadMail()
 
     }
+
     handleListBtns = (handler) => {
         switch (handler) {
             case 'trash': this.state.checkedItems.forEach(item => this.onDeleteMail(item));
@@ -128,6 +132,7 @@ export class MailApp extends React.Component {
             case 'unread': this.state.checkedItems.forEach(item => this.markAsUnRead(item));
         }
     }
+
     toggleSelectAll = (value) => {
         if (value) {
             const checkedItems = this.state.mails.map(mail => mail.id)
@@ -146,16 +151,15 @@ export class MailApp extends React.Component {
         this.toggleCompose()
         this.setState({ noteToCompose: { subject, body } })
     }
-    mailToPreview=(mailId)=>{
-        if(mailId===this.state.displayMail){
-            this.setState({displayMail:''})
+
+    mailToPreview = (mailId) => {
+        if (mailId === this.state.displayMail) {
+            this.setState({ displayMail: '' })
             return
         }
-        this.setState({displayMail:mailId})
+        this.setState({ displayMail: mailId })
         this.markAsRead(mailId)
     }
-
-
 
     render() {
         const mails = this.mailsToRender()
@@ -178,8 +182,8 @@ export class MailApp extends React.Component {
                     <Route exact path={'/mail'}>
                         <MailList mails={mails} toggleStar={this.toggleStar} onCheck={this.checkBoxHandler} handleListBtns={this.handleListBtns}
                             toggleSelectAll={this.toggleSelectAll} checkedItems={this.state.checkedItems} openSideBar={this.toggleMenueBar}
-                             windowWidth={this.state.windowWidth} mailToPreview={this.mailToPreview} displayMail={this.state.displayMail}
-                             markAsRead={this.markAsRead} />
+                            windowWidth={this.state.windowWidth} mailToPreview={this.mailToPreview} displayMail={this.state.displayMail}
+                            markAsRead={this.markAsRead} />
                     </Route>
 
                 </Switch>

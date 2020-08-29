@@ -2,8 +2,8 @@
 
 
 function saveToStorage(key, val) {
-    
-    var str= JSON.stringify(val);
+
+    var str = JSON.stringify(val);
     localStorage.setItem(key, str)
 }
 

@@ -1,132 +1,140 @@
-
-p,h1{
+p, h1 {
     margin: 0;
     padding: 0;
 }
 
-.mail-app{
-    margin-block-start:40px ;
+.mail-app {
+    margin-block-start: 40px;
     position: relative;
 }
 
 /* COMPOSE MAIL */
-.compose-mail{
+
+.compose-mail {
     position: absolute;
     bottom: 0;
     right: 100px;
     height: 500px;
-    width:500px;
-    box-shadow: 0 0 10px 5px rgb(14, 13, 13,0.3);
+    width: 500px;
+    box-shadow: 0 0 10px 5px rgb(14, 13, 13, 0.3);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     z-index: 1;
-    
 }
-.compose-mail .compose-header{
+
+.compose-mail .compose-header {
     flex-basis: 50px;
     background-color: rgb(23, 23, 31);
     color: rgb(216, 221, 239);
-    padding: 0 20px ;
+    padding: 0 20px;
     border-top-left-radius: 15px;
-    border-top-right-radius: 15px; 
+    border-top-right-radius: 15px;
 }
-.compose-mail .compose-footer{
-   height: 80px;
-   background-color:rgb(23, 23, 31) ;
+
+.compose-mail .compose-footer {
+    height: 80px;
+    background-color: rgb(23, 23, 31);
 }
-.compose-mail button{
-   /* padding: 15px; */
-   margin:0 auto;
-   /* border-radius: 50%; */
-   background-color: inherit;
-   border: 0;
-   font-size: 2rem;
-   color: rgb(216, 221, 239);
+
+.compose-mail button {
+    /* padding: 15px; */
+    margin: 0 auto;
+    /* border-radius: 50%; */
+    background-color: inherit;
+    border: 0;
+    font-size: 2rem;
+    color: rgb(216, 221, 239);
 }
-.compose-mail input{
-    border:0;
+
+.compose-mail input {
+    border: 0;
     border-bottom: 0.1px solid grey;
     flex-basis: 50px;
-    
-  
 }
-.compose-mail input::placeholder{
+
+.compose-mail input::placeholder {
     padding: 10px;
 }
 
-.compose-mail textarea{
+.compose-mail textarea {
     flex: 1;
-    border:0
+    border: 0
 }
-
 
 /* MAIL DETAIL */
-.mail-details{
-    background-color:rgb(241, 244, 248);;
+
+.mail-details {
+    background-color: rgb(241, 244, 248);
 }
 
-.mail-details>div:last-of-type{
-   margin-bottom: 40px;
-   padding: 20px 50px 0 50px;
-}
-.mail-details>p{
-   padding: 20px 90px 0 90px;
+.mail-details>div:last-of-type {
+    margin-bottom: 40px;
+    padding: 20px 50px 0 50px;
 }
 
-.mail-details-from h1{
+.mail-details>p {
+    padding: 20px 90px 0 90px;
+}
+
+.mail-details-from h1 {
     margin-right: 10px;
 }
 
-.elipsis{
+.elipsis {
     display: none;
 }
 
 /* MAIL LIST */
-.mail-list{
+
+.mail-list {
     flex: 1;
     margin: 0 20px 0 20px;
     border-radius: 5px;
     min-height: 80vh;
 }
-.mail-list i,input{
+
+.mail-list i, input {
     cursor: pointer;
 }
 
-.mail-list ul{
+.mail-list ul {
     list-style: none;
     margin: 0;
     padding: 0;
     height: 80vh;
 }
-.mail-list li{
-   
+
+.mail-list li {
     padding: 20px;
-    border-bottom: 0.4px solid rgb(128, 128, 128,0.5);
+    border-bottom: 0.4px solid rgb(128, 128, 128, 0.5);
 }
 
-.mail-list-header{
+.mail-list-header {
     padding: 20px;
     background-color: rgb(23, 23, 31);
-    color:rgba(216,221,239,1) ;
+    color: rgba(216, 221, 239, 1);
     max-height: 55px;
 }
-.mail-list-header i{
+
+.mail-list-header i {
     padding-left: 20px;
-    color:rgba(216,221,239,1) ;
+    color: rgba(216, 221, 239, 1);
 }
-.mobile-menu{
+
+.mobile-menu {
     display: none;
 }
 
 /* SIDE BAr */
-.mail-app .side-bar{
-    min-width:200px;
-    padding-inline-start:20px ;
-    padding-inline-end:20px ;
+
+.mail-app .side-bar {
+    min-width: 200px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
     z-index: 5;
 }
 
-.side-bar div:first-of-type{
+.side-bar div:first-of-type {
     background-color: aliceblue;
     text-align: center;
     padding: 10px;
@@ -135,59 +143,68 @@ p,h1{
     cursor: pointer;
 }
 
-.side-bar div:first-of-type::before{
-    content:url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
+.side-bar div:first-of-type::before {
+    content: url(https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png);
     height: 5px;
     margin: 0 15px 25px 0px;
 }
+
 .side-bar p {
-    padding:10px ;
+    padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
 }
+
 .side-bar p:hover {
     background-color: white;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 }
-.side-bar .active{
+
+.side-bar .active {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     background-color: aliceblue;
 }
-.side-bar i{
+
+.side-bar i {
     margin-right: 5px;
 }
 
-
-
 /* MAIL PREVIEW */
 
-.fa-star::before{
-    color:yellow;
+.fa-star::before {
+    color: yellow;
     cursor: pointer;
 }
-.mail-preview{
+
+.mail-preview {
     background-color: rgb(241, 244, 248);
     cursor: pointer;
 }
-.unread{
+
+.unread {
     font-weight: bold;
-    background-color: rgb(216,221,239,1);
+    background-color: rgb(216, 221, 239, 1);
 }
-.mail-preview div{
+
+.mail-preview div {
     margin-right: 20px;
 }
+
 .preview-content {
     flex: 1;
 }
-.preview-content p:first-of-type{
+
+.preview-content p:first-of-type {
     min-width: 100px;
 }
-.preview-content p:nth-of-type(2){
+
+.preview-content p:nth-of-type(2) {
     flex: 1;
 }
-.name-circle{
+
+.name-circle {
     border-radius: 50%;
     background-color: blue;
     width: 40px;
@@ -195,42 +212,48 @@ p,h1{
     text-transform: uppercase;
 }
 
-
 /* SMALLDETAIL */
 
-.small-detail{
+.small-detail {
     padding: 40px;
     background-color: rgb(241, 244, 248);
-    
     border-bottom: 0.3px solid grey;
     max-height: 200px;
     overflow: hidden;
 }
-.small-detail p{
+
+.small-detail p {
     padding: 0 40px;
 }
 
-.color1{
-    background-color:#ea5455;
+.color1 {
+    background-color: #ea5455;
 }
-.color2{
-    background-color:#8fc0a9;
+
+.color2 {
+    background-color: #8fc0a9;
 }
-.color3{
-    background-color:#8675a9;
+
+.color3 {
+    background-color: #8675a9;
 }
-.color4{
-    background-color:#ffc1fa;
+
+.color4 {
+    background-color: #ffc1fa;
 }
-.color5{
-    background-color:#ede682;
+
+.color5 {
+    background-color: #ede682;
 }
-.color6{
-    background-color:#ffa931;
+
+.color6 {
+    background-color: #ffa931;
 }
-.color7{
-    background-color:#12cad6;
+
+.color7 {
+    background-color: #12cad6;
 }
-.color8{
-    background-color:#ede682;
+
+.color8 {
+    background-color: #ede682;
 }

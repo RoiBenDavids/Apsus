@@ -8,7 +8,6 @@ export class AddNote extends React.Component {
         type: 'NoteText'
     }
 
-
     handleChange = ({ target }) => {
         this.setState({ txt: target.value })
     }
@@ -33,7 +32,6 @@ export class AddNote extends React.Component {
                 url = `https://www.youtube.com/embed/${url.split('watch?v=')[1]}`
                 info = { url, title: (title) ? title : '' }
                 break;
-
             default:
                 break;
         }
@@ -50,14 +48,11 @@ export class AddNote extends React.Component {
         this.setState({ type: "NoteText" })
     }
 
-    getPlaceholder=()=>{
-        if(this.state.type==='NoteText') return 'Enter a text'
-        if(this.state.type==='NoteImg') return 'Enter a title and an image url'
-        if(this.state.type==='NoteVideo') return 'Enter a title and an Youtube url' 
+    getPlaceholder = () => {
+        if (this.state.type === 'NoteText') return 'Enter a text'
+        if (this.state.type === 'NoteImg') return 'Enter a title and an image url'
+        if (this.state.type === 'NoteVideo') return 'Enter a title and an Youtube url'
     }
-
-   
-
 
     render() {
         return (
@@ -65,7 +60,6 @@ export class AddNote extends React.Component {
                 {(this.state.type === 'NoteTodos') && <AddNoteTodos returnToAddNote={this.returnToAddNote} addTodo={this.addTodo} />}
                 {(this.state.type !== 'NoteTodos') &&
                     <div>
-
                         <form onSubmit={this.handleSubmit}>
                             <input className='add-note-input' value={this.state.txt} type="text" placeholder={this.getPlaceholder()}
                                 onChange={this.handleChange} />

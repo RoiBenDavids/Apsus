@@ -1,17 +1,11 @@
-export function Color({noteId, onChangeColor , colorClose}) {
-     
-var onChooseColor = (noteId, color)=>{
-    onChangeColor(noteId, color)
-    colorClose()
-}
+export function Color({ noteId, onChangeColor, colorClose }) {
 
-
-
+    var onChooseColor = (noteId, color) => {
+        onChangeColor(noteId, color);
+        colorClose();
+    }
 
     return (
-
-
-
         <div className='color-picker'>
             <button onClick={() => { onChooseColor(noteId, "#ea5455") }} style={{ backgroundColor: "#ea5455" }}></button>
             <button onClick={() => { onChooseColor(noteId, "#8fc0a9") }} style={{ backgroundColor: "#8fc0a9" }}></button>

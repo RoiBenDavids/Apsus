@@ -15,18 +15,18 @@ export class App extends React.Component {
             <Router>
                 <div >
                     <header>
-                        <NavBar/>
+                        <NavBar />
                     </header>
                     <main>
                         <Switch>
-                        <Route component={ BookDetailsPreview } path="/book/:bookId" />
-                            <Route component={ KeepApp } path="/keep" />
-                            <Route component={ MailApp } path="/mail" />
-                            <Route component={ Books } path="/book" />
-                            <Route component={ Home } path="/" />
+                            <Route component={BookDetailsPreview} path="/book/:bookId" />
+                            <Route component={KeepApp} path="/keep" />
+                            <Route component={MailApp} path="/mail" />
+                            <Route component={Books} path="/book" />
+                            <Route component={Home} path="/" />
                         </Switch>
                     </main>
-                    <Notification/>
+                    <Notification />
                 </div>
             </Router>
         )

@@ -3,10 +3,8 @@ export const reviewService = {
   query,
   addReview,
   editReview,
-  // getEmpty,
   remove,
   getBookReviewsById
-
 }
 
 const STORAGE_KEY_REVIEW = 'reviews'
@@ -23,11 +21,8 @@ function getBookReviewsById(bookId) {
 }
 
 function remove(bookId, reviewId) {
-  console.log("remove -> reviewId", reviewId)
   var idx = booksReviews.findIndex(book => book.id === bookId)
-  console.log("remove -> booksReviews[idx].reviews", booksReviews[idx].reviews)
   booksReviews[idx].reviews=booksReviews[idx].reviews.filter(review => {return review.id !== reviewId});
-  console.log("remove -> booksReviews[idx].reviews", booksReviews[idx].reviews)
   saveToStorage(STORAGE_KEY_REVIEW, booksReviews); 
 }
 

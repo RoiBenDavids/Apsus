@@ -6,18 +6,15 @@ const { Link } = ReactRouterDOM
 
 export class BookDetailsPreview extends React.Component {
 
-
     state = {
         book: null,
         reviews: null
     }
 
     componentDidMount() {
-
         const bookId = this.props.match.params.bookId
         bookService.getBookById(bookId)
-            .then(book => this.setState({ book }), () => console.log(this.state.book))
-        // var book = bookService.getBookById(bookId)
+            .then(book => this.setState({ book }))
 
     }
 
@@ -65,33 +62,27 @@ export class BookDetailsPreview extends React.Component {
         this.setState({ reviews })
     }
 
-    // setReviewOnInputs=(reviewId)=>{
-    //     var review= this.state.reviews
-    // }
-
     render() {
-
         if (!this.state.book) {
             return <h4>loading...</h4>
         }
-
         return <section className="book-details-preview ">
             <section className='flex  img-and-books-details'>
 
-            <img src={this.state.book.thumbnail} alt="book" />
-            <div className='books-details'>
+                <img src={this.state.book.thumbnail} alt="book" />
+                <div className='books-details'>
 
-            <Link to='/book'><i className="fas fa-book return-books"></i></Link>
-            <h3>{this.state.book.title}</h3>
-            <h4>{this.state.book.subtitle}</h4>
-            <h4>{this.getPublishAt()}</h4>
-            <h4>{this.getPages()}</h4>
-            <h4 style={this.getPriceColor()}>price: {this.state.book.listPrice.amount}{this.getCurr()}</h4>
-            <Description text={this.state.book.description} />
-            <EditReview renderReviews={this.setReviews}  bookId={this.state.book.id} />
-            </div>
+                    <Link to='/book'><i className="fas fa-book return-books"></i></Link>
+                    <h3>{this.state.book.title}</h3>
+                    <h4>{this.state.book.subtitle}</h4>
+                    <h4>{this.getPublishAt()}</h4>
+                    <h4>{this.getPages()}</h4>
+                    <h4 style={this.getPriceColor()}>price: {this.state.book.listPrice.amount}{this.getCurr()}</h4>
+                    <Description text={this.state.book.description} />
+                    <EditReview renderReviews={this.setReviews} bookId={this.state.book.id} />
+                </div>
             </section>
-            <ReviewsList renderReviews={this.setReviews} bookId={this.state.book.id} reviews={this.state.reviews}  />
+            <ReviewsList renderReviews={this.setReviews} bookId={this.state.book.id} reviews={this.state.reviews} />
         </section>
     }
 }

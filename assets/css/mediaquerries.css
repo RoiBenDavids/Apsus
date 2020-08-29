@@ -5,6 +5,7 @@
         position: fixed;
         transition: transform .3s
     }
+
     .mobile-side-open {
         transform: translateX(0);
         transform: translateY(50px);
@@ -13,9 +14,11 @@
         height: 100vh;
         left: 0;
     }
+
     .mobile-side-open p {
         padding: 40px;
     }
+
     .side-bar .compose {
         position: fixed;
         right: 10px;
@@ -24,37 +27,44 @@
         overflow: hidden;
         width: 50px;
     }
-    .side-bar .compose::before{
 
+    .side-bar .compose::before{
         margin-right: 10px;
         height: 0;
     }
+
     .mobile-menu {
         display: block;
         position: absolute;
         right: 20px;
     }
+
     .compose-mail {
         right: 0;
         width: 100%;
         height: 86vh;
     }
+
     .home h1 {
         left: 100px;
         font-size: 2.5rem;
     }
+
     .home .arrow {
         top: 280px;
         left: 350px;
         font-size: 2.5rem;
     }
+
     .notes-home, .mail-home, .books-home {
         top: 400px;
         font-size: 4rem;
     }
+
     .notes-home {
         left: 150px;
     }
+
     
     .mail-home {
         left: 330px;
@@ -79,15 +89,18 @@
         left: 50px;
         font-size: 1.8rem;
     }
+
     .home .arrow {
         top: 260px;
         left: 200px;
         font-size: 1.8rem;
     }
+
     .notes-home, .mail-home, .books-home {
         font-size: 3rem;
         top: 350px
     }
+
     .notes-home {
         left: 80px;
     }
@@ -107,18 +120,23 @@
         flex-direction: column;
         margin: 5px;
     }
+
     .preview-content p:last-child {
         font-size: 0.7rem;
     }
+
     .preview-content p:first-of-type {
         display: none;
     }
+
     .mail-details-from {
         flex-direction: column;
     }
+
     .mail-list-header h1 {
         font-size: 0.8rem
     }
+
     .mail-detail-icons {
         flex-direction: column;
         align-items: center;
@@ -130,12 +148,15 @@
         right: 0;
         display: none;
     }
+
     .menu-btns-active{
         display: flex;
     }
+
     .elipsis {
         display: block;
     }
+
     .mail-detail-icons i {
         top: 300px;
         padding: 10px 0;
@@ -145,20 +166,22 @@
         padding: 20px 50px;
     }
    
-
     .home h1 {
         left: 25px;
         font-size: 1.2rem;
     }
+
     .home .arrow {
         top: 240px;
         left: 140px;
         font-size: 1.2rem;
     }
+
     .notes-home, .mail-home, .books-home {
         top: 300px;
         font-size: 1.5rem;
     }
+    
     .notes-home {
         left: 50px;
     }

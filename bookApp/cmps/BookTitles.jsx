@@ -1,12 +1,8 @@
 import { bookService } from '../service/book-service.js'
-
-
 export function BookTitles({ list, renderBook, clear }) {
 
     const bookList = (list.length !== 0) ? list.items.map(item => { return { id: item.id, title: item.volumeInfo.title } }) : []
-
     var addBook = (book) => {
-        console.log(book);
         let newBook = {
             id: book.id,
             title: (book.volumeInfo && book.volumeInfo.title) ? book.volumeInfo.title : '',
@@ -28,7 +24,6 @@ export function BookTitles({ list, renderBook, clear }) {
     }
 
     return (
-
         <div className='add-book-list'>
             {bookList.map((item, idx) => {
                 return (
@@ -37,8 +32,7 @@ export function BookTitles({ list, renderBook, clear }) {
                         <button onClick={() => { addBook(list.items[idx]) }}>+</button>
                     </div>
                 )
-            })
-            }
+            })}
         </div>
     )
 

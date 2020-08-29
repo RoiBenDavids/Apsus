@@ -7,7 +7,6 @@ export class AddNoteTodos extends React.Component {
         newTodo: ''
     }
 
-
     handleChange = ({ target }) => {
         this.setState({ newTodo: target.value })
     }
@@ -28,8 +27,6 @@ export class AddNoteTodos extends React.Component {
         this.setState({ todos: [], newTodo: '' })
     }
 
-
-
     render() {
         return (
             <div>
@@ -44,12 +41,9 @@ export class AddNoteTodos extends React.Component {
                             <button onClick={() => this.props.returnToAddNote()}><i className="fas fa-undo"></i></button>
                         </div>
                     </form>
-                <div className='todo-list'>
-                    {this.state.todos.map((todo, idx) => <TodoPreview removeTodo={this.removeTodo} key={todo.id} todo={todo} />)}
-                </div>
-
-
-
+                    <div className='todo-list'>
+                        {this.state.todos.map((todo, idx) => <TodoPreview removeTodo={this.removeTodo} key={todo.id} todo={todo} />)}
+                    </div>
                 </div>
             </div>
         )
