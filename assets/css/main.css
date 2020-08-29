@@ -29,12 +29,16 @@
 
 .links-container{
     background-color: rgb(23, 23, 31);
-    width: 100px;
+    width: 200px;
+    height: 100px;
     position: absolute;
     right: 0;
     top: 85px;
     border-radius:3px ;
     transition: 0.1s ease-in-out all;
+    z-index: 10;
+    display: flex;
+    align-items: center;
 }
 
 .unshown-navbar{
@@ -67,6 +71,7 @@
     background-color: inherit;
     border: none;
     color: rgb(174, 179, 199);
+    width: 100px;
 }
 
 .search-input::placeholder {
