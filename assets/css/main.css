@@ -14,7 +14,7 @@
 }
 @font-face {
     font-family: Flower;
-    src: url(../fonts/IndieFlower-Regular.ttf);
+    src: url(../fonts/CoveredByYourGrace-Regular.ttf);
 }
 
 
@@ -31,9 +31,17 @@
     background-color: rgb(23, 23, 31);
     width: 100px;
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 85px;
     border-radius:3px ;
+    transition: 0.1s ease-in-out all;
+}
+
+.unshown-navbar{
+    width: 0;
+}
+.unshown-navbar *{
+    font-size: 0rem;
 }
 
 .links-container div{
@@ -43,30 +51,15 @@
 .logo{
     font-family: Flower;
     font-size: 2rem;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.2rem;
+    padding-top: 5px;
 }
 
 .nav-bar a, .fa-th {
+    font-size: 1.5rem;
     color: rgba(216, 221, 239, 1);
 }
 
-.nav-bar .clipboard, .envelopeN {
-    position: absolute;
-    right: 20px;
-    top: -20px;
-}
-
-.nav-bar .downClip {
-    top: 70px;
-    animation-name: downClip;
-    animation-duration: 4s
-}
-
-.nav-bar .downEnv {
-    top: 100px;
-    animation-name: downEnv;
-    animation-duration: 4s
-}
 
 .search-input {
     text-align: center;
@@ -98,23 +91,7 @@
     padding: 2px;
 }
 
-@keyframes downClip {
-    from {
-        top: 0px;
-    }
-    to {
-        top: 70px
-    }
-}
 
-@keyframes downEnv {
-    from {
-        top: 0px;
-    }
-    to {
-        top: 100px
-    }
-}
 
 /* HOMEPAGE */
 

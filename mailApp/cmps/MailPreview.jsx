@@ -16,7 +16,6 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
 
     }
     function getStyle(letter){
-        console.log(letter>'j'&&letter<='m');
         let style= 'name-circle flex justify-center align-center ';
         if(letter>='a'&&letter<='e'){
             style+='color1';
@@ -33,8 +32,6 @@ export function MailPreview({ mail, toggleStar, onCheck, checkedItems, windowWid
         }else if(letter>'q'&&letter<='u'){
             style+='color7';
         }else style+='color8';
-        
-        console.log(style);
         return style
 
     }

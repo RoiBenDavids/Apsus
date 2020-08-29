@@ -15,7 +15,6 @@ export class MailDetail extends React.Component {
 
         mailService.getMailById(this.props.match.params)
             .then(mail => {
-                console.log(mail);
                 const { prevMailId, nextMailId } = mailService.getNextPrev(mail.id)
                 this.setState({ mail, prevMailId, nextMailId })
                 this.markAsRead()
