@@ -35,7 +35,7 @@ export class ReviewsList extends React.Component {
     getRate = (num) => {
         let rate= '🌟'.repeat(num);
         rate+='⭐'.repeat(5-num)
-        return rate
+        return <i class="fas fa-star"></i>
     }
 
 
