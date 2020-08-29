@@ -22,6 +22,7 @@
 }
 
 .links-container{
+    overflow-x: hidden;
     background-color: rgb(23, 23, 31);
     width: 200px;
     height: 100px;
